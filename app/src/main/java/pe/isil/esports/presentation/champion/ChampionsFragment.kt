@@ -5,14 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pe.isil.esports.databinding.FragmentChampionsBinding
-import pe.isil.esports.domain.model.Champion
 import pe.isil.esports.utils.observe
 import pe.isil.esports.utils.toast
 
+@ExperimentalCoroutinesApi
 class ChampionsFragment : Fragment() {
 
     private var _binding: FragmentChampionsBinding? = null
@@ -22,7 +22,7 @@ class ChampionsFragment : Fragment() {
     private val viewModel: ChampionViewModel by viewModel()
 
     private val championAdapter: ChampionAdapter by lazy {
-        ChampionAdapter(emptyList()) { activity?.toast(it.name) }
+        ChampionAdapter { activity?.toast(it.name) }
     }
 
     override fun onCreateView(
@@ -32,8 +32,6 @@ class ChampionsFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentChampionsBinding.inflate(inflater, container, false)
 
-        setupViewModel()
-
         return binding.root
     }
 
@@ -41,18 +39,6 @@ class ChampionsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         setupRecycler()
-    }
-
-    private fun setupViewModel() {
-        with(viewModel) {
-            observe(isViewLoading) { }
-            observe(onMessageError) { activity?.toast("$it") }
-            observe(isEmptyList) { activity?.toast("$it") }
-        }
-    }
-
-    private val champions = Observer<List<Champion>> {
-        championAdapter.update(it)
     }
 
     private fun setupRecycler() {
@@ -66,7 +52,17 @@ class ChampionsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getAll().observe(this, champions)
+        with(viewModel) {
+            observe(getAll()) {
+                if (it.loading) {
+                    //
+                } else if (!it.loading && it.data != null) {
+                    if (it.data.isNotEmpty()) championAdapter.update(it.data) else activity?.toast("Empty")
+                } else {
+                    activity?.toast("${it.error}")
+                }
+            }
+        }
     }
 
     override fun onDestroy() {

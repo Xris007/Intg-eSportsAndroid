@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pe.isil.esports.databinding.FragmentHeroesBinding
 import pe.isil.esports.domain.model.Hero
 import pe.isil.esports.utils.observe
 import pe.isil.esports.utils.toast
 
+@ExperimentalCoroutinesApi
 class HeroesFragment : Fragment() {
 
     private var _binding: FragmentHeroesBinding? = null
@@ -22,7 +24,7 @@ class HeroesFragment : Fragment() {
     private val viewModel: HeroViewModel by viewModel()
 
     private val heroAdapter: HeroAdapter by lazy {
-        HeroAdapter(emptyList()) { activity?.toast(it.name) }
+        HeroAdapter { activity?.toast(it.name) }
     }
 
     override fun onCreateView(
@@ -32,8 +34,6 @@ class HeroesFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentHeroesBinding.inflate(inflater, container, false)
 
-        setupViewModel()
-
         return binding.root
     }
 
@@ -41,14 +41,6 @@ class HeroesFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         setupRecycler()
-    }
-
-    private fun setupViewModel() {
-        with(viewModel) {
-            observe(isViewLoading) { }
-            observe(onMessageError) { activity?.toast("$it") }
-            observe(isEmptyList) { activity?.toast("$it") }
-        }
     }
 
     private val heroes = Observer<List<Hero>> {
@@ -66,7 +58,17 @@ class HeroesFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getAll().observe(this, heroes)
+        with(viewModel) {
+            observe(getAll()) {
+                if (it.loading) {
+                    //
+                } else if (!it.loading && it.data != null) {
+                    if (it.data.isNotEmpty()) heroAdapter.update(it.data) else activity?.toast("Empty")
+                } else {
+                    activity?.toast("${it.error}")
+                }
+            }
+        }
     }
 
     override fun onDestroy() {

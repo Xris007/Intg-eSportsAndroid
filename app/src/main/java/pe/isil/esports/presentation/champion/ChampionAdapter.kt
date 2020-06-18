@@ -7,7 +7,10 @@ import pe.isil.esports.databinding.ViewChampionBinding
 import pe.isil.esports.domain.model.Champion
 import pe.isil.esports.utils.posterLoading
 
-class ChampionAdapter(private var list: List<Champion>, private val listener: (Champion) -> Unit) :
+class ChampionAdapter(
+    private var list: List<Champion> = emptyList(),
+    private val listener: (Champion) -> Unit
+) :
     RecyclerView.Adapter<ChampionAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

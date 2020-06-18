@@ -1,5 +1,6 @@
 package pe.isil.esports.di.module
 
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import pe.isil.esports.data.repository.ChampionRepositoryImpl
@@ -14,10 +15,11 @@ import pe.isil.esports.domain.repository.HeroRepository
 import pe.isil.esports.domain.usecase.ChampionUseCase
 import pe.isil.esports.domain.usecase.GodUseCase
 import pe.isil.esports.domain.usecase.HeroUseCase
-import pe.isil.esports.presentation.hero.HeroViewModel
 import pe.isil.esports.presentation.champion.ChampionViewModel
 import pe.isil.esports.presentation.god.GodViewModel
+import pe.isil.esports.presentation.hero.HeroViewModel
 
+@ExperimentalCoroutinesApi
 val championModule = module {
 
     single { createChampionRepository(get()) }
@@ -27,6 +29,7 @@ val championModule = module {
     viewModel { ChampionViewModel(get()) }
 }
 
+@ExperimentalCoroutinesApi
 val godModule = module {
 
     single { createGodRepository(get()) }
@@ -37,6 +40,7 @@ val godModule = module {
 }
 
 
+@ExperimentalCoroutinesApi
 val heroModule = module {
 
     single { createHeroRepository(get()) }

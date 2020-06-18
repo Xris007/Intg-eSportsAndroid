@@ -7,7 +7,10 @@ import pe.isil.esports.databinding.ViewGodBinding
 import pe.isil.esports.domain.model.God
 import pe.isil.esports.utils.posterLoading
 
-class GodAdapter(private var list: List<God>, private val listener: (God) -> Unit) :
+class GodAdapter(
+    private var list: List<God> = emptyList(),
+    private val listener: (God) -> Unit
+) :
     RecyclerView.Adapter<GodAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

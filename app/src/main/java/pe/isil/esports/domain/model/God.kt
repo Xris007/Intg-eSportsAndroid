@@ -6,18 +6,21 @@ import com.squareup.moshi.JsonClass
 data class God(
     val id: Long?,
     val name: String?,
-    val pantheon: String?,
     val title: String?,
+    val pantheon: String?,
+    val type: String?,
     val class_god: String?,
     val attribute: String?,
-    val type: String?,
     val poster_path: String?,
     val background_path: String?,
     val health: Double?,
     val energy: Double?,
     val speed: Double?,
     val range: Double?,
-    val attack: Double?,
+    val attack_speed: Double?,
+    val damage: Double?,
+    val physical_protection: Double?,
     val magic_protection: Double?,
-    val physical_protection: Double?
+    val hp_regeneration: Double?,
+    val mp_regeneration: Double?
 )

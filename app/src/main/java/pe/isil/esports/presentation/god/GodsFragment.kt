@@ -5,14 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pe.isil.esports.databinding.FragmentGodsBinding
-import pe.isil.esports.domain.model.God
 import pe.isil.esports.utils.observe
 import pe.isil.esports.utils.toast
 
+@ExperimentalCoroutinesApi
 class GodsFragment : Fragment() {
 
     private var _binding: FragmentGodsBinding? = null
@@ -22,7 +22,7 @@ class GodsFragment : Fragment() {
     private val viewModel: GodViewModel by viewModel()
 
     private val godAdapter: GodAdapter by lazy {
-        GodAdapter(emptyList()) { activity?.toast(it.name) }
+        GodAdapter { activity?.toast(it.name) }
     }
 
     override fun onCreateView(
@@ -32,8 +32,6 @@ class GodsFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentGodsBinding.inflate(inflater, container, false)
 
-        setupViewModel()
-
         return binding.root
     }
 
@@ -41,18 +39,6 @@ class GodsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         setupRecycler()
-    }
-
-    private fun setupViewModel() {
-        with(viewModel) {
-            observe(isViewLoading) { }
-            observe(onMessageError) { activity?.toast("$it") }
-            observe(isEmptyList) { activity?.toast("$it") }
-        }
-    }
-
-    private val gods = Observer<List<God>> {
-        godAdapter.update(it)
     }
 
     private fun setupRecycler() {
@@ -66,7 +52,17 @@ class GodsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getAll().observe(this, gods)
+        with(viewModel) {
+            observe(getAll()) {
+                if (it.loading) {
+                    //
+                } else if (!it.loading && it.data != null) {
+                    if (it.data.isNotEmpty()) godAdapter.update(it.data) else activity?.toast("Empty")
+                } else {
+                    activity?.toast("${it.error}")
+                }
+            }
+        }
     }
 
     override fun onDestroy() {

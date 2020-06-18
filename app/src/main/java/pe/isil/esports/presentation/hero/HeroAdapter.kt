@@ -7,7 +7,10 @@ import pe.isil.esports.databinding.ViewHeroBinding
 import pe.isil.esports.domain.model.Hero
 import pe.isil.esports.utils.posterLoading
 
-class HeroAdapter(private var list: List<Hero>, private val listener: (Hero) -> Unit) :
+class HeroAdapter(
+    private var list: List<Hero> = emptyList(),
+    private val listener: (Hero) -> Unit
+) :
     RecyclerView.Adapter<HeroAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
