@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">eSports</string>
+    <string name="champions">Champions</string>
+    <string name="gods">Gods</string>
+    <string name="heroes">Heroes</string>
+    <string name="poster">Poster</string>
+</resources>

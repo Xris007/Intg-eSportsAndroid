@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/championsFragment">
+
+    <fragment
+        android:id="@+id/championsFragment"
+        android:name="pe.isil.esports.presentation.champion.ChampionsFragment"
+        android:label="Champions"
+        tools:layout="@layout/fragment_champions" />
+    <fragment
+        android:id="@+id/godsFragment"
+        android:name="pe.isil.esports.presentation.god.GodsFragment"
+        android:label="Gods"
+        tools:layout="@layout/fragment_gods" />
+    <fragment
+        android:id="@+id/heroesFragment"
+        android:name="pe.isil.esports.presentation.hero.HeroesFragment"
+        android:label="Heroes"
+        tools:layout="@layout/fragment_heroes" />
+</navigation>
