@@ -8,16 +8,16 @@
     <fragment
         android:id="@+id/championsFragment"
         android:name="pe.isil.esports.presentation.champion.ChampionsFragment"
-        android:label="Champions"
+        android:label="League of Legends"
         tools:layout="@layout/fragment_champions" />
     <fragment
         android:id="@+id/godsFragment"
         android:name="pe.isil.esports.presentation.god.GodsFragment"
-        android:label="Gods"
+        android:label="Smite"
         tools:layout="@layout/fragment_gods" />
     <fragment
         android:id="@+id/heroesFragment"
         android:name="pe.isil.esports.presentation.hero.HeroesFragment"
-        android:label="Heroes"
+        android:label="Dota 2"
         tools:layout="@layout/fragment_heroes" />
 </navigation>

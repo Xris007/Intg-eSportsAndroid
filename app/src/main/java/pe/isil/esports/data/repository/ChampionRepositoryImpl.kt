@@ -14,7 +14,6 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
 
     override fun getAll(): Flow<OperationResult<List<Champion>>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.getAll()
                 if (response.isSuccessful && response.body() != null) {
@@ -32,7 +31,6 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
 
     override fun create(champion: Champion): Flow<OperationResult<Champion>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.create(champion)
                 if (response.isSuccessful && response.body() != null) {
@@ -50,7 +48,6 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
 
     override fun update(id: Long, champion: Champion): Flow<OperationResult<Champion>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.update(id, champion)
                 if (response.isSuccessful && response.body() != null) {
@@ -68,7 +65,6 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
 
     override fun delete(id: Long): Flow<OperationResult<String>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.delete(id)
                 if (response.isSuccessful && response.body() != null) {
@@ -86,7 +82,6 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
 
     override fun findById(id: Long): Flow<OperationResult<Champion>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.findById(id)
                 if (response.isSuccessful && response.body() != null) {

@@ -14,7 +14,6 @@ class GodRepositoryImpl(private val service: GodService) : GodRepository {
 
     override fun getAll(): Flow<OperationResult<List<God>>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.getAll()
                 if (response.isSuccessful && response.body() != null) {
@@ -32,7 +31,6 @@ class GodRepositoryImpl(private val service: GodService) : GodRepository {
 
     override fun create(god: God): Flow<OperationResult<God>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.create(god)
                 if (response.isSuccessful && response.body() != null) {
@@ -50,7 +48,6 @@ class GodRepositoryImpl(private val service: GodService) : GodRepository {
 
     override fun update(id: Long, god: God): Flow<OperationResult<God>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.update(id, god)
                 if (response.isSuccessful && response.body() != null) {
@@ -68,7 +65,6 @@ class GodRepositoryImpl(private val service: GodService) : GodRepository {
 
     override fun delete(id: Long): Flow<OperationResult<String>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.delete(id)
                 if (response.isSuccessful && response.body() != null) {
@@ -86,7 +82,6 @@ class GodRepositoryImpl(private val service: GodService) : GodRepository {
 
     override fun findById(id: Long): Flow<OperationResult<God>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.findById(id)
                 if (response.isSuccessful && response.body() != null) {

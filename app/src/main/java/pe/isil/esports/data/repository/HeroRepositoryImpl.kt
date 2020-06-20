@@ -12,13 +12,47 @@ import pe.isil.esports.domain.vo.OperationResult
 
 class HeroRepositoryImpl(private val service: HeroService) : HeroRepository {
 
-    override fun getAll(): Flow<OperationResult<List<Hero>>> {
+
+    override fun getStrength(): Flow<OperationResult<List<Hero>>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.getAll()
                 if (response.isSuccessful && response.body() != null) {
-                    emit(OperationResult.Data(response.body()!!))
+                    emit(OperationResult.Data(response.body()!!.filter { it.attribute == "Strength" }))
+                } else {
+                    emit(OperationResult.Error(response.message()))
+                }
+            } catch (e: Exception) {
+                emit(OperationResult.Error("${e.message}"))
+            }
+        }.catch {
+            emit(OperationResult.Error("${it.message}"))
+        }.flowOn(Dispatchers.IO)
+    }
+
+    override fun getAgility(): Flow<OperationResult<List<Hero>>> {
+        return flow {
+            try {
+                val response = service.getAll()
+                if (response.isSuccessful && response.body() != null) {
+                    emit(OperationResult.Data(response.body()!!.filter { it.attribute == "Agility" }))
+                } else {
+                    emit(OperationResult.Error(response.message()))
+                }
+            } catch (e: Exception) {
+                emit(OperationResult.Error("${e.message}"))
+            }
+        }.catch {
+            emit(OperationResult.Error("${it.message}"))
+        }.flowOn(Dispatchers.IO)
+    }
+
+    override fun getIntelligence(): Flow<OperationResult<List<Hero>>> {
+        return flow {
+            try {
+                val response = service.getAll()
+                if (response.isSuccessful && response.body() != null) {
+                    emit(OperationResult.Data(response.body()!!.filter { it.attribute == "Intelligence" }))
                 } else {
                     emit(OperationResult.Error(response.message()))
                 }
@@ -32,7 +66,6 @@ class HeroRepositoryImpl(private val service: HeroService) : HeroRepository {
 
     override fun create(hero: Hero): Flow<OperationResult<Hero>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.create(hero)
                 if (response.isSuccessful && response.body() != null) {
@@ -50,7 +83,6 @@ class HeroRepositoryImpl(private val service: HeroService) : HeroRepository {
 
     override fun update(id: Long, hero: Hero): Flow<OperationResult<Hero>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.update(id, hero)
                 if (response.isSuccessful && response.body() != null) {
@@ -68,7 +100,6 @@ class HeroRepositoryImpl(private val service: HeroService) : HeroRepository {
 
     override fun delete(id: Long): Flow<OperationResult<String>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.delete(id)
                 if (response.isSuccessful && response.body() != null) {
@@ -86,7 +117,6 @@ class HeroRepositoryImpl(private val service: HeroService) : HeroRepository {
 
     override fun findById(id: Long): Flow<OperationResult<Hero>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.findById(id)
                 if (response.isSuccessful && response.body() != null) {

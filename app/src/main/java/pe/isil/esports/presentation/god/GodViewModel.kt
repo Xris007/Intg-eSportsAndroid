@@ -18,13 +18,10 @@ class GodViewModel(private val useCase: GodUseCase) : ViewModel() {
     fun getAll(): LiveData<ViewState<List<God>>> {
         return useCase.getAll().map {
             when (it) {
-                is OperationResult.Loading -> listViewState.copy(loading = true)
                 is OperationResult.Data -> listViewState.copy(
-                    loading = false,
                     data = it.data
                 )
                 is OperationResult.Error -> listViewState.copy(
-                    loading = false,
                     error = it.message
                 )
             }

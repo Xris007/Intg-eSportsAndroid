@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">eSports</string>
-    <string name="champions">Champions</string>
-    <string name="gods">Gods</string>
-    <string name="heroes">Heroes</string>
+    <string name="champions">League of Legends</string>
+    <string name="gods">Smite</string>
+    <string name="heroes">Dota 2</string>
     <string name="poster">Poster</string>
 </resources>
