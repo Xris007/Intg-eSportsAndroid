@@ -25,7 +25,7 @@
             android:layout_height="200dp"
             android:contentDescription="@string/guide"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/ic_guide" />
+            app:srcCompat="@drawable/ic_guide_hero" />
 
     </androidx.cardview.widget.CardView>
 
@@ -125,7 +125,6 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/strength_recycler"
                 android:layout_width="match_parent"
@@ -178,9 +177,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textViewAgility"
                     app:layout_constraintVertical_bias="0.0" />
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/agility_recycler"
@@ -233,7 +230,6 @@
                     app:layout_constraintStart_toStartOf="@+id/textViewIntelligence"
                     app:layout_constraintTop_toBottomOf="@+id/textViewIntelligence"
                     app:layout_constraintVertical_bias="0.0" />
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
