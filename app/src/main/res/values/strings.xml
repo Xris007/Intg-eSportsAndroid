@@ -19,4 +19,15 @@
     <string name="supports_description">Stalwart defenders, Supports control the battlefield by augmenting allies and locking down enemies.</string>
     <string name="tanks_champion">Tanks Champion</string>
     <string name="tanks_description">Resilient bruisers, Tanks excel at shrugging off blows that would obliterate lesser allies.</string>
+
+    <string name="guide_hero">Guide Hero</string>
+    <string name="strength_icon">Strength Icon</string>
+    <string name="strength_hero">Strength Hero</string>
+    <string name="strength_description">One of the three primary attributes with the theme of defending against magic damage</string>
+    <string name="agility_icon">Agility Icon</string>
+    <string name="agility_hero">Agility Hero</string>
+    <string name="agility_description">One of the three primary attributes that grants attack speed and armor to every hero</string>
+    <string name="intelligence_icon">Intelligence Icon</string>
+    <string name="intelligence_hero">Intelligence Hero</string>
+    <string name="intelligence_description">One of the three primary attributes with the theme of improving spell-casting</string>
 </resources>

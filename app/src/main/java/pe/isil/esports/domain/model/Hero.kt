@@ -8,6 +8,7 @@ data class Hero(
     val name: String?,
     val roles: String?,
     val type: String?,
+    val attribute: String?,
     val poster_path: String?,
     val background_path: String?,
     val strength: Double?,

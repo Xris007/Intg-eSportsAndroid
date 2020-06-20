@@ -6,9 +6,16 @@ import pe.isil.esports.domain.repository.HeroRepository
 import pe.isil.esports.domain.vo.OperationResult
 
 class HeroUseCase(private val repository: HeroRepository) {
+    fun getStrength(): Flow<OperationResult<List<Hero>>> {
+        return repository.getStrength()
+    }
 
-    fun getAll(): Flow<OperationResult<List<Hero>>> {
-        return repository.getAll()
+    fun getAgility(): Flow<OperationResult<List<Hero>>> {
+        return repository.getAgility()
+    }
+
+    fun getIntelligence(): Flow<OperationResult<List<Hero>>> {
+        return repository.getIntelligence()
     }
 
     fun create(hero: Hero): Flow<OperationResult<Hero>> {
