@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:contentDescription="@string/guide"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             app:srcCompat="@drawable/ic_guide_hero" />
 
     </androidx.cardview.widget.CardView>
@@ -121,7 +121,6 @@
                     app:layout_constraintStart_toStartOf="@+id/textViewStrength"
                     app:layout_constraintTop_toBottomOf="@+id/textViewStrength"
                     app:layout_constraintVertical_bias="0.0" />
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

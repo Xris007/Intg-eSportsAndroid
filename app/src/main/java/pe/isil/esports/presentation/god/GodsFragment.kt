@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pe.isil.esports.databinding.FragmentGodsBinding
@@ -21,7 +21,23 @@ class GodsFragment : Fragment() {
 
     private val viewModel: GodViewModel by viewModel()
 
-    private val godAdapter: GodAdapter by lazy {
+    private val godGuardianAdapter: GodAdapter by lazy {
+        GodAdapter { activity?.toast(it.name) }
+    }
+
+    private val godWarriorAdapter: GodAdapter by lazy {
+        GodAdapter { activity?.toast(it.name) }
+    }
+
+    private val godHunterAdapter: GodAdapter by lazy {
+        GodAdapter { activity?.toast(it.name) }
+    }
+
+    private val godMageAdapter: GodAdapter by lazy {
+        GodAdapter { activity?.toast(it.name) }
+    }
+
+    private val godAssassinAdapter: GodAdapter by lazy {
         GodAdapter { activity?.toast(it.name) }
     }
 
@@ -43,9 +59,29 @@ class GodsFragment : Fragment() {
 
     private fun setupRecycler() {
         activity?.let {
-            binding.godsRecycler.apply {
-                layoutManager = GridLayoutManager(it, 2)
-                adapter = godAdapter
+            binding.godGuardianRecycler.apply {
+                layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
+                adapter = godGuardianAdapter
+            }
+
+            binding.godWarriorRecycler.apply {
+                layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
+                adapter = godWarriorAdapter
+            }
+
+            binding.godHunterRecycler.apply {
+                layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
+                adapter = godHunterAdapter
+            }
+
+            binding.godMageRecycler.apply {
+                layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
+                adapter = godMageAdapter
+            }
+
+            binding.godAssassinRecycler.apply {
+                layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
+                adapter = godAssassinAdapter
             }
         }
     }
@@ -53,9 +89,61 @@ class GodsFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         with(viewModel) {
-            observe(getAll()) {
+            observe(getGuardians()) {
                 if (it.data != null) {
-                    if (it.data.isNotEmpty()) godAdapter.update(it.data) else activity?.toast("Empty")
+                    if (it.data.isNotEmpty()) {
+                        godGuardianAdapter.update(it.data)
+                    } else {
+                        activity?.toast("Empty")
+                    }
+                } else {
+                    activity?.toast("${it.error}")
+                }
+            }
+
+            observe(getWarriors()) {
+                if (it.data != null) {
+                    if (it.data.isNotEmpty()) {
+                        godWarriorAdapter.update(it.data)
+                    } else {
+                        activity?.toast("Empty")
+                    }
+                } else {
+                    activity?.toast("${it.error}")
+                }
+            }
+
+            observe(getHunters()) {
+                if (it.data != null) {
+                    if (it.data.isNotEmpty()) {
+                        godHunterAdapter.update(it.data)
+                    } else {
+                        activity?.toast("Empty")
+                    }
+                } else {
+                    activity?.toast("${it.error}")
+                }
+            }
+
+            observe(getMages()) {
+                if (it.data != null) {
+                    if (it.data.isNotEmpty()) {
+                        godMageAdapter.update(it.data)
+                    } else {
+                        activity?.toast("Empty")
+                    }
+                } else {
+                    activity?.toast("${it.error}")
+                }
+            }
+
+            observe(getAssassins()) {
+                if (it.data != null) {
+                    if (it.data.isNotEmpty()) {
+                        godAssassinAdapter.update(it.data)
+                    } else {
+                        activity?.toast("Empty")
+                    }
                 } else {
                     activity?.toast("${it.error}")
                 }

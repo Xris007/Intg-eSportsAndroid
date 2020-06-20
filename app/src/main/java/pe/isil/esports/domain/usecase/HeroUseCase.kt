@@ -6,6 +6,7 @@ import pe.isil.esports.domain.repository.HeroRepository
 import pe.isil.esports.domain.vo.OperationResult
 
 class HeroUseCase(private val repository: HeroRepository) {
+
     fun getStrength(): Flow<OperationResult<List<Hero>>> {
         return repository.getStrength()
     }

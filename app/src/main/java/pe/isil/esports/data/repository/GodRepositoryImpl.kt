@@ -12,12 +12,100 @@ import pe.isil.esports.domain.vo.OperationResult
 
 class GodRepositoryImpl(private val service: GodService) : GodRepository {
 
-    override fun getAll(): Flow<OperationResult<List<God>>> {
+    override fun getGuardians(): Flow<OperationResult<List<God>>> {
         return flow {
             try {
                 val response = service.getAll()
                 if (response.isSuccessful && response.body() != null) {
-                    emit(OperationResult.Data(response.body()!!))
+                    emit(
+                        OperationResult.Data(
+                            response.body()!!
+                                .filter { it.class_god == "Guardian" })
+                    )
+                } else {
+                    emit(OperationResult.Error(response.message()))
+                }
+            } catch (e: Exception) {
+                emit(OperationResult.Error("${e.message}"))
+            }
+        }.catch {
+            emit(OperationResult.Error("${it.message}"))
+        }.flowOn(Dispatchers.IO)
+    }
+
+    override fun getWarriors(): Flow<OperationResult<List<God>>> {
+        return flow {
+            try {
+                val response = service.getAll()
+                if (response.isSuccessful && response.body() != null) {
+                    emit(
+                        OperationResult.Data(
+                            response.body()!!
+                                .filter { it.class_god == "Warrior" })
+                    )
+                } else {
+                    emit(OperationResult.Error(response.message()))
+                }
+            } catch (e: Exception) {
+                emit(OperationResult.Error("${e.message}"))
+            }
+        }.catch {
+            emit(OperationResult.Error("${it.message}"))
+        }.flowOn(Dispatchers.IO)
+    }
+
+    override fun getHunters(): Flow<OperationResult<List<God>>> {
+        return flow {
+            try {
+                val response = service.getAll()
+                if (response.isSuccessful && response.body() != null) {
+                    emit(
+                        OperationResult.Data(
+                            response.body()!!
+                                .filter { it.class_god == "Hunter" })
+                    )
+                } else {
+                    emit(OperationResult.Error(response.message()))
+                }
+            } catch (e: Exception) {
+                emit(OperationResult.Error("${e.message}"))
+            }
+        }.catch {
+            emit(OperationResult.Error("${it.message}"))
+        }.flowOn(Dispatchers.IO)
+    }
+
+    override fun getMages(): Flow<OperationResult<List<God>>> {
+        return flow {
+            try {
+                val response = service.getAll()
+                if (response.isSuccessful && response.body() != null) {
+                    emit(
+                        OperationResult.Data(
+                            response.body()!!
+                                .filter { it.class_god == "Mage" })
+                    )
+                } else {
+                    emit(OperationResult.Error(response.message()))
+                }
+            } catch (e: Exception) {
+                emit(OperationResult.Error("${e.message}"))
+            }
+        }.catch {
+            emit(OperationResult.Error("${it.message}"))
+        }.flowOn(Dispatchers.IO)
+    }
+
+    override fun getAssassins(): Flow<OperationResult<List<God>>> {
+        return flow {
+            try {
+                val response = service.getAll()
+                if (response.isSuccessful && response.body() != null) {
+                    emit(
+                        OperationResult.Data(
+                            response.body()!!
+                                .filter { it.class_god == "Assassin" })
+                    )
                 } else {
                     emit(OperationResult.Error(response.message()))
                 }

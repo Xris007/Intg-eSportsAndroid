@@ -34,6 +34,7 @@ class GodAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(god: God, listener: (God) -> Unit) = with(binding) {
             godPoster.posterLoading(god.poster_path)
+            godName.text = god.name
 
             root.setOnClickListener { listener(god) }
         }
