@@ -19,7 +19,18 @@
     <string name="supports_description">Stalwart defenders, Supports control the battlefield by augmenting allies and locking down enemies.</string>
     <string name="tanks_champion">Tanks Champion</string>
     <string name="tanks_description">Resilient bruisers, Tanks excel at shrugging off blows that would obliterate lesser allies.</string>
-
+    <string name="guide_god">Guide God</string>
+    <string name="god_icon">God Class Icon</string>
+    <string name="guardian_god">Guardian God</string>
+    <string name="guardian_god_description">Guardian gods are usually melee ranged and utilize Magical Power to boost the strength of their basic attacks and abilities</string>
+    <string name="warrior_god">Warrior God</string>
+    <string name="warrior_god_description">Warrior gods are typically melee and utilize Physical Power to boost the strength of their basic attacks and abilities</string>
+    <string name="hunter_god">Hunter God</string>
+    <string name="hunter_god_description">Hunter gods are typically ranged and utilize Physical Power to boost the strength of their basic attacks and abilities</string>
+    <string name="mage_god">Mage God</string>
+    <string name="mage_god_description">Mage gods are typically those with ranged attacks that utilize Magical Power to boost the potency of their basic attacks and abilities.</string>
+    <string name="assassin_god">Assassin God</string>
+    <string name="assassin_god_description">Assassin gods are usually melee and utilize Physical Power to boost their basic attacks and abilities.</string>
     <string name="guide_hero">Guide Hero</string>
     <string name="strength_icon">Strength Icon</string>
     <string name="strength_hero">Strength Hero</string>
