@@ -43,10 +43,6 @@ class HeroesFragment : Fragment() {
         setupRecycler()
     }
 
-    private val heroes = Observer<List<Hero>> {
-        heroAdapter.update(it)
-    }
-
     private fun setupRecycler() {
         activity?.let {
             binding.heroesRecycler.apply {
@@ -60,9 +56,7 @@ class HeroesFragment : Fragment() {
         super.onResume()
         with(viewModel) {
             observe(getAll()) {
-                if (it.loading) {
-                    //
-                } else if (!it.loading && it.data != null) {
+                if (it.data != null) {
                     if (it.data.isNotEmpty()) heroAdapter.update(it.data) else activity?.toast("Empty")
                 } else {
                     activity?.toast("${it.error}")

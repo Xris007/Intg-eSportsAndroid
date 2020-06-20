@@ -18,15 +18,8 @@ class HeroViewModel(private val useCase: HeroUseCase) : ViewModel() {
     fun getAll(): LiveData<ViewState<List<Hero>>> {
         return useCase.getAll().map {
             when (it) {
-                is OperationResult.Loading -> listViewState.copy(loading = true)
-                is OperationResult.Data -> listViewState.copy(
-                    loading = false,
-                    data = it.data
-                )
-                is OperationResult.Error -> listViewState.copy(
-                    loading = false,
-                    error = it.message
-                )
+                is OperationResult.Data -> listViewState.copy(data = it.data)
+                is OperationResult.Error -> listViewState.copy(error = it.message)
             }
         }.asLiveData()
     }

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pe.isil.esports.databinding.FragmentChampionsBinding
@@ -21,7 +21,27 @@ class ChampionsFragment : Fragment() {
 
     private val viewModel: ChampionViewModel by viewModel()
 
-    private val championAdapter: ChampionAdapter by lazy {
+    private val championAssassinsAdapter: ChampionAdapter by lazy {
+        ChampionAdapter { activity?.toast(it.name) }
+    }
+
+    private val championFightersAdapter: ChampionAdapter by lazy {
+        ChampionAdapter { activity?.toast(it.name) }
+    }
+
+    private val championMagesAdapter: ChampionAdapter by lazy {
+        ChampionAdapter { activity?.toast(it.name) }
+    }
+
+    private val championMarksmenAdapter: ChampionAdapter by lazy {
+        ChampionAdapter { activity?.toast(it.name) }
+    }
+
+    private val championSupportsAdapter: ChampionAdapter by lazy {
+        ChampionAdapter { activity?.toast(it.name) }
+    }
+
+    private val championTanksAdapter: ChampionAdapter by lazy {
         ChampionAdapter { activity?.toast(it.name) }
     }
 
@@ -43,9 +63,34 @@ class ChampionsFragment : Fragment() {
 
     private fun setupRecycler() {
         activity?.let {
-            binding.championsRecycler.apply {
-                layoutManager = GridLayoutManager(it, 2)
-                adapter = championAdapter
+            binding.championAssassinsRecycler.apply {
+                layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
+                adapter = championAssassinsAdapter
+            }
+
+            binding.championFightersRecycler.apply {
+                layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
+                adapter = championFightersAdapter
+            }
+
+            binding.championMagesRecycler.apply {
+                layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
+                adapter = championMagesAdapter
+            }
+
+            binding.championMarksmenRecycler.apply {
+                layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
+                adapter = championMarksmenAdapter
+            }
+
+            binding.championSupportsRecycler.apply {
+                layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
+                adapter = championSupportsAdapter
+            }
+
+            binding.championTanksRecycler.apply {
+                layoutManager = LinearLayoutManager(it, LinearLayoutManager.HORIZONTAL, false)
+                adapter = championTanksAdapter
             }
         }
     }
@@ -53,11 +98,73 @@ class ChampionsFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         with(viewModel) {
-            observe(getAll()) {
-                if (it.loading) {
-                    //
-                } else if (!it.loading && it.data != null) {
-                    if (it.data.isNotEmpty()) championAdapter.update(it.data) else activity?.toast("Empty")
+            observe(getAssassins()) {
+                if (it.data != null) {
+                    if (it.data.isNotEmpty()) {
+                        championAssassinsAdapter.update(it.data)
+                    } else {
+                        activity?.toast("Empty")
+                    }
+                } else {
+                    activity?.toast("${it.error}")
+                }
+            }
+
+            observe(getFighters()) {
+                if (it.data != null) {
+                    if (it.data.isNotEmpty()) {
+                        championFightersAdapter.update(it.data)
+                    } else {
+                        activity?.toast("Empty")
+                    }
+                } else {
+                    activity?.toast("${it.error}")
+                }
+            }
+
+            observe(getMages()) {
+                if (it.data != null) {
+                    if (it.data.isNotEmpty()) {
+                        championMagesAdapter.update(it.data)
+                    } else {
+                        activity?.toast("Empty")
+                    }
+                } else {
+                    activity?.toast("${it.error}")
+                }
+            }
+
+            observe(getMarksmen()) {
+                if (it.data != null) {
+                    if (it.data.isNotEmpty()) {
+                        championMarksmenAdapter.update(it.data)
+                    } else {
+                        activity?.toast("Empty")
+                    }
+                } else {
+                    activity?.toast("${it.error}")
+                }
+            }
+
+            observe(getSupports()) {
+                if (it.data != null) {
+                    if (it.data.isNotEmpty()) {
+                        championSupportsAdapter.update(it.data)
+                    } else {
+                        activity?.toast("Empty")
+                    }
+                } else {
+                    activity?.toast("${it.error}")
+                }
+            }
+
+            observe(getTanks()) {
+                if (it.data != null) {
+                    if (it.data.isNotEmpty()) {
+                        championTanksAdapter.update(it.data)
+                    } else {
+                        activity?.toast("Empty")
+                    }
                 } else {
                     activity?.toast("${it.error}")
                 }

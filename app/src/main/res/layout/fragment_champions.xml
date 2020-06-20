@@ -4,15 +4,407 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context=".presentation.champion.ChampionsFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/champions_recycler"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:contentDescription="@string/guide"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ic_guide" />
+
+    </androidx.cardview.widget.CardView>
+
+    <View
         android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/lettersColor"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/proxima_nova"
+        android:text="@string/guide_champion"
+        android:textColor="@color/lettersColor"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/lettersColor"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:overScrollMode="never"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageViewAssassins"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="@string/champion_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewAssassinsDescription"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textViewAssassins"
+                    app:srcCompat="@drawable/ic_assasins" />
+
+                <TextView
+                    android:id="@+id/textViewAssassins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="@string/assassins_champion"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewAssassins"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewAssassinsDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="@string/assassins_description"
+                    android:textColor="@color/descriptionColor"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textViewAssassins"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAssassins"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/champion_assassins_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="16dp"
+                android:clipToPadding="false" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageViewFighters"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="@string/champion_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewFightersDescription"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textViewFighters"
+                    app:srcCompat="@drawable/ic_fighters" />
+
+                <TextView
+                    android:id="@+id/textViewFighters"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="@string/fighters_champion"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewFighters"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewFightersDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="@string/fighters_description"
+                    android:textColor="@color/descriptionColor"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textViewFighters"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewFighters"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/champion_fighters_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="16dp"
+                android:clipToPadding="false" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageViewMages"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="@string/champion_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewMagesDescription"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textViewMages"
+                    app:srcCompat="@drawable/ic_mages" />
+
+                <TextView
+                    android:id="@+id/textViewMages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="@string/mages_champion"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewMages"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewMagesDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="@string/mages_description"
+                    android:textColor="@color/descriptionColor"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textViewMages"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewMages"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/champion_mages_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="16dp"
+                android:clipToPadding="false" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageViewMarksmen"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="@string/champion_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewMarksmenDescription"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textViewMarksmen"
+                    app:srcCompat="@drawable/ic_marksmen" />
+
+                <TextView
+                    android:id="@+id/textViewMarksmen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="@string/marksmen_champion"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewMarksmen"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewMarksmenDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="@string/marksmen_description"
+                    android:textColor="@color/descriptionColor"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textViewMarksmen"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewMarksmen"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/champion_marksmen_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="16dp"
+                android:clipToPadding="false" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageViewSupports"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="@string/champion_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewSupportsDescription"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textViewSupports"
+                    app:srcCompat="@drawable/ic_supports" />
+
+                <TextView
+                    android:id="@+id/textViewSupports"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="@string/supports_champion"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewSupports"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewSupportsDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="@string/supports_description"
+                    android:textColor="@color/descriptionColor"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textViewSupports"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewSupports"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/champion_supports_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="16dp"
+                android:clipToPadding="false" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageViewTanks"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="@string/champion_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewTanksDescription"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textViewTanks"
+                    app:srcCompat="@drawable/ic_tanks" />
+
+                <TextView
+                    android:id="@+id/textViewTanks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="@string/tanks_champion"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewTanks"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewTanksDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="@string/tanks_description"
+                    android:textColor="@color/descriptionColor"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textViewTanks"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewTanks"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/champion_tanks_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="16dp"
+                android:clipToPadding="false" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

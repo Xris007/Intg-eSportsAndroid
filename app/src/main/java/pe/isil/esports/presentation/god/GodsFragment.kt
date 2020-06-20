@@ -54,9 +54,7 @@ class GodsFragment : Fragment() {
         super.onResume()
         with(viewModel) {
             observe(getAll()) {
-                if (it.loading) {
-                    //
-                } else if (!it.loading && it.data != null) {
+                if (it.data != null) {
                     if (it.data.isNotEmpty()) godAdapter.update(it.data) else activity?.toast("Empty")
                 } else {
                     activity?.toast("${it.error}")

@@ -14,7 +14,6 @@ class HeroRepositoryImpl(private val service: HeroService) : HeroRepository {
 
     override fun getAll(): Flow<OperationResult<List<Hero>>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.getAll()
                 if (response.isSuccessful && response.body() != null) {
@@ -32,7 +31,6 @@ class HeroRepositoryImpl(private val service: HeroService) : HeroRepository {
 
     override fun create(hero: Hero): Flow<OperationResult<Hero>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.create(hero)
                 if (response.isSuccessful && response.body() != null) {
@@ -50,7 +48,6 @@ class HeroRepositoryImpl(private val service: HeroService) : HeroRepository {
 
     override fun update(id: Long, hero: Hero): Flow<OperationResult<Hero>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.update(id, hero)
                 if (response.isSuccessful && response.body() != null) {
@@ -68,7 +65,6 @@ class HeroRepositoryImpl(private val service: HeroService) : HeroRepository {
 
     override fun delete(id: Long): Flow<OperationResult<String>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.delete(id)
                 if (response.isSuccessful && response.body() != null) {
@@ -86,7 +82,6 @@ class HeroRepositoryImpl(private val service: HeroService) : HeroRepository {
 
     override fun findById(id: Long): Flow<OperationResult<Hero>> {
         return flow {
-            emit(OperationResult.Loading)
             try {
                 val response = service.findById(id)
                 if (response.isSuccessful && response.body() != null) {

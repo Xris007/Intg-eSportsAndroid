@@ -7,8 +7,28 @@ import pe.isil.esports.domain.vo.OperationResult
 
 class ChampionUseCase(private val repository: ChampionRepository) {
 
-    fun getAll(): Flow<OperationResult<List<Champion>>> {
-        return repository.getAll()
+    fun getAssassins(): Flow<OperationResult<List<Champion>>> {
+        return repository.getAssassins()
+    }
+
+    fun getFighters(): Flow<OperationResult<List<Champion>>> {
+        return repository.getFighters()
+    }
+
+    fun getMages(): Flow<OperationResult<List<Champion>>> {
+        return repository.getMages()
+    }
+
+    fun getMarksmen(): Flow<OperationResult<List<Champion>>> {
+        return repository.getMarksmen()
+    }
+
+    fun getSupports(): Flow<OperationResult<List<Champion>>> {
+        return repository.getSupports()
+    }
+
+    fun getTanks(): Flow<OperationResult<List<Champion>>> {
+        return repository.getTanks()
     }
 
     fun create(champion: Champion): Flow<OperationResult<Champion>> {

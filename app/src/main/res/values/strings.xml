@@ -1,7 +1,22 @@
 <resources>
     <string name="app_name">eSports</string>
-    <string name="champions">Champions</string>
-    <string name="gods">Gods</string>
-    <string name="heroes">Heroes</string>
+    <string name="champions">League of Legends</string>
+    <string name="gods">Smite</string>
+    <string name="heroes">Dota 2</string>
     <string name="poster">Poster</string>
+    <string name="guide">Guide</string>
+    <string name="guide_champion">Guide Champion</string>
+    <string name="champion_icon">Champion Icon</string>
+    <string name="assassins_champion">Assassins Champion</string>
+    <string name="assassins_description">Masters of precision, Assassins are agile hunters on the lookout for the perfect kill.</string>
+    <string name="fighters_champion">Fighters Champion</string>
+    <string name="fighters_description">A balance of power and defense, Fighters are born to brawl, preferring their bouts up close and personal.</string>
+    <string name="mages_champion">Mages Champion</string>
+    <string name="mages_description">Aggressive casters, Mages seek to destroy opponents through a range of mystical attacks, spells and abilities.</string>
+    <string name="marksmen_champion">Marksmen Champion</string>
+    <string name="marksmen_description">Ranged fighters, Marksmen are powerful but fragile. While they rely on their team to soak up damage, teams rely on them to deal it.</string>
+    <string name="supports_champion">Supports Champion</string>
+    <string name="supports_description">Stalwart defenders, Supports control the battlefield by augmenting allies and locking down enemies.</string>
+    <string name="tanks_champion">Tanks Champion</string>
+    <string name="tanks_description">Resilient bruisers, Tanks excel at shrugging off blows that would obliterate lesser allies.</string>
 </resources>
