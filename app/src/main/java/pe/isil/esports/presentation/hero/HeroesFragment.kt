@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -22,15 +24,33 @@ class HeroesFragment : Fragment() {
     private val viewModel: HeroViewModel by viewModel()
 
     private val heroStrengthAdapter: HeroAdapter by lazy {
-        HeroAdapter { activity?.toast(it.name) }
+        HeroAdapter { id, name ->
+            findNavController().navigate(
+                HeroesFragmentDirections.actionHeroesFragmentToHeroFragment(
+                    id, name
+                )
+            )
+        }
     }
 
     private val heroAgilityAdapter: HeroAdapter by lazy {
-        HeroAdapter { activity?.toast(it.name) }
+        HeroAdapter { id, name ->
+            findNavController().navigate(
+                HeroesFragmentDirections.actionHeroesFragmentToHeroFragment(
+                    id, name
+                )
+            )
+        }
     }
 
     private val heroIntelligenceAdapter: HeroAdapter by lazy {
-        HeroAdapter { activity?.toast(it.name) }
+        HeroAdapter { id, name ->
+            findNavController().navigate(
+                HeroesFragmentDirections.actionHeroesFragmentToHeroFragment(
+                    id, name
+                )
+            )
+        }
     }
 
     override fun onCreateView(
@@ -39,6 +59,17 @@ class HeroesFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentHeroesBinding.inflate(inflater, container, false)
+
+        with((activity as AppCompatActivity)) {
+            setSupportActionBar(binding.toolbar)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.setDisplayShowHomeEnabled(true)
+            supportActionBar?.setDisplayShowTitleEnabled(false)
+        }
+
+        binding.toolbar.setNavigationOnClickListener {
+            activity?.onBackPressed()
+        }
 
         return binding.root
     }

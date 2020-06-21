@@ -3,21 +3,85 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/championsFragment">
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="pe.isil.esports.presentation.MainFragment"
+        android:label="eSports"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_championsFragment"
+            app:destination="@id/championsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_godsFragment"
+            app:destination="@id/godsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_heroesFragment"
+            app:destination="@id/heroesFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/championsFragment"
         android:name="pe.isil.esports.presentation.champion.ChampionsFragment"
         android:label="League of Legends"
-        tools:layout="@layout/fragment_champions" />
+        tools:layout="@layout/fragment_champions">
+        <action
+            android:id="@+id/action_championsFragment_to_championFragment"
+            app:destination="@id/championFragment" />
+    </fragment>
     <fragment
         android:id="@+id/godsFragment"
         android:name="pe.isil.esports.presentation.god.GodsFragment"
         android:label="Smite"
-        tools:layout="@layout/fragment_gods" />
+        tools:layout="@layout/fragment_gods">
+        <action
+            android:id="@+id/action_godsFragment_to_godFragment"
+            app:destination="@id/godFragment" />
+    </fragment>
     <fragment
         android:id="@+id/heroesFragment"
         android:name="pe.isil.esports.presentation.hero.HeroesFragment"
         android:label="Dota 2"
-        tools:layout="@layout/fragment_heroes" />
+        tools:layout="@layout/fragment_heroes">
+        <action
+            android:id="@+id/action_heroesFragment_to_heroFragment"
+            app:destination="@id/heroFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/championFragment"
+        android:name="pe.isil.esports.presentation.champion.ChampionFragment"
+        android:label="Champion"
+        tools:layout="@layout/fragment_champion">
+        <argument
+            android:name="id"
+            app:argType="long" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/godFragment"
+        android:name="pe.isil.esports.presentation.god.GodFragment"
+        android:label="God"
+        tools:layout="@layout/fragment_god">
+        <argument
+            android:name="id"
+            app:argType="long" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/heroFragment"
+        android:name="pe.isil.esports.presentation.hero.HeroFragment"
+        android:label="Hero"
+        tools:layout="@layout/fragment_hero">
+        <argument
+            android:name="id"
+            app:argType="long" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
 </navigation>

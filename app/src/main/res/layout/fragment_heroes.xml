@@ -7,6 +7,30 @@
     android:background="@color/backgroundColor"
     tools:context=".presentation.hero.HeroesFragment">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/backgroundColor"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_baseline_arrow_back_ios"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/proxima_nova_bold"
+            android:text="@string/heroes"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
@@ -17,14 +41,14 @@
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:contentDescription="@string/guide"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             app:srcCompat="@drawable/ic_guide_hero" />
 
     </androidx.cardview.widget.CardView>
@@ -42,8 +66,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/proxima_nova"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/proxima_nova_bold"
         android:text="@string/guide_hero"
         android:textColor="@color/lettersColor"
         android:textStyle="bold"
@@ -85,7 +109,7 @@
                     android:id="@+id/imageViewStrength"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:contentDescription="@string/strength_icon"
+                    android:contentDescription="@string/hero_icon"
                     app:layout_constraintBottom_toBottomOf="@+id/textViewStrengthDescription"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/textViewStrength"
@@ -96,8 +120,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/proxima_nova"
+                    android:fontFamily="@font/proxima_nova_bold"
                     android:text="@string/strength_hero"
                     android:textColor="@android:color/white"
                     android:textSize="14sp"
@@ -109,9 +132,9 @@
                     android:id="@+id/textViewStrengthDescription"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="2dp"
                     android:layout_marginBottom="16dp"
-                    android:fontFamily="@font/proxima_nova"
+                    android:fontFamily="@font/proxima_nova_bold"
                     android:text="@string/strength_description"
                     android:textColor="@color/descriptionColor"
                     android:textSize="12sp"
@@ -139,7 +162,7 @@
                     android:id="@+id/imageViewAgility"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:contentDescription="@string/agility_icon"
+                    android:contentDescription="@string/hero_icon"
                     app:layout_constraintBottom_toBottomOf="@+id/textViewAgilityDescription"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/textViewAgility"
@@ -150,8 +173,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/proxima_nova"
+                    android:fontFamily="@font/proxima_nova_bold"
                     android:text="@string/agility_hero"
                     android:textColor="@android:color/white"
                     android:textSize="14sp"
@@ -163,9 +185,9 @@
                     android:id="@+id/textViewAgilityDescription"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="2dp"
                     android:layout_marginBottom="16dp"
-                    android:fontFamily="@font/proxima_nova"
+                    android:fontFamily="@font/proxima_nova_bold"
                     android:text="@string/agility_description"
                     android:textColor="@color/descriptionColor"
                     android:textSize="12sp"
@@ -193,7 +215,7 @@
                     android:id="@+id/imageViewIntelligence"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:contentDescription="@string/intelligence_icon"
+                    android:contentDescription="@string/hero_icon"
                     app:layout_constraintBottom_toBottomOf="@+id/textViewIntelligenceDescription"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/textViewIntelligence"
@@ -204,8 +226,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/proxima_nova"
+                    android:fontFamily="@font/proxima_nova_bold"
                     android:text="@string/intelligence_hero"
                     android:textColor="@android:color/white"
                     android:textSize="14sp"
@@ -217,9 +238,9 @@
                     android:id="@+id/textViewIntelligenceDescription"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="2dp"
                     android:layout_marginBottom="16dp"
-                    android:fontFamily="@font/proxima_nova"
+                    android:fontFamily="@font/proxima_nova_bold"
                     android:text="@string/intelligence_description"
                     android:textColor="@color/descriptionColor"
                     android:textSize="12sp"

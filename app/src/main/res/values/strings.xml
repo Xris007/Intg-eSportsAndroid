@@ -20,7 +20,7 @@
     <string name="tanks_champion">Tanks Champion</string>
     <string name="tanks_description">Resilient bruisers, Tanks excel at shrugging off blows that would obliterate lesser allies.</string>
     <string name="guide_god">Guide God</string>
-    <string name="god_icon">God Class Icon</string>
+    <string name="god_icon">God Icon</string>
     <string name="guardian_god">Guardian God</string>
     <string name="guardian_god_description">Guardian gods are usually melee ranged and utilize Magical Power to boost the strength of their basic attacks and abilities</string>
     <string name="warrior_god">Warrior God</string>
@@ -32,13 +32,12 @@
     <string name="assassin_god">Assassin God</string>
     <string name="assassin_god_description">Assassin gods are usually melee and utilize Physical Power to boost their basic attacks and abilities.</string>
     <string name="guide_hero">Guide Hero</string>
-    <string name="strength_icon">Strength Icon</string>
+    <string name="hero_icon">Hero Icon</string>
     <string name="strength_hero">Strength Hero</string>
     <string name="strength_description">One of the three primary attributes with the theme of defending against magic damage</string>
-    <string name="agility_icon">Agility Icon</string>
     <string name="agility_hero">Agility Hero</string>
     <string name="agility_description">One of the three primary attributes that grants attack speed and armor to every hero</string>
-    <string name="intelligence_icon">Intelligence Icon</string>
     <string name="intelligence_hero">Intelligence Hero</string>
     <string name="intelligence_description">One of the three primary attributes with the theme of improving spell-casting</string>
+    <string name="backdrop">Backdrop</string>
 </resources>

@@ -17,6 +17,8 @@ class HeroViewModel(private val useCase: HeroUseCase) : ViewModel() {
     private val agilityViewState = ViewState<List<Hero>>()
     private val intelligenceViewState = ViewState<List<Hero>>()
 
+    private val heroViewState = ViewState<Hero>()
+
     fun getStrength(): LiveData<ViewState<List<Hero>>> {
         return useCase.getStrength().map {
             when (it) {
@@ -40,6 +42,15 @@ class HeroViewModel(private val useCase: HeroUseCase) : ViewModel() {
             when (it) {
                 is OperationResult.Data -> intelligenceViewState.copy(data = it.data)
                 is OperationResult.Error -> intelligenceViewState.copy(error = it.message)
+            }
+        }.asLiveData()
+    }
+
+    fun getHero(id: Long): LiveData<ViewState<Hero>> {
+        return useCase.findById(id).map {
+            when (it) {
+                is OperationResult.Data -> heroViewState.copy(data = it.data)
+                is OperationResult.Error -> heroViewState.copy(error = it.message)
             }
         }.asLiveData()
     }

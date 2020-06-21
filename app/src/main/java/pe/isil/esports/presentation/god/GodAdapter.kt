@@ -9,7 +9,7 @@ import pe.isil.esports.utils.posterLoading
 
 class GodAdapter(
     private var list: List<God> = emptyList(),
-    private val listener: (God) -> Unit
+    private val listener: (Long, String) -> Unit
 ) :
     RecyclerView.Adapter<GodAdapter.ViewHolder>() {
 
@@ -32,11 +32,11 @@ class GodAdapter(
 
     class ViewHolder(private val binding: ViewGodBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(god: God, listener: (God) -> Unit) = with(binding) {
+        fun bind(god: God, listener: (Long, String) -> Unit) = with(binding) {
             godPoster.posterLoading(god.poster_path)
             godName.text = god.name
 
-            root.setOnClickListener { listener(god) }
+            root.setOnClickListener { listener(god.id!!, god.name!!) }
         }
     }
 }

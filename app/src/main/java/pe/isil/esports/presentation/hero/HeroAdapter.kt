@@ -9,7 +9,7 @@ import pe.isil.esports.utils.posterLoading
 
 class HeroAdapter(
     private var list: List<Hero> = emptyList(),
-    private val listener: (Hero) -> Unit
+    private val listener: (Long, String) -> Unit
 ) :
     RecyclerView.Adapter<HeroAdapter.ViewHolder>() {
 
@@ -32,10 +32,10 @@ class HeroAdapter(
 
     class ViewHolder(private val binding: ViewHeroBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(hero: Hero, listener: (Hero) -> Unit) = with(binding) {
+        fun bind(hero: Hero, listener: (Long, String) -> Unit) = with(binding) {
             heroPoster.posterLoading(hero.poster_path)
             heroName.text = hero.name
-            root.setOnClickListener { listener(hero) }
+            root.setOnClickListener { listener(hero.id!!, hero.name!!) }
         }
     }
 }

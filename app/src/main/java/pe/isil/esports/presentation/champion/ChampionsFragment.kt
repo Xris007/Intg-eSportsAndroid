@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -22,27 +24,63 @@ class ChampionsFragment : Fragment() {
     private val viewModel: ChampionViewModel by viewModel()
 
     private val championAssassinsAdapter: ChampionAdapter by lazy {
-        ChampionAdapter { activity?.toast(it.name) }
+        ChampionAdapter { id, name ->
+            findNavController().navigate(
+                ChampionsFragmentDirections.actionChampionsFragmentToChampionFragment(
+                    id, name
+                )
+            )
+        }
     }
 
     private val championFightersAdapter: ChampionAdapter by lazy {
-        ChampionAdapter { activity?.toast(it.name) }
+        ChampionAdapter { id, name ->
+            findNavController().navigate(
+                ChampionsFragmentDirections.actionChampionsFragmentToChampionFragment(
+                    id, name
+                )
+            )
+        }
     }
 
     private val championMagesAdapter: ChampionAdapter by lazy {
-        ChampionAdapter { activity?.toast(it.name) }
+        ChampionAdapter { id, name ->
+            findNavController().navigate(
+                ChampionsFragmentDirections.actionChampionsFragmentToChampionFragment(
+                    id, name
+                )
+            )
+        }
     }
 
     private val championMarksmenAdapter: ChampionAdapter by lazy {
-        ChampionAdapter { activity?.toast(it.name) }
+        ChampionAdapter { id, name ->
+            findNavController().navigate(
+                ChampionsFragmentDirections.actionChampionsFragmentToChampionFragment(
+                    id, name
+                )
+            )
+        }
     }
 
     private val championSupportsAdapter: ChampionAdapter by lazy {
-        ChampionAdapter { activity?.toast(it.name) }
+        ChampionAdapter { id, name ->
+            findNavController().navigate(
+                ChampionsFragmentDirections.actionChampionsFragmentToChampionFragment(
+                    id, name
+                )
+            )
+        }
     }
 
     private val championTanksAdapter: ChampionAdapter by lazy {
-        ChampionAdapter { activity?.toast(it.name) }
+        ChampionAdapter { id, name ->
+            findNavController().navigate(
+                ChampionsFragmentDirections.actionChampionsFragmentToChampionFragment(
+                    id, name
+                )
+            )
+        }
     }
 
     override fun onCreateView(
@@ -51,6 +89,17 @@ class ChampionsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentChampionsBinding.inflate(inflater, container, false)
+
+        with((activity as AppCompatActivity)) {
+            setSupportActionBar(binding.toolbar)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.setDisplayShowHomeEnabled(true)
+            supportActionBar?.setDisplayShowTitleEnabled(false)
+        }
+
+        binding.toolbar.setNavigationOnClickListener {
+            activity?.onBackPressed()
+        }
 
         return binding.root
     }

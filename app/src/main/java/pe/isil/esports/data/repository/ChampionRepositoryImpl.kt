@@ -1,10 +1,7 @@
 package pe.isil.esports.data.repository
 
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.*
 import pe.isil.esports.data.source.remote.ChampionService
 import pe.isil.esports.domain.model.Champion
 import pe.isil.esports.domain.repository.ChampionRepository
@@ -14,195 +11,153 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
 
     override fun getAssassins(): Flow<OperationResult<List<Champion>>> {
         return flow {
-            try {
-                val response = service.getAll()
-                if (response.isSuccessful && response.body() != null) {
-                    emit(
-                        OperationResult.Data(
-                            response.body()!!
-                                .filter { it.primary_rol == "Assassin" || it.secondary_rol == "Assassin" })
-                    )
-                } else {
-                    emit(OperationResult.Error(response.message()))
-                }
-            } catch (e: Exception) {
-                emit(OperationResult.Error("${e.message}"))
+            emit(service.getAll())
+        }.map {
+            if (it.isSuccessful) {
+                OperationResult.Data(it.body()!!.filter { champion ->
+                    champion.primary_rol == "Assassin" || champion.secondary_rol == "Assassin"
+                })
+            } else {
+                OperationResult.Error(it.message())
             }
-        }.catch {
-            emit(OperationResult.Error("${it.message}"))
+        }.catch { e ->
+            OperationResult.Error("$e")
         }.flowOn(Dispatchers.IO)
     }
 
     override fun getFighters(): Flow<OperationResult<List<Champion>>> {
         return flow {
-            try {
-                val response = service.getAll()
-                if (response.isSuccessful && response.body() != null) {
-                    emit(
-                        OperationResult.Data(
-                            response.body()!!
-                                .filter { it.primary_rol == "Fighter" || it.secondary_rol == "Fighter" })
-                    )
-                } else {
-                    emit(OperationResult.Error(response.message()))
-                }
-            } catch (e: Exception) {
-                emit(OperationResult.Error("${e.message}"))
+            emit(service.getAll())
+        }.map {
+            if (it.isSuccessful) {
+                OperationResult.Data(it.body()!!.filter { champion ->
+                    champion.primary_rol == "Fighter" || champion.secondary_rol == "Fighter"
+                })
+            } else {
+                OperationResult.Error(it.message())
             }
-        }.catch {
-            emit(OperationResult.Error("${it.message}"))
+        }.catch { e ->
+            OperationResult.Error("$e")
         }.flowOn(Dispatchers.IO)
     }
 
     override fun getMages(): Flow<OperationResult<List<Champion>>> {
         return flow {
-            try {
-                val response = service.getAll()
-                if (response.isSuccessful && response.body() != null) {
-                    emit(
-                        OperationResult.Data(
-                            response.body()!!
-                                .filter { it.primary_rol == "Mage" || it.secondary_rol == "Mage" })
-                    )
-                } else {
-                    emit(OperationResult.Error(response.message()))
-                }
-            } catch (e: Exception) {
-                emit(OperationResult.Error("${e.message}"))
+            emit(service.getAll())
+        }.map {
+            if (it.isSuccessful) {
+                OperationResult.Data(it.body()!!.filter { champion ->
+                    champion.primary_rol == "Mage" || champion.secondary_rol == "Mage"
+                })
+            } else {
+                OperationResult.Error(it.message())
             }
-        }.catch {
-            emit(OperationResult.Error("${it.message}"))
+        }.catch { e ->
+            OperationResult.Error("$e")
         }.flowOn(Dispatchers.IO)
     }
 
     override fun getMarksmen(): Flow<OperationResult<List<Champion>>> {
         return flow {
-            try {
-                val response = service.getAll()
-                if (response.isSuccessful && response.body() != null) {
-                    emit(
-                        OperationResult.Data(
-                            response.body()!!
-                                .filter { it.primary_rol == "Marksman" || it.secondary_rol == "Marksman" })
-                    )
-                } else {
-                    emit(OperationResult.Error(response.message()))
-                }
-            } catch (e: Exception) {
-                emit(OperationResult.Error("${e.message}"))
+            emit(service.getAll())
+        }.map {
+            if (it.isSuccessful) {
+                OperationResult.Data(it.body()!!.filter { champion ->
+                    champion.primary_rol == "Marksman" || champion.secondary_rol == "Marksman"
+                })
+            } else {
+                OperationResult.Error(it.message())
             }
-        }.catch {
-            emit(OperationResult.Error("${it.message}"))
+        }.catch { e ->
+            OperationResult.Error("$e")
         }.flowOn(Dispatchers.IO)
     }
 
     override fun getSupports(): Flow<OperationResult<List<Champion>>> {
         return flow {
-            try {
-                val response = service.getAll()
-                if (response.isSuccessful && response.body() != null) {
-                    emit(
-                        OperationResult.Data(
-                            response.body()!!
-                                .filter { it.primary_rol == "Support" || it.secondary_rol == "Support" })
-                    )
-                } else {
-                    emit(OperationResult.Error(response.message()))
-                }
-            } catch (e: Exception) {
-                emit(OperationResult.Error("${e.message}"))
+            emit(service.getAll())
+        }.map {
+            if (it.isSuccessful) {
+                OperationResult.Data(it.body()!!.filter { champion ->
+                    champion.primary_rol == "Support" || champion.secondary_rol == "Support"
+                })
+            } else {
+                OperationResult.Error(it.message())
             }
-        }.catch {
-            emit(OperationResult.Error("${it.message}"))
+        }.catch { e ->
+            OperationResult.Error("$e")
         }.flowOn(Dispatchers.IO)
     }
 
     override fun getTanks(): Flow<OperationResult<List<Champion>>> {
         return flow {
-            try {
-                val response = service.getAll()
-                if (response.isSuccessful && response.body() != null) {
-                    emit(
-                        OperationResult.Data(
-                            response.body()!!
-                                .filter { it.primary_rol == "Tank" || it.secondary_rol == "Tank" })
-                    )
-                } else {
-                    emit(OperationResult.Error(response.message()))
-                }
-            } catch (e: Exception) {
-                emit(OperationResult.Error("${e.message}"))
+            emit(service.getAll())
+        }.map {
+            if (it.isSuccessful) {
+                OperationResult.Data(it.body()!!.filter { champion ->
+                    champion.primary_rol == "Tank" || champion.secondary_rol == "Tank"
+                })
+            } else {
+                OperationResult.Error(it.message())
             }
-        }.catch {
-            emit(OperationResult.Error("${it.message}"))
+        }.catch { e ->
+            OperationResult.Error("$e")
         }.flowOn(Dispatchers.IO)
     }
 
     override fun create(champion: Champion): Flow<OperationResult<Champion>> {
         return flow {
-            try {
-                val response = service.create(champion)
-                if (response.isSuccessful && response.body() != null) {
-                    emit(OperationResult.Data(response.body()!!))
-                } else {
-                    emit(OperationResult.Error(response.message()))
-                }
-            } catch (e: Exception) {
-                emit(OperationResult.Error("${e.message}"))
+            emit(service.create(champion))
+        }.map {
+            if (it.isSuccessful) {
+                OperationResult.Data(it.body()!!)
+            } else {
+                OperationResult.Error(it.message())
             }
-        }.catch {
-            emit(OperationResult.Error("${it.message}"))
+        }.catch { e ->
+            OperationResult.Error("$e")
         }.flowOn(Dispatchers.IO)
     }
 
     override fun update(id: Long, champion: Champion): Flow<OperationResult<Champion>> {
         return flow {
-            try {
-                val response = service.update(id, champion)
-                if (response.isSuccessful && response.body() != null) {
-                    emit(OperationResult.Data(response.body()!!))
-                } else {
-                    emit(OperationResult.Error(response.message()))
-                }
-            } catch (e: Exception) {
-                emit(OperationResult.Error("${e.message}"))
+            emit(service.update(id, champion))
+        }.map {
+            if (it.isSuccessful) {
+                OperationResult.Data(it.body()!!)
+            } else {
+                OperationResult.Error(it.message())
             }
-        }.catch {
-            emit(OperationResult.Error("${it.message}"))
+        }.catch { e ->
+            OperationResult.Error("$e")
         }.flowOn(Dispatchers.IO)
     }
 
     override fun delete(id: Long): Flow<OperationResult<String>> {
         return flow {
-            try {
-                val response = service.delete(id)
-                if (response.isSuccessful && response.body() != null) {
-                    emit(OperationResult.Data(response.body()!!))
-                } else {
-                    emit(OperationResult.Error(response.message()))
-                }
-            } catch (e: Exception) {
-                emit(OperationResult.Error("${e.message}"))
+            emit(service.delete(id))
+        }.map {
+            if (it.isSuccessful) {
+                OperationResult.Data(it.body()!!)
+            } else {
+                OperationResult.Error(it.message())
             }
-        }.catch {
-            emit(OperationResult.Error("${it.message}"))
+        }.catch { e ->
+            OperationResult.Error("$e")
         }.flowOn(Dispatchers.IO)
     }
 
     override fun findById(id: Long): Flow<OperationResult<Champion>> {
         return flow {
-            try {
-                val response = service.findById(id)
-                if (response.isSuccessful && response.body() != null) {
-                    emit(OperationResult.Data(response.body()!!))
-                } else {
-                    emit(OperationResult.Error(response.message()))
-                }
-            } catch (e: Exception) {
-                emit(OperationResult.Error("${e.message}"))
+            emit(service.findById(id))
+        }.map {
+            if (it.isSuccessful) {
+                OperationResult.Data(it.body()!!)
+            } else {
+                OperationResult.Error(it.message())
             }
-        }.catch {
-            emit(OperationResult.Error("${it.message}"))
+        }.catch { e ->
+            OperationResult.Error("$e")
         }.flowOn(Dispatchers.IO)
     }
 

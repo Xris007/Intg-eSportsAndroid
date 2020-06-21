@@ -7,6 +7,30 @@
     android:background="@color/backgroundColor"
     tools:context=".presentation.god.GodsFragment">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/backgroundColor"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_baseline_arrow_back_ios"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/proxima_nova_bold"
+            android:text="@string/gods"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
@@ -17,14 +41,14 @@
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:contentDescription="@string/guide"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             app:srcCompat="@drawable/ic_guide_god" />
 
     </androidx.cardview.widget.CardView>
@@ -42,8 +66,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/proxima_nova"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/proxima_nova_bold"
         android:text="@string/guide_god"
         android:textColor="@color/lettersColor"
         android:textStyle="bold"
@@ -96,8 +120,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/proxima_nova"
+                    android:fontFamily="@font/proxima_nova_bold"
                     android:text="@string/guardian_god"
                     android:textColor="@android:color/white"
                     android:textSize="14sp"
@@ -109,9 +132,9 @@
                     android:id="@+id/textViewGuardianDescription"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="2dp"
                     android:layout_marginBottom="16dp"
-                    android:fontFamily="@font/proxima_nova"
+                    android:fontFamily="@font/proxima_nova_bold"
                     android:text="@string/guardian_god_description"
                     android:textColor="@color/descriptionColor"
                     android:textSize="12sp"
@@ -150,8 +173,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/proxima_nova"
+                    android:fontFamily="@font/proxima_nova_bold"
                     android:text="@string/warrior_god"
                     android:textColor="@android:color/white"
                     android:textSize="14sp"
@@ -163,9 +185,9 @@
                     android:id="@+id/textViewWarriorDescription"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="2dp"
                     android:layout_marginBottom="16dp"
-                    android:fontFamily="@font/proxima_nova"
+                    android:fontFamily="@font/proxima_nova_bold"
                     android:text="@string/warrior_god_description"
                     android:textColor="@color/descriptionColor"
                     android:textSize="12sp"
@@ -175,7 +197,6 @@
                     app:layout_constraintStart_toStartOf="@+id/textViewWarrior"
                     app:layout_constraintTop_toBottomOf="@+id/textViewWarrior"
                     app:layout_constraintVertical_bias="0.0" />
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -205,8 +226,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/proxima_nova"
+                    android:fontFamily="@font/proxima_nova_bold"
                     android:text="@string/hunter_god"
                     android:textColor="@android:color/white"
                     android:textSize="14sp"
@@ -218,9 +238,9 @@
                     android:id="@+id/textViewHunterDescription"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="2dp"
                     android:layout_marginBottom="16dp"
-                    android:fontFamily="@font/proxima_nova"
+                    android:fontFamily="@font/proxima_nova_bold"
                     android:text="@string/hunter_god_description"
                     android:textColor="@color/descriptionColor"
                     android:textSize="12sp"
@@ -259,8 +279,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/proxima_nova"
+                    android:fontFamily="@font/proxima_nova_bold"
                     android:text="@string/mage_god"
                     android:textColor="@android:color/white"
                     android:textSize="14sp"
@@ -272,9 +291,9 @@
                     android:id="@+id/textViewMageDescription"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="2dp"
                     android:layout_marginBottom="16dp"
-                    android:fontFamily="@font/proxima_nova"
+                    android:fontFamily="@font/proxima_nova_bold"
                     android:text="@string/mage_god_description"
                     android:textColor="@color/descriptionColor"
                     android:textSize="12sp"
@@ -313,8 +332,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/proxima_nova"
+                    android:fontFamily="@font/proxima_nova_bold"
                     android:text="@string/assassin_god"
                     android:textColor="@android:color/white"
                     android:textSize="14sp"
@@ -326,9 +344,9 @@
                     android:id="@+id/textViewAssassinDescription"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="2dp"
                     android:layout_marginBottom="16dp"
-                    android:fontFamily="@font/proxima_nova"
+                    android:fontFamily="@font/proxima_nova_bold"
                     android:text="@string/assassin_god_description"
                     android:textColor="@color/descriptionColor"
                     android:textSize="12sp"
