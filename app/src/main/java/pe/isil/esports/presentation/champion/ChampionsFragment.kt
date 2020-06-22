@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pe.isil.esports.databinding.FragmentChampionsBinding
+import pe.isil.esports.utils.loading
 import pe.isil.esports.utils.observe
 import pe.isil.esports.utils.toast
 
@@ -24,60 +25,60 @@ class ChampionsFragment : Fragment() {
     private val viewModel: ChampionViewModel by viewModel()
 
     private val championAssassinsAdapter: ChampionAdapter by lazy {
-        ChampionAdapter { id, name ->
+        ChampionAdapter {
             findNavController().navigate(
                 ChampionsFragmentDirections.actionChampionsFragmentToChampionFragment(
-                    id, name
+                    it
                 )
             )
         }
     }
 
     private val championFightersAdapter: ChampionAdapter by lazy {
-        ChampionAdapter { id, name ->
+        ChampionAdapter {
             findNavController().navigate(
                 ChampionsFragmentDirections.actionChampionsFragmentToChampionFragment(
-                    id, name
+                    it
                 )
             )
         }
     }
 
     private val championMagesAdapter: ChampionAdapter by lazy {
-        ChampionAdapter { id, name ->
+        ChampionAdapter {
             findNavController().navigate(
                 ChampionsFragmentDirections.actionChampionsFragmentToChampionFragment(
-                    id, name
+                    it
                 )
             )
         }
     }
 
     private val championMarksmenAdapter: ChampionAdapter by lazy {
-        ChampionAdapter { id, name ->
+        ChampionAdapter {
             findNavController().navigate(
                 ChampionsFragmentDirections.actionChampionsFragmentToChampionFragment(
-                    id, name
+                    it
                 )
             )
         }
     }
 
     private val championSupportsAdapter: ChampionAdapter by lazy {
-        ChampionAdapter { id, name ->
+        ChampionAdapter {
             findNavController().navigate(
                 ChampionsFragmentDirections.actionChampionsFragmentToChampionFragment(
-                    id, name
+                    it
                 )
             )
         }
     }
 
     private val championTanksAdapter: ChampionAdapter by lazy {
-        ChampionAdapter { id, name ->
+        ChampionAdapter {
             findNavController().navigate(
                 ChampionsFragmentDirections.actionChampionsFragmentToChampionFragment(
-                    id, name
+                    it
                 )
             )
         }
@@ -100,6 +101,8 @@ class ChampionsFragment : Fragment() {
         binding.toolbar.setNavigationOnClickListener {
             activity?.onBackPressed()
         }
+
+        binding.championGuide.loading("https://i.ibb.co/MM1YHLs/ic-guide-champion.png")
 
         return binding.root
     }

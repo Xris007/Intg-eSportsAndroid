@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pe.isil.esports.databinding.FragmentGodsBinding
+import pe.isil.esports.utils.loading
 import pe.isil.esports.utils.observe
 import pe.isil.esports.utils.toast
 
@@ -24,50 +25,50 @@ class GodsFragment : Fragment() {
     private val viewModel: GodViewModel by viewModel()
 
     private val godGuardianAdapter: GodAdapter by lazy {
-        GodAdapter { id, name ->
+        GodAdapter {
             findNavController().navigate(
                 GodsFragmentDirections.actionGodsFragmentToGodFragment(
-                    id, name
+                    it
                 )
             )
         }
     }
 
     private val godWarriorAdapter: GodAdapter by lazy {
-        GodAdapter { id, name ->
+        GodAdapter {
             findNavController().navigate(
                 GodsFragmentDirections.actionGodsFragmentToGodFragment(
-                    id, name
+                    it
                 )
             )
         }
     }
 
     private val godHunterAdapter: GodAdapter by lazy {
-        GodAdapter { id, name ->
+        GodAdapter {
             findNavController().navigate(
                 GodsFragmentDirections.actionGodsFragmentToGodFragment(
-                    id, name
+                    it
                 )
             )
         }
     }
 
     private val godMageAdapter: GodAdapter by lazy {
-        GodAdapter { id, name ->
+        GodAdapter {
             findNavController().navigate(
                 GodsFragmentDirections.actionGodsFragmentToGodFragment(
-                    id, name
+                    it
                 )
             )
         }
     }
 
     private val godAssassinAdapter: GodAdapter by lazy {
-        GodAdapter { id, name ->
+        GodAdapter {
             findNavController().navigate(
                 GodsFragmentDirections.actionGodsFragmentToGodFragment(
-                    id, name
+                    it
                 )
             )
         }
@@ -90,6 +91,8 @@ class GodsFragment : Fragment() {
         binding.toolbar.setNavigationOnClickListener {
             activity?.onBackPressed()
         }
+
+        binding.godGuide.loading("https://i.ibb.co/5jDszss/ic-guide-god.png")
 
         return binding.root
     }

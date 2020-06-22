@@ -56,9 +56,6 @@
         <argument
             android:name="id"
             app:argType="long" />
-        <argument
-            android:name="name"
-            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/godFragment"
@@ -68,9 +65,6 @@
         <argument
             android:name="id"
             app:argType="long" />
-        <argument
-            android:name="name"
-            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/heroFragment"
@@ -80,8 +74,5 @@
         <argument
             android:name="id"
             app:argType="long" />
-        <argument
-            android:name="name"
-            app:argType="string" />
     </fragment>
 </navigation>

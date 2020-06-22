@@ -10,7 +10,7 @@ data class Champion(
     val primary_rol: String?,
     val secondary_rol: String?,
     val poster_path: String?,
-    val backdrop_path: String?,
+    val background_path: String?,
     val health: String?,
     val regeneration: String?,
     val move_speed: String?,

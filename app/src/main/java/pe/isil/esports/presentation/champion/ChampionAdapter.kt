@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import pe.isil.esports.databinding.ViewChampionBinding
 import pe.isil.esports.domain.model.Champion
-import pe.isil.esports.utils.posterLoading
+import pe.isil.esports.utils.loading
 
 class ChampionAdapter(
     private var list: List<Champion> = emptyList(),
-    private val listener: (Long, String) -> Unit
+    private val listener: (Long) -> Unit
 ) :
     RecyclerView.Adapter<ChampionAdapter.ViewHolder>() {
 
@@ -32,11 +32,11 @@ class ChampionAdapter(
 
     class ViewHolder(private val binding: ViewChampionBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(champion: Champion, listener: (Long, String) -> Unit) = with(binding) {
-            championPoster.posterLoading(champion.poster_path)
+        fun bind(champion: Champion, listener: (Long) -> Unit) = with(binding) {
+            championPoster.loading(champion.poster_path)
             championName.text = champion.name
 
-            root.setOnClickListener { listener(champion.id!!, champion.name!!) }
+            root.setOnClickListener { listener(champion.id!!) }
         }
     }
 }

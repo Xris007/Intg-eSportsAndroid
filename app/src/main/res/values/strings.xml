@@ -39,5 +39,15 @@
     <string name="agility_description">One of the three primary attributes that grants attack speed and armor to every hero</string>
     <string name="intelligence_hero">Intelligence Hero</string>
     <string name="intelligence_description">One of the three primary attributes with the theme of improving spell-casting</string>
+    <string name="back">Back</string>
     <string name="backdrop">Backdrop</string>
+    <string name="about">About</string>
+    <string name="stats">Stats</string>
+    <string name="attributes">Attributes</string>
+    <string name="ability">Ability</string>
+    <string name="damage_hero">Damage</string>
+    <string name="armor_hero">Armor</string>
+    <string name="move_hero">Move</string>
+    <string name="health_hero">Health</string>
+    <string name="energy_hero">Energy</string>
 </resources>

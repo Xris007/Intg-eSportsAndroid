@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pe.isil.esports.databinding.FragmentChampionBinding
+import pe.isil.esports.utils.loading
 import pe.isil.esports.utils.observe
-import pe.isil.esports.utils.posterLoading
 import pe.isil.esports.utils.toast
 
 @ExperimentalCoroutinesApi
@@ -22,8 +21,7 @@ class ChampionFragment : Fragment() {
         get() = _binding!!
 
     private val args: ChampionFragmentArgs by navArgs()
-    private val championId: Long by lazy { args.id }
-    private val championName: String by lazy { args.name }
+    private val champion: Long by lazy { args.id }
 
     private val viewModel: ChampionViewModel by viewModel()
 
@@ -34,14 +32,7 @@ class ChampionFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentChampionBinding.inflate(inflater, container, false)
 
-        with((activity as AppCompatActivity)) {
-            setSupportActionBar(binding.toolbar)
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            supportActionBar?.setDisplayShowHomeEnabled(true)
-            supportActionBar?.title = championName
-        }
-
-        binding.toolbar.setNavigationOnClickListener {
+        binding.back.setOnClickListener {
             activity?.onBackPressed()
         }
 
@@ -51,10 +42,11 @@ class ChampionFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         with(viewModel) {
-            observe(getChampion(championId)) {
+            observe(getChampion(champion)) {
                 if (it.data != null) {
                     with(binding) {
-                        championBackdrop.posterLoading(it.data.background_path)
+                        championBackdrop.loading(it.data.background_path)
+                        championName.text = it.data.name
                     }
                 } else {
                     activity?.toast("${it.error}")

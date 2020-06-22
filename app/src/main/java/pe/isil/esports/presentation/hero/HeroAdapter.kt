@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import pe.isil.esports.databinding.ViewHeroBinding
 import pe.isil.esports.domain.model.Hero
-import pe.isil.esports.utils.posterLoading
+import pe.isil.esports.utils.loading
 
 class HeroAdapter(
     private var list: List<Hero> = emptyList(),
-    private val listener: (Long, String) -> Unit
+    private val listener: (Long) -> Unit
 ) :
     RecyclerView.Adapter<HeroAdapter.ViewHolder>() {
 
@@ -32,10 +32,10 @@ class HeroAdapter(
 
     class ViewHolder(private val binding: ViewHeroBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(hero: Hero, listener: (Long, String) -> Unit) = with(binding) {
-            heroPoster.posterLoading(hero.poster_path)
+        fun bind(hero: Hero, listener: (Long) -> Unit) = with(binding) {
+            heroPoster.loading(hero.poster_path)
             heroName.text = hero.name
-            root.setOnClickListener { listener(hero.id!!, hero.name!!) }
+            root.setOnClickListener { listener(hero.id!!) }
         }
     }
 }
