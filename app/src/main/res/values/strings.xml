@@ -50,4 +50,24 @@
     <string name="move_hero">Move</string>
     <string name="health_hero">Health</string>
     <string name="energy_hero">Energy</string>
+    <string name="damage_champion">Damage</string>
+    <string name="attack_speed_champion">Attack Speed</string>
+    <string name="attack_range_champion">Attack Range</string>
+    <string name="move_speed_champion">Move Speed</string>
+    <string name="armor_champion">Armor</string>
+    <string name="magic_resistance_champion">Magic Resistance</string>
+    <string name="health_regeneration_champion">Health Regeneration</string>
+    <string name="resource_regeneration_champion">Resource Regeneration</string>
+    <string name="health_champion">Health</string>
+    <string name="resource_champion">Resource</string>
+    <string name="mana_god_regeneration">Mana God Regeneration</string>
+    <string name="health_god_regeneration">Health God Regeneration</string>
+    <string name="range_attack_god">Range Attack God</string>
+    <string name="attack_speed_god">Attack Speed God</string>
+    <string name="damage_god">Damage God</string>
+    <string name="magic_resistance_god">Magic Resistance God</string>
+    <string name="physical_resistance_god">Physical Resistance God</string>
+    <string name="movement_god">Movement God</string>
+    <string name="health_god">Health God</string>
+    <string name="mana_god">Mana God</string>
 </resources>

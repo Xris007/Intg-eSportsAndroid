@@ -39,11 +39,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/hero_attribute"
+            android:id="@+id/champion_rol"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginBottom="4dp"
-            android:contentDescription="@string/hero_icon"
+            android:contentDescription="@string/champion_icon"
             android:elevation="1dp"
             app:layout_constraintBottom_toTopOf="@+id/champion_name"
             app:layout_constraintStart_toStartOf="@+id/champion_name" />
@@ -56,34 +56,21 @@
             android:fontFamily="@font/proxima_nova_bold"
             android:textColor="@android:color/white"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/hero_roles"
-            app:layout_constraintStart_toStartOf="@+id/hero_roles" />
+            app:layout_constraintBottom_toTopOf="@+id/champion_attributes"
+            app:layout_constraintStart_toStartOf="@+id/champion_attributes" />
 
         <TextView
-            android:id="@+id/hero_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/proxima_nova_regular"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/hero_roles"
+            android:id="@+id/champion_attributes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/proxima_nova_regular"
             android:textColor="@color/lettersColor"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/hero_type" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -115,7 +102,7 @@
                     android:background="@color/cardColor">
 
                     <TextView
-                        android:id="@+id/hero_about"
+                        android:id="@+id/champion_about"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -128,7 +115,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/hero_description"
+                        android:id="@+id/champion_description"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -138,8 +125,8 @@
                         android:textColor="@android:color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/hero_about"
-                        app:layout_constraintTop_toBottomOf="@+id/hero_about" />
+                        app:layout_constraintStart_toStartOf="@+id/champion_about"
+                        app:layout_constraintTop_toBottomOf="@+id/champion_about" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -157,7 +144,7 @@
                     android:background="@color/cardColor">
 
                     <TextView
-                        android:id="@+id/hero_stats"
+                        android:id="@+id/champion_stats"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -177,36 +164,46 @@
                         android:orientation="horizontal"
                         android:paddingBottom="16dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/hero_stats"
-                        app:layout_constraintTop_toBottomOf="@+id/hero_stats">
+                        app:layout_constraintStart_toStartOf="@+id/champion_stats"
+                        app:layout_constraintTop_toBottomOf="@+id/champion_stats">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
 
+                            <ImageView
+                                android:id="@+id/champion_damage_icon"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:contentDescription="@string/damage_champion"
+                                app:layout_constraintBottom_toBottomOf="@+id/champion_damage"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/champion_damage"
+                                app:srcCompat="@drawable/ic_attack_damage" />
+
                             <TextView
-                                android:id="@+id/hero_attributes"
+                                android:id="@+id/champion_damage"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
                                 android:fontFamily="@font/proxima_nova_regular"
-                                android:text="@string/attributes"
-                                android:textColor="@android:color/white"
-                                android:textStyle="bold"
-                                app:layout_constraintStart_toStartOf="parent"
+                                android:textColor="@android:color/darker_gray"
+                                android:textSize="13sp"
+                                app:layout_constraintStart_toEndOf="@+id/champion_damage_icon"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <ImageView
-                                android:id="@+id/hero_strength_icon"
+                                android:id="@+id/champion_attack_speed_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:contentDescription="@string/strength_hero"
-                                app:layout_constraintBottom_toBottomOf="@+id/hero_strength"
+                                android:contentDescription="@string/attack_speed_champion"
+                                app:layout_constraintBottom_toBottomOf="@+id/champion_attack_speed"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/hero_strength"
-                                app:srcCompat="@drawable/ic_strength" />
+                                app:layout_constraintTop_toTopOf="@+id/champion_attack_speed"
+                                app:srcCompat="@drawable/ic_attack_speed" />
 
                             <TextView
-                                android:id="@+id/hero_strength"
+                                android:id="@+id/champion_attack_speed"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -214,21 +211,21 @@
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
                                 android:textSize="13sp"
-                                app:layout_constraintStart_toEndOf="@+id/hero_strength_icon"
-                                app:layout_constraintTop_toBottomOf="@+id/hero_attributes" />
+                                app:layout_constraintStart_toEndOf="@+id/champion_attack_speed_icon"
+                                app:layout_constraintTop_toBottomOf="@+id/champion_damage" />
 
                             <ImageView
-                                android:id="@+id/hero_agility_icon"
+                                android:id="@+id/champion_attack_range_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:contentDescription="@string/agility_hero"
-                                app:layout_constraintBottom_toBottomOf="@+id/hero_agility"
+                                android:contentDescription="@string/attack_range_champion"
+                                app:layout_constraintBottom_toBottomOf="@+id/champion_attack_range"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/hero_agility"
-                                app:srcCompat="@drawable/ic_agility" />
+                                app:layout_constraintTop_toTopOf="@+id/champion_attack_range"
+                                app:srcCompat="@drawable/ic_range" />
 
                             <TextView
-                                android:id="@+id/hero_agility"
+                                android:id="@+id/champion_attack_range"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -236,21 +233,21 @@
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
                                 android:textSize="13sp"
-                                app:layout_constraintStart_toEndOf="@+id/hero_agility_icon"
-                                app:layout_constraintTop_toBottomOf="@+id/hero_strength" />
+                                app:layout_constraintStart_toEndOf="@+id/champion_attack_range_icon"
+                                app:layout_constraintTop_toBottomOf="@+id/champion_attack_speed" />
 
                             <ImageView
-                                android:id="@+id/hero_intelligence_icon"
+                                android:id="@+id/champion_move_speed_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:contentDescription="@string/intelligence_hero"
-                                app:layout_constraintBottom_toBottomOf="@+id/hero_intelligence"
+                                android:contentDescription="@string/move_speed_champion"
+                                app:layout_constraintBottom_toBottomOf="@+id/champion_move_speed_range"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/hero_intelligence"
-                                app:srcCompat="@drawable/ic_intelligence" />
+                                app:layout_constraintTop_toTopOf="@+id/champion_move_speed_range"
+                                app:srcCompat="@drawable/ic_movement_speed" />
 
                             <TextView
-                                android:id="@+id/hero_intelligence"
+                                android:id="@+id/champion_move_speed_range"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -259,8 +256,8 @@
                                 android:textColor="@android:color/darker_gray"
                                 android:textSize="13sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/hero_intelligence_icon"
-                                app:layout_constraintTop_toBottomOf="@+id/hero_agility" />
+                                app:layout_constraintStart_toEndOf="@+id/champion_move_speed_icon"
+                                app:layout_constraintTop_toBottomOf="@+id/champion_attack_range" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -275,29 +272,39 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
+                            <ImageView
+                                android:id="@+id/champion_armor_icon"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:contentDescription="@string/armor_champion"
+                                app:layout_constraintBottom_toBottomOf="@+id/champion_armor"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/champion_armor"
+                                app:srcCompat="@drawable/ic_armor" />
+
                             <TextView
-                                android:id="@+id/hero_ability"
+                                android:id="@+id/champion_armor"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
                                 android:fontFamily="@font/proxima_nova_regular"
-                                android:text="@string/ability"
-                                android:textColor="@android:color/white"
-                                android:textStyle="bold"
-                                app:layout_constraintStart_toStartOf="parent"
+                                android:textColor="@android:color/darker_gray"
+                                android:textSize="13sp"
+                                app:layout_constraintStart_toEndOf="@+id/champion_armor_icon"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <ImageView
-                                android:id="@+id/hero_damage_icon"
+                                android:id="@+id/champion_magic_resistance_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:contentDescription="@string/damage_hero"
-                                app:layout_constraintBottom_toBottomOf="@+id/hero_damage"
+                                android:contentDescription="@string/magic_resistance_champion"
+                                app:layout_constraintBottom_toBottomOf="@+id/champion_magic_resistance"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/hero_damage"
-                                app:srcCompat="@drawable/ic_sword" />
+                                app:layout_constraintTop_toTopOf="@+id/champion_magic_resistance"
+                                app:srcCompat="@drawable/ic_magic_resistance" />
 
                             <TextView
-                                android:id="@+id/hero_damage"
+                                android:id="@+id/champion_magic_resistance"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -305,21 +312,21 @@
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
                                 android:textSize="13sp"
-                                app:layout_constraintStart_toEndOf="@+id/hero_damage_icon"
-                                app:layout_constraintTop_toBottomOf="@+id/hero_ability" />
+                                app:layout_constraintStart_toEndOf="@+id/champion_magic_resistance_icon"
+                                app:layout_constraintTop_toBottomOf="@+id/champion_armor" />
 
                             <ImageView
-                                android:id="@+id/hero_armor_icon"
+                                android:id="@+id/champion_health_regeneration_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:contentDescription="@string/armor_hero"
-                                app:layout_constraintBottom_toBottomOf="@+id/hero_armor"
+                                android:contentDescription="@string/health_regeneration_champion"
+                                app:layout_constraintBottom_toBottomOf="@+id/champion_health_regeneration"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/hero_armor"
-                                app:srcCompat="@drawable/ic_shield" />
+                                app:layout_constraintTop_toTopOf="@+id/champion_health_regeneration"
+                                app:srcCompat="@drawable/ic_health_regeneration" />
 
                             <TextView
-                                android:id="@+id/hero_armor"
+                                android:id="@+id/champion_health_regeneration"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -327,21 +334,20 @@
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
                                 android:textSize="13sp"
-                                app:layout_constraintStart_toEndOf="@+id/hero_armor_icon"
-                                app:layout_constraintTop_toBottomOf="@+id/hero_damage" />
+                                app:layout_constraintStart_toEndOf="@+id/champion_health_regeneration_icon"
+                                app:layout_constraintTop_toBottomOf="@+id/champion_magic_resistance" />
 
                             <ImageView
-                                android:id="@+id/hero_move_icon"
+                                android:id="@+id/champion_resource_regeneration_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:contentDescription="@string/move_hero"
-                                app:layout_constraintBottom_toBottomOf="@+id/hero_move"
+                                android:contentDescription="@string/resource_regeneration_champion"
+                                app:layout_constraintBottom_toBottomOf="@+id/champion_resource_regeneration"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/hero_move"
-                                app:srcCompat="@drawable/ic_speed" />
+                                app:layout_constraintTop_toTopOf="@+id/champion_resource_regeneration" />
 
                             <TextView
-                                android:id="@+id/hero_move"
+                                android:id="@+id/champion_resource_regeneration"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -350,34 +356,33 @@
                                 android:textColor="@android:color/darker_gray"
                                 android:textSize="13sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/hero_move_icon"
-                                app:layout_constraintTop_toBottomOf="@+id/hero_armor" />
+                                app:layout_constraintStart_toEndOf="@+id/champion_resource_regeneration_icon"
+                                app:layout_constraintTop_toBottomOf="@+id/champion_health_regeneration" />
 
                             <ImageView
-                                android:id="@+id/hero_health_icon"
+                                android:id="@+id/champion_health_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:layout_marginStart="16dp"
-                                android:contentDescription="@string/health_hero"
+                                android:contentDescription="@string/health_champion"
                                 android:tint="@color/healthColor"
                                 app:layout_constraintBottom_toBottomOf="@+id/container_health"
-                                app:layout_constraintStart_toEndOf="@+id/hero_damage"
+                                app:layout_constraintStart_toEndOf="@+id/champion_armor"
                                 app:layout_constraintTop_toTopOf="@+id/container_health"
-                                app:srcCompat="@drawable/ic_heart" />
+                                app:srcCompat="@drawable/ic_health" />
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/container_health"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
-                                android:layout_marginTop="16dp"
                                 android:background="@color/healthColor"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/hero_health_icon"
-                                app:layout_constraintTop_toBottomOf="@+id/hero_ability">
+                                app:layout_constraintStart_toEndOf="@+id/champion_health_icon"
+                                app:layout_constraintTop_toTopOf="parent">
 
                                 <TextView
-                                    android:id="@+id/hero_health"
+                                    android:id="@+id/champion_health"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/proxima_nova_regular"
@@ -388,45 +393,30 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
-
-                                <TextView
-                                    android:id="@+id/hero_hp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="4dp"
-                                    android:fontFamily="@font/proxima_nova_regular"
-                                    android:textColor="@color/lettersColor"
-                                    android:textSize="12sp"
-                                    app:layout_constraintBottom_toBottomOf="@+id/hero_health"
-                                    app:layout_constraintStart_toEndOf="@+id/hero_health"
-                                    app:layout_constraintTop_toTopOf="@+id/hero_health" />
 
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
                             <ImageView
-                                android:id="@+id/hero_energy_icon"
+                                android:id="@+id/champion_resource_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:contentDescription="@string/energy_hero"
-                                android:tint="@color/energyColor"
-                                app:layout_constraintBottom_toBottomOf="@+id/container_energy"
-                                app:layout_constraintStart_toStartOf="@+id/hero_health_icon"
-                                app:layout_constraintTop_toTopOf="@+id/container_energy"
-                                app:srcCompat="@drawable/ic_heart" />
+                                android:contentDescription="@string/resource_champion"
+                                app:layout_constraintBottom_toBottomOf="@+id/container_resource"
+                                app:layout_constraintStart_toStartOf="@+id/champion_health_icon"
+                                app:layout_constraintTop_toTopOf="@+id/container_resource" />
 
                             <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/container_energy"
+                                android:id="@+id/container_resource"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
                                 android:layout_marginTop="16dp"
-                                android:background="@color/energyColor"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/hero_energy_icon"
+                                app:layout_constraintStart_toEndOf="@+id/champion_resource_icon"
                                 app:layout_constraintTop_toBottomOf="@+id/container_health">
 
                                 <TextView
-                                    android:id="@+id/hero_energy"
+                                    android:id="@+id/champion_resource"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/proxima_nova_regular"
@@ -437,18 +427,6 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
-
-                                <TextView
-                                    android:id="@+id/hero_mp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="4dp"
-                                    android:fontFamily="@font/proxima_nova_regular"
-                                    android:textColor="@color/lettersColor"
-                                    android:textSize="12sp"
-                                    app:layout_constraintBottom_toBottomOf="@+id/hero_energy"
-                                    app:layout_constraintStart_toEndOf="@+id/hero_energy"
-                                    app:layout_constraintTop_toTopOf="@+id/hero_energy" />
 
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
