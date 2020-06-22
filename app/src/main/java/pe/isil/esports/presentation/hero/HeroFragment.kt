@@ -6,9 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import kotlinx.android.synthetic.main.fragment_hero.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import pe.isil.esports.R
 import pe.isil.esports.databinding.FragmentHeroBinding
+import pe.isil.esports.utils.icon
 import pe.isil.esports.utils.loading
 import pe.isil.esports.utils.observe
 import pe.isil.esports.utils.toast
@@ -46,13 +49,42 @@ class HeroFragment : Fragment() {
                 if (it.data != null) {
                     with(binding) {
                         heroBackdrop.loading(it.data.backdrop_path)
+                        heroAttribute.icon(getHeroAttributeIcon(it.data.attribute))
                         heroName.text = it.data.name
+                        heroType.text = it.data.type
+                        heroRoles.text = getHeroType(it.data.type)
+
+                        heroDescription.text = it.data.description
+
+                        heroStrength.text = it.data.strength
+                        heroAgility.text = it.data.agility
+                        heroIntelligence.text = it.data.intelligence
+
+                        heroAttackDamage.text = it.data.attack_damage
+                        heroArmor.text = it.data.armor
+                        heroMoveSpeed.text = it.data.move_speed
+
+                        heroHealth.text = it.data.health
+                        heroMana.text = it.data.mana
                     }
                 } else {
                     activity?.toast("${it.error}")
                 }
             }
         }
+    }
+
+    private fun getHeroAttributeIcon(attribute: String?): Int{
+        return when(attribute?.toLowerCase()){
+            "strength" -> R.drawable.ic_strength
+            "agility" -> R.drawable.ic_agility
+            "Intelligence" -> R.drawable.ic_intelligence
+            else -> R.drawable.ic_empty
+        }
+    }
+
+    private fun getHeroType(type: String?): String{
+        return type!!.split(" - ").joinToString("  ")
     }
 
     override fun onDestroy() {
