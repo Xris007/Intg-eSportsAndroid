@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import pe.isil.esports.databinding.ViewGodBinding
 import pe.isil.esports.domain.model.God
-import pe.isil.esports.utils.posterLoading
+import pe.isil.esports.utils.loading
 
 class GodAdapter(
     private var list: List<God> = emptyList(),
-    private val listener: (Long, String) -> Unit
+    private val listener: (Long) -> Unit
 ) :
     RecyclerView.Adapter<GodAdapter.ViewHolder>() {
 
@@ -32,11 +32,11 @@ class GodAdapter(
 
     class ViewHolder(private val binding: ViewGodBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(god: God, listener: (Long, String) -> Unit) = with(binding) {
-            godPoster.posterLoading(god.poster_path)
+        fun bind(god: God, listener: (Long) -> Unit) = with(binding) {
+            godPoster.loading(god.poster_path)
             godName.text = god.name
 
-            root.setOnClickListener { listener(god.id!!, god.name!!) }
+            root.setOnClickListener { listener(god.id!!) }
         }
     }
 }

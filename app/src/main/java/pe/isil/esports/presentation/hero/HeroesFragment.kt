@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pe.isil.esports.databinding.FragmentHeroesBinding
+import pe.isil.esports.utils.loading
 import pe.isil.esports.utils.observe
 import pe.isil.esports.utils.toast
 
@@ -24,30 +25,30 @@ class HeroesFragment : Fragment() {
     private val viewModel: HeroViewModel by viewModel()
 
     private val heroStrengthAdapter: HeroAdapter by lazy {
-        HeroAdapter { id, name ->
+        HeroAdapter {
             findNavController().navigate(
                 HeroesFragmentDirections.actionHeroesFragmentToHeroFragment(
-                    id, name
+                    it
                 )
             )
         }
     }
 
     private val heroAgilityAdapter: HeroAdapter by lazy {
-        HeroAdapter { id, name ->
+        HeroAdapter {
             findNavController().navigate(
                 HeroesFragmentDirections.actionHeroesFragmentToHeroFragment(
-                    id, name
+                    it
                 )
             )
         }
     }
 
     private val heroIntelligenceAdapter: HeroAdapter by lazy {
-        HeroAdapter { id, name ->
+        HeroAdapter {
             findNavController().navigate(
                 HeroesFragmentDirections.actionHeroesFragmentToHeroFragment(
-                    id, name
+                    it
                 )
             )
         }
@@ -70,6 +71,8 @@ class HeroesFragment : Fragment() {
         binding.toolbar.setNavigationOnClickListener {
             activity?.onBackPressed()
         }
+
+        binding.heroGuide.loading("https://i.ibb.co/D5B1jY4/ic-guide-hero.png")
 
         return binding.root
     }

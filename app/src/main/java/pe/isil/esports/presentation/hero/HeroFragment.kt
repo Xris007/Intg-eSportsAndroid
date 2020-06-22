@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pe.isil.esports.databinding.FragmentHeroBinding
+import pe.isil.esports.utils.loading
 import pe.isil.esports.utils.observe
-import pe.isil.esports.utils.posterLoading
 import pe.isil.esports.utils.toast
 
 @ExperimentalCoroutinesApi
@@ -22,8 +21,7 @@ class HeroFragment : Fragment() {
         get() = _binding!!
 
     private val args: HeroFragmentArgs by navArgs()
-    private val heroId: Long by lazy { args.id }
-    private val heroName: String by lazy { args.name }
+    private val hero: Long by lazy { args.id }
 
     private val viewModel: HeroViewModel by viewModel()
 
@@ -34,14 +32,7 @@ class HeroFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentHeroBinding.inflate(inflater, container, false)
 
-        with((activity as AppCompatActivity)) {
-            setSupportActionBar(binding.toolbar)
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            supportActionBar?.setDisplayShowHomeEnabled(true)
-            supportActionBar?.title = heroName
-        }
-
-        binding.toolbar.setNavigationOnClickListener {
+        binding.back.setOnClickListener {
             activity?.onBackPressed()
         }
 
@@ -51,10 +42,11 @@ class HeroFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         with(viewModel) {
-            observe(getHero(heroId)) {
+            observe(getHero(hero)) {
                 if (it.data != null) {
                     with(binding) {
-                        heroBackdrop.posterLoading(it.data.background_path)
+                        heroBackdrop.loading(it.data.background_path)
+                        heroName.text = it.data.name
                     }
                 } else {
                     activity?.toast("${it.error}")

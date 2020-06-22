@@ -5,13 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import pe.isil.esports.R
 import pe.isil.esports.databinding.FragmentGodBinding
+import pe.isil.esports.utils.loading
 import pe.isil.esports.utils.observe
-import pe.isil.esports.utils.posterLoading
 import pe.isil.esports.utils.toast
 
 @ExperimentalCoroutinesApi
@@ -22,8 +24,7 @@ class GodFragment : Fragment() {
         get() = _binding!!
 
     private val args: GodFragmentArgs by navArgs()
-    private val godId: Long by lazy { args.id }
-    private val godName: String by lazy { args.name }
+    private val god: Long by lazy { args.id }
 
     private val viewModel: GodViewModel by viewModel()
 
@@ -34,14 +35,7 @@ class GodFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentGodBinding.inflate(inflater, container, false)
 
-        with((activity as AppCompatActivity)) {
-            setSupportActionBar(binding.toolbar)
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            supportActionBar?.setDisplayShowHomeEnabled(true)
-            supportActionBar?.title = godName
-        }
-
-        binding.toolbar.setNavigationOnClickListener {
+        binding.back.setOnClickListener {
             activity?.onBackPressed()
         }
 
@@ -51,10 +45,11 @@ class GodFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         with(viewModel) {
-            observe(getGod(godId)) {
+            observe(getGod(god)) {
                 if (it.data != null) {
                     with(binding) {
-                        godBackdrop.posterLoading(it.data.background_path)
+                        godBackdrop.loading(it.data.background_path)
+                        godName.text = it.data.name
                     }
                 } else {
                     activity?.toast("${it.error}")
