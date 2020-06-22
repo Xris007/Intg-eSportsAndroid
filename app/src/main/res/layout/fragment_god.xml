@@ -184,8 +184,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
 
-
-
                             <ImageView
                                 android:id="@+id/attack_speed_icon"
                                 android:layout_width="20dp"
@@ -258,7 +256,7 @@
                                 android:contentDescription="@string/mana_god_regeneration"
                                 app:layout_constraintBottom_toBottomOf="@+id/mana_regeneration"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="mana_regeneration"
+                                app:layout_constraintTop_toTopOf="@+id/mana_regeneration"
                                 app:srcCompat="@drawable/ic_mana_regeneration"/>
 
                             <TextView
@@ -298,7 +296,7 @@
                                 app:layout_constraintBottom_toBottomOf="@+id/god_damage"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="@+id/god_damage"
-                                app:srcCompat="@drawable/ic_sword" />
+                                app:srcCompat="@drawable/ic_attack_damage" />
 
                             <TextView
                                 android:id="@+id/god_damage"
@@ -319,7 +317,7 @@
                                 app:layout_constraintBottom_toBottomOf="@+id/god_magic_resistance"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="@+id/god_magic_resistance"
-                                app:srcCompat="@drawable/ic_magic_recistance" />
+                                app:srcCompat="@drawable/ic_magic_resistance" />
 
                             <TextView
                                 android:id="@+id/god_magic_resistance"
@@ -342,7 +340,7 @@
                                 app:layout_constraintBottom_toBottomOf="@+id/god_armor"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="@+id/god_armor"
-                                app:srcCompat="@drawable/ic_shield" />
+                                app:srcCompat="@drawable/ic_armor" />
 
                             <TextView
                                 android:id="@+id/god_armor"
