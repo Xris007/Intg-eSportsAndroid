@@ -48,7 +48,7 @@ class GodFragment : Fragment() {
             observe(getGod(god)) {
                 if (it.data != null) {
                     with(binding) {
-                        godBackdrop.loading(it.data.background_path)
+                        godBackdrop.loading(it.data.backdrop_path)
                         godName.text = it.data.name
                     }
                 } else {

@@ -15,7 +15,7 @@ class GodRepositoryImpl(private val service: GodService) : GodRepository {
         }.map {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { god ->
-                    god.class_god == "Guardian"
+                    god.type == "Guardian"
                 })
             } else {
                 OperationResult.Error(it.message())
@@ -31,7 +31,7 @@ class GodRepositoryImpl(private val service: GodService) : GodRepository {
         }.map {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { god ->
-                    god.class_god == "Warrior"
+                    god.type == "Warrior"
                 })
             } else {
                 OperationResult.Error(it.message())
@@ -47,7 +47,7 @@ class GodRepositoryImpl(private val service: GodService) : GodRepository {
         }.map {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { god ->
-                    god.class_god == "Hunter"
+                    god.type == "Hunter"
                 })
             } else {
                 OperationResult.Error(it.message())
@@ -63,7 +63,7 @@ class GodRepositoryImpl(private val service: GodService) : GodRepository {
         }.map {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { god ->
-                    god.class_god == "Mage"
+                    god.type == "Mage"
                 })
             } else {
                 OperationResult.Error(it.message())
@@ -79,7 +79,7 @@ class GodRepositoryImpl(private val service: GodService) : GodRepository {
         }.map {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { god ->
-                    god.class_god == "Assassin"
+                    god.type == "Assassin"
                 })
             } else {
                 OperationResult.Error(it.message())

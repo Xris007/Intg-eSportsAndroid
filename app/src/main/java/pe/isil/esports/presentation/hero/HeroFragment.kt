@@ -45,7 +45,7 @@ class HeroFragment : Fragment() {
             observe(getHero(hero)) {
                 if (it.data != null) {
                     with(binding) {
-                        heroBackdrop.loading(it.data.background_path)
+                        heroBackdrop.loading(it.data.backdrop_path)
                         heroName.text = it.data.name
                     }
                 } else {

@@ -11,5 +11,5 @@
     <color name="bottomColor">#353B42</color>
 
     <color name="healthColor">#1BD625</color>
-    <color name="energyColor">#06AEC6</color>
+    <color name="manaColor">#06AEC6</color>
 </resources>

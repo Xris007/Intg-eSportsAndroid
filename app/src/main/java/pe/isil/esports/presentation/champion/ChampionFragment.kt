@@ -45,7 +45,7 @@ class ChampionFragment : Fragment() {
             observe(getChampion(champion)) {
                 if (it.data != null) {
                     with(binding) {
-                        championBackdrop.loading(it.data.background_path)
+                        championBackdrop.loading(it.data.backdrop_path)
                         championName.text = it.data.name
                     }
                 } else {
