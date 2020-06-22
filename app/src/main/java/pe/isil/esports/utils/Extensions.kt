@@ -1,6 +1,7 @@
 package pe.isil.esports.utils
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
@@ -14,6 +15,12 @@ fun Context.toast(message: String?) {
 
 fun ImageView.loading(path: String?) {
     load(path) {
+        crossfade(true)
+    }
+}
+
+fun ImageView.icon(drawable: Int) {
+    load(drawable) {
         crossfade(true)
     }
 }

@@ -15,7 +15,7 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
         }.map {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { champion ->
-                    champion.primary_rol == "Assassin" || champion.secondary_rol == "Assassin"
+                    champion.rol == "Assassin"
                 })
             } else {
                 OperationResult.Error(it.message())
@@ -31,7 +31,7 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
         }.map {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { champion ->
-                    champion.primary_rol == "Fighter" || champion.secondary_rol == "Fighter"
+                    champion.rol == "Fighter"
                 })
             } else {
                 OperationResult.Error(it.message())
@@ -47,7 +47,7 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
         }.map {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { champion ->
-                    champion.primary_rol == "Mage" || champion.secondary_rol == "Mage"
+                    champion.rol == "Mage"
                 })
             } else {
                 OperationResult.Error(it.message())
@@ -63,7 +63,7 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
         }.map {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { champion ->
-                    champion.primary_rol == "Marksman" || champion.secondary_rol == "Marksman"
+                    champion.rol == "Marksman"
                 })
             } else {
                 OperationResult.Error(it.message())
@@ -79,7 +79,7 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
         }.map {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { champion ->
-                    champion.primary_rol == "Support" || champion.secondary_rol == "Support"
+                    champion.rol == "Support"
                 })
             } else {
                 OperationResult.Error(it.message())
@@ -95,7 +95,7 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
         }.map {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { champion ->
-                    champion.primary_rol == "Tank" || champion.secondary_rol == "Tank"
+                    champion.rol == "Tank"
                 })
             } else {
                 OperationResult.Error(it.message())

@@ -39,11 +39,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/god_attribute"
+            android:id="@+id/god_type"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginBottom="4dp"
-            android:contentDescription="@string/hero_icon"
+            android:contentDescription="@string/god_icon"
             android:elevation="1dp"
             app:layout_constraintBottom_toTopOf="@+id/god_name"
             app:layout_constraintStart_toStartOf="@+id/god_name" />
@@ -56,11 +56,21 @@
             android:fontFamily="@font/proxima_nova_bold"
             android:textColor="@android:color/white"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/god_roles"
-            app:layout_constraintStart_toStartOf="@+id/god_roles" />
+            app:layout_constraintBottom_toTopOf="@+id/god_title"
+            app:layout_constraintStart_toStartOf="@+id/god_title" />
 
         <TextView
-            android:id="@+id/god_type"
+            android:id="@+id/god_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/proxima_nova_bold"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toTopOf="@+id/god_attributes"
+            app:layout_constraintStart_toStartOf="@+id/god_type_name" />
+
+        <TextView
+            android:id="@+id/god_type_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -72,7 +82,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/god_roles"
+            android:id="@+id/god_attributes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -83,7 +93,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/god_type" />
+            app:layout_constraintStart_toEndOf="@+id/god_type_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -185,38 +195,60 @@
                             android:layout_height="wrap_content">
 
                             <ImageView
-                                android:id="@+id/attack_speed_icon"
+                                android:id="@+id/god_attack_damage_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:contentDescription="@string/attack_speed_god"
-                                app:layout_constraintBottom_toBottomOf="@+id/attack_speed"
+                                android:contentDescription="@string/attack_damage"
+                                app:layout_constraintBottom_toBottomOf="@+id/god_attack_damage"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/attack_speed"
-                                app:srcCompat="@drawable/ic_attack_speed" />
+                                app:layout_constraintTop_toTopOf="@+id/god_attack_damage"
+                                app:srcCompat="@drawable/ic_attack_damage" />
 
                             <TextView
-                                android:id="@+id/attack_speed"
+                                android:id="@+id/god_attack_damage"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
                                 android:textSize="13sp"
-                                app:layout_constraintStart_toEndOf="@+id/attack_speed_icon"
+                                app:layout_constraintStart_toEndOf="@+id/god_attack_damage_icon"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <ImageView
-                                android:id="@+id/god_range_icon"
+                                android:id="@+id/god_attack_speed_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:contentDescription="@string/range_attack_god"
-                                app:layout_constraintBottom_toBottomOf="@+id/god_range"
+                                android:contentDescription="@string/attack_speed"
+                                app:layout_constraintBottom_toBottomOf="@+id/god_attack_speed"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/god_range"
+                                app:layout_constraintTop_toTopOf="@+id/god_attack_speed"
+                                app:srcCompat="@drawable/ic_attack_speed" />
+
+                            <TextView
+                                android:id="@+id/god_attack_speed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="@font/proxima_nova_regular"
+                                android:textColor="@android:color/darker_gray"
+                                android:textSize="13sp"
+                                app:layout_constraintStart_toEndOf="@+id/god_attack_speed_icon"
+                                app:layout_constraintTop_toBottomOf="@+id/god_attack_damage" />
+
+                            <ImageView
+                                android:id="@+id/god_attack_range_icon"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:contentDescription="@string/attack_range"
+                                app:layout_constraintBottom_toBottomOf="@+id/god_attack_range"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/god_attack_range"
                                 app:srcCompat="@drawable/ic_range" />
 
                             <TextView
-                                android:id="@+id/god_range"
+                                android:id="@+id/god_attack_range"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -224,43 +256,28 @@
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
                                 android:textSize="13sp"
-                                app:layout_constraintStart_toEndOf="@+id/god_range_icon"
-                                app:layout_constraintTop_toBottomOf="@+id/attack_speed" />
+                                app:layout_constraintStart_toEndOf="@+id/god_attack_range_icon"
+                                app:layout_constraintTop_toBottomOf="@id/god_attack_speed" />
 
                             <ImageView
-                                android:id="@+id/health_regeneration_icon"
+                                android:id="@+id/god_move_speed_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:contentDescription="@string/health_god_regeneration"
-                                app:layout_constraintBottom_toBottomOf="@+id/health_regeneration"
+                                android:contentDescription="@string/move_speed"
+                                app:layout_constraintBottom_toBottomOf="@+id/god_move_speed"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/health_regeneration"
-                                app:srcCompat="@drawable/ic_health_regeneration" />
-
-                            <TextView
-                                android:id="@+id/health_regeneration"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="4dp"
-                                android:layout_marginTop="16dp"
-                                android:fontFamily="@font/proxima_nova_regular"
-                                android:textColor="@android:color/darker_gray"
-                                android:textSize="13sp"
-                                app:layout_constraintStart_toEndOf="@+id/health_regeneration_icon"
-                                app:layout_constraintTop_toBottomOf="@id/god_range" />
-
-                            <ImageView
-                                android:id="@+id/mana_regeneration_icon"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:contentDescription="@string/mana_god_regeneration"
-                                app:layout_constraintBottom_toBottomOf="@+id/mana_regeneration"
-                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/god_move_speed"
+                                app:srcCompat="@drawable/ic_movement_speed" />
+<!--<<<<<<< HEAD-->
                                 app:layout_constraintTop_toTopOf="@+id/mana_regeneration"
                                 app:srcCompat="@drawable/ic_mana_regeneration"/>
+=======
+                                app:layout_constraintTop_toTopOf="@+id/god_move_speed"
+                                app:srcCompat="@drawable/ic_movement_speed" />
+>>>>>>> 986732dfbfec1ee439644479aaa4e173e88b778e
 
                             <TextView
-                                android:id="@+id/mana_regeneration"
+                                android:id="@+id/god_move_speed"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -268,10 +285,8 @@
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
                                 android:textSize="13sp"
-                                app:layout_constraintStart_toEndOf="@+id/mana_regeneration_icon"
-                                app:layout_constraintTop_toBottomOf="@+id/health_regeneration"/>
-
-
+                                app:layout_constraintStart_toEndOf="@+id/god_move_speed_icon"
+                                app:layout_constraintTop_toBottomOf="@+id/god_attack_range" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -286,34 +301,39 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-
-
                             <ImageView
-                                android:id="@+id/god_damage_icon"
+                                android:id="@+id/god_armor_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:contentDescription="@string/damage_god"
-                                app:layout_constraintBottom_toBottomOf="@+id/god_damage"
+                                android:contentDescription="@string/armor"
+                                app:layout_constraintBottom_toBottomOf="@+id/god_armor"
                                 app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/god_armor"
+                                app:srcCompat="@drawable/ic_armor" />
+<!--<<<<<<< HEAD-->
                                 app:layout_constraintTop_toTopOf="@+id/god_damage"
                                 app:srcCompat="@drawable/ic_attack_damage" />
+=======
+                                app:layout_constraintTop_toTopOf="@+id/god_armor"
+                                app:srcCompat="@drawable/ic_armor" />
+>>>>>>> 986732dfbfec1ee439644479aaa4e173e88b778e
 
                             <TextView
-                                android:id="@+id/god_damage"
+                                android:id="@+id/god_armor"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
                                 android:textSize="13sp"
-                                app:layout_constraintStart_toEndOf="@+id/god_damage_icon"
+                                app:layout_constraintStart_toEndOf="@+id/god_armor_icon"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <ImageView
                                 android:id="@+id/god_magic_resistance_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:contentDescription="@string/magic_resistance_god"
+                                android:contentDescription="@string/magic_resistance"
                                 app:layout_constraintBottom_toBottomOf="@+id/god_magic_resistance"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="@+id/god_magic_resistance"
@@ -329,21 +349,27 @@
                                 android:textColor="@android:color/darker_gray"
                                 android:textSize="13sp"
                                 app:layout_constraintStart_toEndOf="@+id/god_magic_resistance_icon"
-                                app:layout_constraintTop_toBottomOf="@+id/god_damage" />
-
+                                app:layout_constraintTop_toBottomOf="@+id/god_armor" />
 
                             <ImageView
-                                android:id="@+id/god_armor_icon"
+                                android:id="@+id/god_health_regeneration_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:contentDescription="@string/physical_resistance_god"
-                                app:layout_constraintBottom_toBottomOf="@+id/god_armor"
+                                android:contentDescription="@string/health_regeneration"
+                                app:layout_constraintBottom_toBottomOf="@+id/god_health_regeneration"
                                 app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/god_health_regeneration"
+                                app:srcCompat="@drawable/ic_health_regeneration" />
+<!--<<<<<<< HEAD-->
                                 app:layout_constraintTop_toTopOf="@+id/god_armor"
                                 app:srcCompat="@drawable/ic_armor" />
+=======
+                                app:layout_constraintTop_toTopOf="@+id/god_health_regeneration"
+                                app:srcCompat="@drawable/ic_health_regeneration" />
+>>>>>>> 986732dfbfec1ee439644479aaa4e173e88b778e
 
                             <TextView
-                                android:id="@+id/god_armor"
+                                android:id="@+id/god_health_regeneration"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -351,21 +377,21 @@
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
                                 android:textSize="13sp"
-                                app:layout_constraintStart_toEndOf="@+id/god_armor_icon"
+                                app:layout_constraintStart_toEndOf="@+id/god_health_regeneration_icon"
                                 app:layout_constraintTop_toBottomOf="@+id/god_magic_resistance" />
 
                             <ImageView
-                                android:id="@+id/god_move_icon"
+                                android:id="@+id/god_mana_regeneration_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:contentDescription="@string/movement_god"
-                                app:layout_constraintBottom_toBottomOf="@+id/god_move"
+                                android:contentDescription="@string/mana_regeneration"
+                                app:layout_constraintBottom_toBottomOf="@+id/god_mana_regeneration"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/god_move"
-                                app:srcCompat="@drawable/ic_movement_speed" />
+                                app:layout_constraintTop_toTopOf="@+id/god_mana_regeneration"
+                                app:srcCompat="@drawable/ic_mana_regeneration" />
 
                             <TextView
-                                android:id="@+id/god_move"
+                                android:id="@+id/god_mana_regeneration"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
@@ -374,20 +400,20 @@
                                 android:textColor="@android:color/darker_gray"
                                 android:textSize="13sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/god_move_icon"
-                                app:layout_constraintTop_toBottomOf="@+id/god_armor" />
+                                app:layout_constraintStart_toEndOf="@+id/god_mana_regeneration_icon"
+                                app:layout_constraintTop_toBottomOf="@+id/god_health_regeneration" />
 
                             <ImageView
                                 android:id="@+id/god_health_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:layout_marginStart="16dp"
-                                android:contentDescription="@string/health_god"
+                                android:contentDescription="@string/health"
                                 android:tint="@color/healthColor"
                                 app:layout_constraintBottom_toBottomOf="@+id/container_health"
-                                app:layout_constraintStart_toEndOf="@+id/god_damage"
+                                app:layout_constraintStart_toEndOf="@+id/god_armor"
                                 app:layout_constraintTop_toTopOf="@+id/container_health"
-                                app:srcCompat="@drawable/ic_heart" />
+                                app:srcCompat="@drawable/ic_health" />
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/container_health"
@@ -430,12 +456,12 @@
                                 android:id="@+id/god_mana_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:contentDescription="@string/mana_god"
-                                android:tint="@color/energyColor"
+                                android:contentDescription="@string/mana"
+                                android:tint="@color/manaColor"
                                 app:layout_constraintBottom_toBottomOf="@+id/container_mana"
                                 app:layout_constraintStart_toStartOf="@+id/god_health_icon"
                                 app:layout_constraintTop_toTopOf="@+id/container_mana"
-                                app:srcCompat="@drawable/ic_heart" />
+                                app:srcCompat="@drawable/ic_mana" />
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/container_mana"
@@ -443,7 +469,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="4dp"
                                 android:layout_marginTop="16dp"
-                                android:background="@color/energyColor"
+                                android:background="@color/manaColor"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toEndOf="@+id/god_mana_icon"
                                 app:layout_constraintTop_toBottomOf="@+id/container_health">
