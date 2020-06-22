@@ -55,19 +55,15 @@ class GodFragment : Fragment() {
                         godTitle.text = it.data.title
                         godTypeName.text = it.data.type
                         godAttributes.text = getGodAttributes(it.data.attributes)
-
                         godDescription.text = it.data.description
-
                         godAttackDamage.text = it.data.attack_damage
                         godAttackSpeed.text = it.data.attack_speed
                         godAttackRange.text = it.data.attack_range
                         godMoveSpeed.text = it.data.move_speed
-
                         godArmor.text = it.data.armor
                         godMagicResistance.text = it.data.magic_resistance
                         godHealthRegeneration.text = it.data.hp_regeneration
                         godManaRegeneration.text = it.data.mp_regeneration
-
                         godHealth.text = it.data.health
                         godMana.text = it.data.mana
                     }

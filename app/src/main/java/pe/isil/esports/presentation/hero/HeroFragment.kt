@@ -53,17 +53,13 @@ class HeroFragment : Fragment() {
                         heroName.text = it.data.name
                         heroType.text = it.data.type
                         heroRoles.text = getHeroType(it.data.type)
-
                         heroDescription.text = it.data.description
-
                         heroStrength.text = it.data.strength
                         heroAgility.text = it.data.agility
                         heroIntelligence.text = it.data.intelligence
-
                         heroAttackDamage.text = it.data.attack_damage
                         heroArmor.text = it.data.armor
                         heroMoveSpeed.text = it.data.move_speed
-
                         heroHealth.text = it.data.health
                         heroMana.text = it.data.mana
                     }
