@@ -18,6 +18,12 @@ fun ImageView.loading(path: String?) {
     }
 }
 
+fun ImageView.icon(drawable: Int) {
+    load(drawable) {
+        crossfade(true)
+    }
+}
+
 fun <T> LifecycleOwner.observe(liveData: LiveData<T>, observer: (T) -> Unit) {
     liveData.observe(this, Observer(observer))
 }

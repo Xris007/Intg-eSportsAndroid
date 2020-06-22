@@ -15,7 +15,7 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
         }.map {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { champion ->
-                    champion.rol == "Assassin"
+                    champion.rol == "Assassin" || champion.rol == "Skirmisher"
                 })
             } else {
                 OperationResult.Error(it.message())
@@ -31,7 +31,7 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
         }.map {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { champion ->
-                    champion.rol == "Fighter"
+                    champion.rol == "Juggernaut" || champion.rol == "Diver"
                 })
             } else {
                 OperationResult.Error(it.message())
@@ -47,7 +47,7 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
         }.map {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { champion ->
-                    champion.rol == "Mage"
+                    champion.rol == "Burst" || champion.rol == "Battlemage" || champion.rol == "Specialist" || champion.rol == "Artillery"
                 })
             } else {
                 OperationResult.Error(it.message())
@@ -79,7 +79,7 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
         }.map {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { champion ->
-                    champion.rol == "Support"
+                    champion.rol == "Catcher" || champion.rol == "Enchanter"
                 })
             } else {
                 OperationResult.Error(it.message())
@@ -95,7 +95,7 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
         }.map {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { champion ->
-                    champion.rol == "Tank"
+                    champion.rol == "Vanguard" || champion.rol == "Warden"
                 })
             } else {
                 OperationResult.Error(it.message())
