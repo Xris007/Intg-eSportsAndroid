@@ -19,7 +19,7 @@ android {
 
         vectorDrawables.useSupportLibrary = true
 
-        buildConfigField 'String', 'BASE_URL', '"https://infinite-tor-38647.herokuapp.com/api/"'
+        buildConfigField 'String', 'BASE_URL', '"https://shrouded-badlands-63652.herokuapp.com/api/"'
     }
 
     buildTypes {

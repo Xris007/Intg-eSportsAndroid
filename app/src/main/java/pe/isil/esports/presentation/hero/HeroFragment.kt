@@ -74,7 +74,7 @@ class HeroFragment : Fragment() {
         return when(attribute?.toLowerCase()){
             "strength" -> R.drawable.ic_strength
             "agility" -> R.drawable.ic_agility
-            "Intelligence" -> R.drawable.ic_intelligence
+            "intelligence" -> R.drawable.ic_intelligence
             else -> R.drawable.ic_empty
         }
     }

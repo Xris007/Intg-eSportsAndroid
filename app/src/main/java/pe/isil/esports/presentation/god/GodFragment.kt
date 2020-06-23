@@ -76,11 +76,11 @@ class GodFragment : Fragment() {
 
     private fun getGodTypeIcon(type: String?): Int {
         return when(type?.toLowerCase()){
-            "Guardian" -> R.drawable.ic_class_guardian
-            "Warrior" -> R.drawable.ic_class_warrior
-            "Hunter" -> R.drawable.ic_class_hunter
-            "Mage" -> R.drawable.ic_class_mage
-            "Assassin" -> R.drawable.ic_class_assassin
+            "guardian" -> R.drawable.ic_class_guardian
+            "warrior" -> R.drawable.ic_class_warrior
+            "hunter" -> R.drawable.ic_class_hunter
+            "mage" -> R.drawable.ic_class_mage
+            "assassin" -> R.drawable.ic_class_assassin
             else -> R.drawable.ic_empty
         }
     }

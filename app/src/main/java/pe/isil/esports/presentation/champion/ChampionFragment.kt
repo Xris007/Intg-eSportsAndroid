@@ -1,9 +1,12 @@
 package pe.isil.esports.presentation.champion
 
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -52,6 +55,7 @@ class ChampionFragment : Fragment() {
                         championName.text = it.data.name
                         championTitle.text = it.data.title
                         championPrimary.text = it.data.rol
+                        championDescription.text = it.data.description
                         championAttributes.text = getChampionAttributes(it.data.attributes)
                         championAttackDamage.text = it.data.attack_damage
                         championAttackSpeed.text = it.data.attack_speed
@@ -64,7 +68,8 @@ class ChampionFragment : Fragment() {
                         championManaRegeneration.text = it.data.mp_regeneration
                         championHealth.text = it.data.health
                         championManaIcon.icon(getChampionResourceIcon(it.data.attributes))
-                        championManaIcon.setBackgroundResource(getChampionResourceColor(it.data.attributes))
+                        val tint = ContextCompat.getColor(requireContext(), getChampionResourceColor(it.data.attributes))
+                        ImageViewCompat.setImageTintList(championManaIcon, ColorStateList.valueOf(tint))
                         containerMana.setBackgroundResource(getChampionResourceColor(it.data.attributes))
                         championMana.text = it.data.mana
                     }
