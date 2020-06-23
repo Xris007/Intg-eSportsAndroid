@@ -121,9 +121,7 @@ class ChampionFragment : Fragment() {
             "grit" -> R.drawable.ic_fury
             "rage" -> R.drawable.ic_fury
             "heat" -> R.drawable.ic_heat
-            "health costs" -> R.drawable.ic_health_cost
             "flow" -> R.drawable.ic_flow
-            "shield" -> R.drawable.ic_shield
             "manaless" -> R.drawable.ic_empty
             else -> R.drawable.ic_empty
         }
