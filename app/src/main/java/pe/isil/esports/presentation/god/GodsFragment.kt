@@ -89,7 +89,7 @@ class GodsFragment : Fragment() {
         }
 
         binding.toolbar.setNavigationOnClickListener {
-            activity?.onBackPressed()
+            findNavController().navigate(GodsFragmentDirections.actionGodsFragmentToMainFragment())
         }
 
         binding.godGuide.loading("https://i.ibb.co/5jDszss/ic-guide-god.png")

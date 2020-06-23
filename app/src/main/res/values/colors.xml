@@ -8,7 +8,8 @@
     <color name="cardColor">#0F151B</color>
     <color name="lettersColor">#5D6167</color>
     <color name="descriptionColor">#88898D</color>
-    <color name="bottomColor">#353B42</color>
+
+    <color name="subTitleColor">#9E9E9E</color>
 
     <color name="healthColor">#1BD625</color>
     <color name="manaColor">#06AEC6</color>

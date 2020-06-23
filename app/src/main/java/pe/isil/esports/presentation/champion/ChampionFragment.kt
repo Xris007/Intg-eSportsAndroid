@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -38,7 +39,7 @@ class ChampionFragment : Fragment() {
         _binding = FragmentChampionBinding.inflate(inflater, container, false)
 
         binding.back.setOnClickListener {
-            activity?.onBackPressed()
+            findNavController().navigate(ChampionFragmentDirections.actionChampionFragmentToChampionsFragment())
         }
 
         return binding.root
@@ -55,8 +56,8 @@ class ChampionFragment : Fragment() {
                         championName.text = it.data.name
                         championTitle.text = it.data.title
                         championPrimary.text = it.data.rol
-                        championDescription.text = it.data.description
                         championAttributes.text = getChampionAttributes(it.data.attributes)
+                        championDescription.text = it.data.description
                         championAttackDamage.text = it.data.attack_damage
                         championAttackSpeed.text = it.data.attack_speed
                         championAttackRange.text = it.data.attack_range
@@ -68,8 +69,14 @@ class ChampionFragment : Fragment() {
                         championManaRegeneration.text = it.data.mp_regeneration
                         championHealth.text = it.data.health
                         championManaIcon.icon(getChampionResourceIcon(it.data.attributes))
-                        val tint = ContextCompat.getColor(requireContext(), getChampionResourceColor(it.data.attributes))
-                        ImageViewCompat.setImageTintList(championManaIcon, ColorStateList.valueOf(tint))
+                        val tint = ContextCompat.getColor(
+                            requireContext(),
+                            getChampionResourceColor(it.data.attributes)
+                        )
+                        ImageViewCompat.setImageTintList(
+                            championManaIcon,
+                            ColorStateList.valueOf(tint)
+                        )
                         containerMana.setBackgroundResource(getChampionResourceColor(it.data.attributes))
                         championMana.text = it.data.mana
                     }

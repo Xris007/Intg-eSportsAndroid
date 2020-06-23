@@ -79,7 +79,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/proxima_nova_regular"
-            android:textColor="@color/lettersColor"
+            android:textColor="@color/subTitleColor"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -136,6 +136,7 @@
                         android:layout_marginBottom="16dp"
                         android:fontFamily="@font/proxima_nova_regular"
                         android:textColor="@android:color/white"
+                        android:textSize="13sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/hero_about"
@@ -181,8 +182,9 @@
                         app:layout_constraintTop_toBottomOf="@+id/hero_stats">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2">
 
                             <TextView
                                 android:id="@+id/hero_attributes"
@@ -213,7 +215,7 @@
                                 android:layout_marginTop="16dp"
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
-                                android:textSize="13sp"
+                                android:textSize="12sp"
                                 app:layout_constraintStart_toEndOf="@+id/hero_strength_icon"
                                 app:layout_constraintTop_toBottomOf="@+id/hero_attributes" />
 
@@ -235,7 +237,7 @@
                                 android:layout_marginTop="16dp"
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
-                                android:textSize="13sp"
+                                android:textSize="12sp"
                                 app:layout_constraintStart_toEndOf="@+id/hero_agility_icon"
                                 app:layout_constraintTop_toBottomOf="@+id/hero_strength" />
 
@@ -257,7 +259,7 @@
                                 android:layout_marginTop="16dp"
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
-                                android:textSize="13sp"
+                                android:textSize="12sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toEndOf="@+id/hero_intelligence_icon"
                                 app:layout_constraintTop_toBottomOf="@+id/hero_agility" />
@@ -265,15 +267,17 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <View
-                            android:layout_width="1dp"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
+                            android:layout_weight="0.005"
                             android:background="@color/lettersColor" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2">
 
                             <TextView
                                 android:id="@+id/hero_ability"
@@ -304,7 +308,7 @@
                                 android:layout_marginTop="16dp"
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
-                                android:textSize="13sp"
+                                android:textSize="12sp"
                                 app:layout_constraintStart_toEndOf="@+id/hero_attack_damage_icon"
                                 app:layout_constraintTop_toBottomOf="@+id/hero_ability" />
 
@@ -326,7 +330,7 @@
                                 android:layout_marginTop="16dp"
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
-                                android:textSize="13sp"
+                                android:textSize="12sp"
                                 app:layout_constraintStart_toEndOf="@+id/hero_armor_icon"
                                 app:layout_constraintTop_toBottomOf="@+id/hero_attack_damage" />
 
@@ -348,20 +352,26 @@
                                 android:layout_marginTop="16dp"
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
-                                android:textSize="13sp"
+                                android:textSize="12sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toEndOf="@+id/hero_move_speed_icon"
                                 app:layout_constraintTop_toBottomOf="@+id/hero_armor" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.25">
 
                             <ImageView
                                 android:id="@+id/hero_health_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:layout_marginStart="16dp"
                                 android:contentDescription="@string/health"
                                 android:tint="@color/healthColor"
                                 app:layout_constraintBottom_toBottomOf="@+id/container_health"
-                                app:layout_constraintStart_toEndOf="@+id/hero_attack_damage"
+                                app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="@+id/container_health"
                                 app:srcCompat="@drawable/ic_health" />
 
@@ -374,7 +384,7 @@
                                 android:background="@color/healthColor"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toEndOf="@+id/hero_health_icon"
-                                app:layout_constraintTop_toBottomOf="@+id/hero_ability">
+                                app:layout_constraintTop_toTopOf="parent">
 
                                 <TextView
                                     android:id="@+id/hero_health"
@@ -393,7 +403,7 @@
                                     android:id="@+id/hero_hp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="4dp"
+                                    android:layout_marginStart="2dp"
                                     android:fontFamily="@font/proxima_nova_regular"
                                     android:textColor="@color/lettersColor"
                                     android:textSize="12sp"
@@ -442,7 +452,7 @@
                                     android:id="@+id/hero_mp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="4dp"
+                                    android:layout_marginStart="2dp"
                                     android:fontFamily="@font/proxima_nova_regular"
                                     android:textColor="@color/lettersColor"
                                     android:textSize="12sp"
