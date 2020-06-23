@@ -19,7 +19,7 @@ android {
 
         vectorDrawables.useSupportLibrary = true
 
-        buildConfigField 'String', 'BASE_URL', '"https://shrouded-badlands-63652.herokuapp.com/api/"'
+        buildConfigField 'String', 'BASE_URL', '"https://blooming-waters-71153.herokuapp.com/api/"'
     }
 
     buildTypes {
@@ -55,8 +55,9 @@ dependencies {
 
     // Lifecycle dependencies
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
 
     // Navigation dependencies
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"

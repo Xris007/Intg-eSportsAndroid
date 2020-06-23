@@ -16,7 +16,7 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { champion ->
                     champion.rol == "Assassin" || champion.rol == "Skirmisher"
-                })
+                }.sortedBy { champion -> champion.id })
             } else {
                 OperationResult.Error(it.message())
             }
@@ -32,7 +32,7 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { champion ->
                     champion.rol == "Juggernaut" || champion.rol == "Diver"
-                })
+                }.sortedBy { champion -> champion.id })
             } else {
                 OperationResult.Error(it.message())
             }
@@ -48,7 +48,7 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { champion ->
                     champion.rol == "Burst" || champion.rol == "Battlemage" || champion.rol == "Specialist" || champion.rol == "Artillery"
-                })
+                }.sortedBy { champion -> champion.id })
             } else {
                 OperationResult.Error(it.message())
             }
@@ -64,7 +64,7 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { champion ->
                     champion.rol == "Marksman"
-                })
+                }.sortedBy { champion -> champion.id })
             } else {
                 OperationResult.Error(it.message())
             }
@@ -80,7 +80,7 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { champion ->
                     champion.rol == "Catcher" || champion.rol == "Enchanter"
-                })
+                }.sortedBy { champion -> champion.id })
             } else {
                 OperationResult.Error(it.message())
             }
@@ -96,7 +96,7 @@ class ChampionRepositoryImpl(private val service: ChampionService) : ChampionRep
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { champion ->
                     champion.rol == "Vanguard" || champion.rol == "Warden"
-                })
+                }.sortedBy { champion -> champion.id })
             } else {
                 OperationResult.Error(it.message())
             }

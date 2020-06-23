@@ -16,7 +16,7 @@ class HeroRepositoryImpl(private val service: HeroService) : HeroRepository {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { hero ->
                     hero.attribute == "Strength"
-                })
+                }.sortedBy { hero -> hero.id })
             } else {
                 OperationResult.Error(it.message())
             }
@@ -32,7 +32,7 @@ class HeroRepositoryImpl(private val service: HeroService) : HeroRepository {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { hero ->
                     hero.attribute == "Agility"
-                })
+                }.sortedBy { hero -> hero.id })
             } else {
                 OperationResult.Error(it.message())
             }
@@ -48,7 +48,7 @@ class HeroRepositoryImpl(private val service: HeroService) : HeroRepository {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { hero ->
                     hero.attribute == "Intelligence"
-                })
+                }.sortedBy { hero -> hero.id })
             } else {
                 OperationResult.Error(it.message())
             }
