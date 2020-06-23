@@ -16,7 +16,7 @@ class GodRepositoryImpl(private val service: GodService) : GodRepository {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { god ->
                     god.type == "Guardian"
-                })
+                }.sortedBy { god -> god.id })
             } else {
                 OperationResult.Error(it.message())
             }
@@ -32,7 +32,7 @@ class GodRepositoryImpl(private val service: GodService) : GodRepository {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { god ->
                     god.type == "Warrior"
-                })
+                }.sortedBy { god -> god.id })
             } else {
                 OperationResult.Error(it.message())
             }
@@ -48,7 +48,7 @@ class GodRepositoryImpl(private val service: GodService) : GodRepository {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { god ->
                     god.type == "Hunter"
-                })
+                }.sortedBy { god -> god.id })
             } else {
                 OperationResult.Error(it.message())
             }
@@ -64,7 +64,7 @@ class GodRepositoryImpl(private val service: GodService) : GodRepository {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { god ->
                     god.type == "Mage"
-                })
+                }.sortedBy { god -> god.id })
             } else {
                 OperationResult.Error(it.message())
             }
@@ -80,7 +80,7 @@ class GodRepositoryImpl(private val service: GodService) : GodRepository {
             if (it.isSuccessful) {
                 OperationResult.Data(it.body()!!.filter { god ->
                     god.type == "Assassin"
-                })
+                }.sortedBy { god -> god.id })
             } else {
                 OperationResult.Error(it.message())
             }
