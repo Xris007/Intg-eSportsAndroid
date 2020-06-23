@@ -19,7 +19,7 @@ android {
 
         vectorDrawables.useSupportLibrary = true
 
-        buildConfigField 'String', 'BASE_URL', '"https://infinite-tor-38647.herokuapp.com/api/"'
+        buildConfigField 'String', 'BASE_URL', '"https://shrouded-badlands-63652.herokuapp.com/api/"'
     }
 
     buildTypes {
@@ -51,7 +51,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.core:core-ktx:$androidXVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "androidx.legacy:legacy-support-v4:$legacyVersion"
 
     // Lifecycle dependencies
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"

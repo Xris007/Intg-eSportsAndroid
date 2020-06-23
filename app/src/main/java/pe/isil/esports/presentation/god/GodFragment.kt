@@ -4,9 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -37,7 +36,7 @@ class GodFragment : Fragment() {
         _binding = FragmentGodBinding.inflate(inflater, container, false)
 
         binding.back.setOnClickListener {
-            activity?.onBackPressed()
+            findNavController().navigate(GodFragmentDirections.actionGodFragmentToGodsFragment())
         }
 
         return binding.root
@@ -75,16 +74,17 @@ class GodFragment : Fragment() {
     }
 
     private fun getGodTypeIcon(type: String?): Int {
-        return when(type?.toLowerCase()){
-            "Guardian" -> R.drawable.ic_class_guardian
-            "Warrior" -> R.drawable.ic_class_warrior
-            "Hunter" -> R.drawable.ic_class_hunter
-            "Mage" -> R.drawable.ic_class_mage
-            "Assassin" -> R.drawable.ic_class_assassin
+        return when (type?.toLowerCase()) {
+            "guardian" -> R.drawable.ic_class_guardian
+            "warrior" -> R.drawable.ic_class_warrior
+            "hunter" -> R.drawable.ic_class_hunter
+            "mage" -> R.drawable.ic_class_mage
+            "assassin" -> R.drawable.ic_class_assassin
             else -> R.drawable.ic_empty
         }
     }
-    private fun getGodAttributes(attributes: String?): String{
+
+    private fun getGodAttributes(attributes: String?): String {
         return attributes!!.split(" - ").joinToString("  ")
     }
 

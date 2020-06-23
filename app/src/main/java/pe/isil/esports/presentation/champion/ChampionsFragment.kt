@@ -99,7 +99,7 @@ class ChampionsFragment : Fragment() {
         }
 
         binding.toolbar.setNavigationOnClickListener {
-            activity?.onBackPressed()
+            findNavController().navigate(ChampionsFragmentDirections.actionChampionsFragmentToMainFragment())
         }
 
         binding.championGuide.loading("https://i.ibb.co/MM1YHLs/ic-guide-champion.png")

@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import kotlinx.android.synthetic.main.fragment_hero.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pe.isil.esports.R
@@ -36,7 +36,7 @@ class HeroFragment : Fragment() {
         _binding = FragmentHeroBinding.inflate(inflater, container, false)
 
         binding.back.setOnClickListener {
-            activity?.onBackPressed()
+            findNavController().navigate(HeroFragmentDirections.actionHeroFragmentToHeroesFragment())
         }
 
         return binding.root
@@ -52,7 +52,7 @@ class HeroFragment : Fragment() {
                         heroAttribute.icon(getHeroAttributeIcon(it.data.attribute))
                         heroName.text = it.data.name
                         heroType.text = it.data.type
-                        heroRoles.text = getHeroType(it.data.type)
+                        heroRoles.text = getHeroType(it.data.roles)
                         heroDescription.text = it.data.description
                         heroStrength.text = it.data.strength
                         heroAgility.text = it.data.agility
@@ -61,7 +61,9 @@ class HeroFragment : Fragment() {
                         heroArmor.text = it.data.armor
                         heroMoveSpeed.text = it.data.move_speed
                         heroHealth.text = it.data.health
+                        heroHp.text = it.data.hp_regeneration
                         heroMana.text = it.data.mana
+                        heroMp.text = it.data.mp_regeneration
                     }
                 } else {
                     activity?.toast("${it.error}")
@@ -70,16 +72,16 @@ class HeroFragment : Fragment() {
         }
     }
 
-    private fun getHeroAttributeIcon(attribute: String?): Int{
-        return when(attribute?.toLowerCase()){
+    private fun getHeroAttributeIcon(attribute: String?): Int {
+        return when (attribute?.toLowerCase()) {
             "strength" -> R.drawable.ic_strength
             "agility" -> R.drawable.ic_agility
-            "Intelligence" -> R.drawable.ic_intelligence
+            "intelligence" -> R.drawable.ic_intelligence
             else -> R.drawable.ic_empty
         }
     }
 
-    private fun getHeroType(type: String?): String{
+    private fun getHeroType(type: String?): String {
         return type!!.split(" - ").joinToString("  ")
     }
 

@@ -66,6 +66,7 @@
             android:layout_marginBottom="4dp"
             android:fontFamily="@font/proxima_nova_bold"
             android:textColor="@android:color/white"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/champion_attributes"
             app:layout_constraintStart_toStartOf="@+id/champion_primary" />
 
@@ -89,7 +90,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/proxima_nova_regular"
-            android:textColor="@color/lettersColor"
+            android:textColor="@color/subTitleColor"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -146,6 +147,7 @@
                         android:layout_marginBottom="16dp"
                         android:fontFamily="@font/proxima_nova_regular"
                         android:textColor="@android:color/white"
+                        android:textSize="13sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/champion_about"
@@ -191,8 +193,9 @@
                         app:layout_constraintTop_toBottomOf="@+id/champion_stats">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2">
 
                             <ImageView
                                 android:id="@+id/champion_attack_damage_icon"
@@ -211,7 +214,7 @@
                                 android:layout_marginStart="4dp"
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
-                                android:textSize="13sp"
+                                android:textSize="12sp"
                                 app:layout_constraintStart_toEndOf="@+id/champion_attack_damage_icon"
                                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -233,7 +236,7 @@
                                 android:layout_marginTop="16dp"
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
-                                android:textSize="13sp"
+                                android:textSize="12sp"
                                 app:layout_constraintStart_toEndOf="@+id/champion_attack_speed_icon"
                                 app:layout_constraintTop_toBottomOf="@+id/champion_attack_damage" />
 
@@ -255,7 +258,7 @@
                                 android:layout_marginTop="16dp"
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
-                                android:textSize="13sp"
+                                android:textSize="12sp"
                                 app:layout_constraintStart_toEndOf="@+id/champion_attack_range_icon"
                                 app:layout_constraintTop_toBottomOf="@+id/champion_attack_speed" />
 
@@ -277,7 +280,7 @@
                                 android:layout_marginTop="16dp"
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
-                                android:textSize="13sp"
+                                android:textSize="12sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toEndOf="@+id/champion_move_speed_icon"
                                 app:layout_constraintTop_toBottomOf="@+id/champion_attack_range" />
@@ -285,15 +288,17 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <View
-                            android:layout_width="1dp"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
+                            android:layout_weight="0.005"
                             android:background="@color/lettersColor" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_width="9dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2">
 
                             <ImageView
                                 android:id="@+id/champion_armor_icon"
@@ -312,7 +317,7 @@
                                 android:layout_marginStart="4dp"
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
-                                android:textSize="13sp"
+                                android:textSize="12sp"
                                 app:layout_constraintStart_toEndOf="@+id/champion_armor_icon"
                                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -334,7 +339,7 @@
                                 android:layout_marginTop="16dp"
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
-                                android:textSize="13sp"
+                                android:textSize="12sp"
                                 app:layout_constraintStart_toEndOf="@+id/champion_magic_resistance_icon"
                                 app:layout_constraintTop_toBottomOf="@+id/champion_armor" />
 
@@ -356,7 +361,7 @@
                                 android:layout_marginTop="16dp"
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
-                                android:textSize="13sp"
+                                android:textSize="12sp"
                                 app:layout_constraintStart_toEndOf="@+id/champion_health_regeneration_icon"
                                 app:layout_constraintTop_toBottomOf="@+id/champion_magic_resistance" />
 
@@ -377,20 +382,26 @@
                                 android:layout_marginTop="16dp"
                                 android:fontFamily="@font/proxima_nova_regular"
                                 android:textColor="@android:color/darker_gray"
-                                android:textSize="13sp"
+                                android:textSize="12sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toEndOf="@+id/champion_mana_regeneration_icon"
                                 app:layout_constraintTop_toBottomOf="@+id/champion_health_regeneration" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2">
 
                             <ImageView
                                 android:id="@+id/champion_health_icon"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:layout_marginStart="16dp"
                                 android:contentDescription="@string/health"
                                 android:tint="@color/healthColor"
                                 app:layout_constraintBottom_toBottomOf="@+id/container_health"
-                                app:layout_constraintStart_toEndOf="@+id/champion_armor"
+                                app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="@+id/container_health"
                                 app:srcCompat="@drawable/ic_health" />
 

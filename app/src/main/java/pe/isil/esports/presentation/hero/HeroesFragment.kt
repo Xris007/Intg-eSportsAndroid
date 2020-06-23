@@ -69,7 +69,7 @@ class HeroesFragment : Fragment() {
         }
 
         binding.toolbar.setNavigationOnClickListener {
-            activity?.onBackPressed()
+            findNavController().navigate(HeroesFragmentDirections.actionHeroesFragmentToMainFragment())
         }
 
         binding.heroGuide.loading("https://i.ibb.co/D5B1jY4/ic-guide-hero.png")
