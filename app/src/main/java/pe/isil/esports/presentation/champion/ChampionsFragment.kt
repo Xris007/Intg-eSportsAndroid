@@ -1,15 +1,14 @@
 package pe.isil.esports.presentation.champion
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import pe.isil.esports.R
 import pe.isil.esports.databinding.FragmentChampionsBinding
 import pe.isil.esports.utils.loading
 import pe.isil.esports.utils.observe
@@ -101,6 +100,8 @@ class ChampionsFragment : Fragment() {
         binding.toolbar.setNavigationOnClickListener {
             findNavController().navigate(ChampionsFragmentDirections.actionChampionsFragmentToMainFragment())
         }
+
+        setHasOptionsMenu(true)
 
         binding.championGuide.loading("https://i.ibb.co/MM1YHLs/ic-guide-champion.png")
 
@@ -222,6 +223,18 @@ class ChampionsFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.create, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.create -> findNavController().navigate(ChampionsFragmentDirections.actionChampionsFragmentToCreateChampionFragment())
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onDestroy() {
