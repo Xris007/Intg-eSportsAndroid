@@ -57,4 +57,18 @@
     <string name="mana">Mana</string>
     <string name="mana_regeneration">Mana Regeneration</string>
     <string name="resource">Resource</string>
+    <string name="create">Create</string>
+    <string name="new_hero">New Hero</string>
+    <string name="name">Name</string>
+    <string name="attribute">Attribute</string>
+    <string name="type">Type</string>
+    <string name="roles">Roles</string>
+    <string name="poster_url">Poster URL</string>
+    <string name="backdrop_url">Backdrop URL</string>
+    <string name="description">Description</string>
+    <string name="strength">Strength</string>
+    <string name="agility">Agility</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
 </resources>

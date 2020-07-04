@@ -1,15 +1,14 @@
 package pe.isil.esports.presentation.hero
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import pe.isil.esports.R
 import pe.isil.esports.databinding.FragmentHeroesBinding
 import pe.isil.esports.utils.loading
 import pe.isil.esports.utils.observe
@@ -71,6 +70,8 @@ class HeroesFragment : Fragment() {
         binding.toolbar.setNavigationOnClickListener {
             findNavController().navigate(HeroesFragmentDirections.actionHeroesFragmentToMainFragment())
         }
+
+        setHasOptionsMenu(true)
 
         binding.heroGuide.loading("https://i.ibb.co/D5B1jY4/ic-guide-hero.png")
 
@@ -142,6 +143,18 @@ class HeroesFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.create, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.create -> findNavController().navigate(HeroesFragmentDirections.actionHeroesFragmentToCreateHeroFragment())
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onDestroy() {
