@@ -76,4 +76,13 @@ class GodViewModel(private val useCase: GodUseCase) : ViewModel() {
         }.asLiveData()
     }
 
+    fun createGod(god: God): LiveData<ViewState<God>> {
+        return useCase.create(god).map {
+            when (it) {
+                is OperationResult.Data -> godViewState.copy(data = it.data)
+                is OperationResult.Error -> godViewState.copy(error = it.message)
+            }
+        }.asLiveData()
+    }
+
 }

@@ -1,15 +1,14 @@
 package pe.isil.esports.presentation.god
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import pe.isil.esports.R
 import pe.isil.esports.databinding.FragmentGodsBinding
 import pe.isil.esports.utils.loading
 import pe.isil.esports.utils.observe
@@ -91,6 +90,8 @@ class GodsFragment : Fragment() {
         binding.toolbar.setNavigationOnClickListener {
             findNavController().navigate(GodsFragmentDirections.actionGodsFragmentToMainFragment())
         }
+
+        setHasOptionsMenu(true)
 
         binding.godGuide.loading("https://i.ibb.co/5jDszss/ic-guide-god.png")
 
@@ -195,6 +196,18 @@ class GodsFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.create, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.create -> findNavController().navigate(GodsFragmentDirections.actionGodsFragmentToCreateGodFragment())
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onDestroy() {
