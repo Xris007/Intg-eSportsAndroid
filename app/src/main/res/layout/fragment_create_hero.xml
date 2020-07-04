@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    tools:context=".presentation.champion.CreateChampionFragment">
+    tools:context=".presentation.hero.CreateHeroFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/proxima_nova_bold"
-            android:text="@string/new_champion"
+            android:text="@string/new_hero"
             android:textColor="@android:color/white"
             android:textSize="24sp" />
 
@@ -37,7 +37,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,13 +50,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
                     android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/proxima_nova_regular"
                     android:hint="@string/name"
-                    android:textSize="12sp"/>
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,13 +67,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/title"
+                <EditText
+                    android:id="@+id/attribute"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/proxima_nova_regular"
-                    android:hint="@string/title"
-                    android:textSize="12sp"/>
+                    android:hint="@string/attribute"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,13 +84,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/rol"
+                <EditText
+                    android:id="@+id/type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/proxima_nova_regular"
-                    android:hint="@string/rol"
-                    android:textSize="12sp"/>
+                    android:hint="@string/type"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -98,13 +101,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/attributes"
+                <EditText
+                    android:id="@+id/roles"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/proxima_nova_regular"
-                    android:hint="@string/attributes"
-                    android:textSize="12sp"/>
+                    android:hint="@string/roles"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,13 +118,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
                     android:id="@+id/poster"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/proxima_nova_regular"
+                    android:layout_marginBottom="8dp"
                     android:hint="@string/poster_url"
-                    android:textSize="12sp"/>
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -130,13 +136,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
                     android:id="@+id/backdrop"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/proxima_nova_regular"
                     android:hint="@string/backdrop_url"
-                    android:textSize="12sp"/>
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -146,12 +153,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
                     android:id="@+id/description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/proxima_nova_regular"
                     android:hint="@string/description"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:maxLines="5"
                     android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -168,158 +177,164 @@
                     android:layout_weight="0.5">
 
                     <ImageView
-                        android:id="@+id/champion_attack_damage_icon"
+                        android:id="@+id/hero_strength_icon"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:contentDescription="@string/attack_damage"
-                        app:layout_constraintBottom_toBottomOf="@+id/champion_attack_damage"
+                        android:contentDescription="@string/strength_hero"
+                        app:layout_constraintBottom_toBottomOf="@+id/hero_strength"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/champion_attack_damage"
-                        app:srcCompat="@drawable/ic_attack_damage" />
+                        app:layout_constraintTop_toTopOf="@+id/hero_strength"
+                        app:srcCompat="@drawable/ic_strength" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/champion_attack_damage"
+                        android:id="@+id/hero_strength"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/champion_attack_damage_icon"
+                        app:layout_constraintStart_toEndOf="@+id/hero_strength_icon"
                         app:layout_constraintTop_toTopOf="parent">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/attack_damage"
+                        <EditText
+                            android:id="@+id/strength"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/proxima_nova_regular"
-                            android:hint="@string/attack_damage"
+                            android:hint="@string/strength"
+                            android:importantForAutofill="no"
+                            android:inputType="text"
                             android:textSize="12sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <ImageView
-                        android:id="@+id/champion_attack_speed_icon"
+                        android:id="@+id/hero_agility_icon"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:contentDescription="@string/attack_speed"
-                        app:layout_constraintBottom_toBottomOf="@+id/champion_attack_speed"
+                        android:contentDescription="@string/agility_hero"
+                        app:layout_constraintBottom_toBottomOf="@+id/hero_agility"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/champion_attack_speed"
-                        app:srcCompat="@drawable/ic_attack_speed" />
+                        app:layout_constraintTop_toTopOf="@+id/hero_agility"
+                        app:srcCompat="@drawable/ic_agility" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/champion_attack_speed"
+                        android:id="@+id/hero_agility"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/champion_attack_speed_icon"
-                        app:layout_constraintTop_toBottomOf="@+id/champion_attack_damage">
+                        app:layout_constraintStart_toEndOf="@+id/hero_agility_icon"
+                        app:layout_constraintTop_toBottomOf="@+id/hero_strength">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/attack_speed"
+                        <EditText
+                            android:id="@+id/agility"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/proxima_nova_regular"
-                            android:hint="@string/attack_speed"
+                            android:hint="@string/agility"
+                            android:importantForAutofill="no"
+                            android:inputType="text"
                             android:textSize="12sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <ImageView
-                        android:id="@+id/champion_attack_range_icon"
+                        android:id="@+id/hero_intelligence_icon"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:contentDescription="@string/attack_range"
-                        app:layout_constraintBottom_toBottomOf="@+id/champion_attack_range"
+                        android:contentDescription="@string/intelligence_hero"
+                        app:layout_constraintBottom_toBottomOf="@+id/hero_intelligence"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/champion_attack_range"
-                        app:srcCompat="@drawable/ic_range" />
+                        app:layout_constraintTop_toTopOf="@+id/hero_intelligence"
+                        app:srcCompat="@drawable/ic_intelligence" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/champion_attack_range"
+                        android:id="@+id/hero_intelligence"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/champion_attack_range_icon"
-                        app:layout_constraintTop_toBottomOf="@+id/champion_attack_speed">
+                        app:layout_constraintStart_toEndOf="@+id/hero_intelligence_icon"
+                        app:layout_constraintTop_toBottomOf="@+id/hero_agility">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/attack_range"
+                        <EditText
+                            android:id="@+id/intelligence"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/proxima_nova_regular"
-                            android:hint="@string/attack_range"
+                            android:hint="@string/intelligence"
+                            android:importantForAutofill="no"
+                            android:inputType="text"
                             android:textSize="12sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <ImageView
-                        android:id="@+id/champion_health_regeneration_icon"
+                        android:id="@+id/hero_health_regeneration_icon"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:contentDescription="@string/health_regeneration"
                         android:tint="@color/healthColor"
-                        app:layout_constraintBottom_toBottomOf="@+id/champion_health_regeneration"
+                        app:layout_constraintBottom_toBottomOf="@+id/hero_health_regeneration"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/champion_health_regeneration"
+                        app:layout_constraintTop_toTopOf="@+id/hero_health_regeneration"
                         app:srcCompat="@drawable/ic_health_regeneration" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/champion_health_regeneration"
+                        android:id="@+id/hero_health_regeneration"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/champion_health_regeneration_icon"
-                        app:layout_constraintTop_toBottomOf="@+id/champion_attack_range">
+                        app:layout_constraintStart_toEndOf="@+id/hero_health_regeneration_icon"
+                        app:layout_constraintTop_toBottomOf="@+id/hero_intelligence">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <EditText
                             android:id="@+id/health_regeneration"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/proxima_nova_regular"
                             android:hint="@string/health_regeneration"
+                            android:importantForAutofill="no"
+                            android:inputType="text"
                             android:textSize="12sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <ImageView
-                        android:id="@+id/champion_health_icon"
+                        android:id="@+id/hero_health_icon"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:contentDescription="@string/health"
                         android:tint="@color/healthColor"
-                        app:layout_constraintBottom_toBottomOf="@+id/champion_health"
+                        app:layout_constraintBottom_toBottomOf="@+id/hero_health"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/champion_health"
+                        app:layout_constraintTop_toTopOf="@+id/hero_health"
                         app:srcCompat="@drawable/ic_health" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/champion_health"
+                        android:id="@+id/hero_health"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/champion_health_icon"
-                        app:layout_constraintTop_toBottomOf="@+id/champion_health_regeneration">
+                        app:layout_constraintStart_toEndOf="@+id/hero_health_icon"
+                        app:layout_constraintTop_toBottomOf="@+id/hero_health_regeneration">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <EditText
                             android:id="@+id/health"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/proxima_nova_regular"
                             android:hint="@string/health"
+                            android:importantForAutofill="no"
+                            android:inputType="text"
                             android:textSize="12sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -340,158 +355,165 @@
                     android:layout_weight="0.5">
 
                     <ImageView
-                        android:id="@+id/champion_move_speed_icon"
+                        android:id="@+id/hero_attack_damage_icon"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:contentDescription="@string/armor"
-                        app:layout_constraintBottom_toBottomOf="@+id/champion_move_speed"
+                        android:contentDescription="@string/attack_damage"
+                        app:layout_constraintBottom_toBottomOf="@+id/hero_attack_damage"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/champion_move_speed"
-                        app:srcCompat="@drawable/ic_movement_speed" />
+                        app:layout_constraintTop_toTopOf="@+id/hero_attack_damage"
+                        app:srcCompat="@drawable/ic_attack_damage" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/champion_move_speed"
+                        android:id="@+id/hero_attack_damage"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/champion_move_speed_icon"
+                        app:layout_constraintStart_toEndOf="@+id/hero_attack_damage_icon"
                         app:layout_constraintTop_toTopOf="parent">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/move_speed"
+                        <EditText
+                            android:id="@+id/attack_damage"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/proxima_nova_regular"
-                            android:hint="@string/move_speed"
+                            android:hint="@string/attack_damage"
+                            android:importantForAutofill="no"
+                            android:inputType="text"
                             android:textSize="12sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
+
                     <ImageView
-                        android:id="@+id/champion_armor_icon"
+                        android:id="@+id/hero_armor_icon"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:contentDescription="@string/armor"
-                        app:layout_constraintBottom_toBottomOf="@+id/champion_armor"
+                        app:layout_constraintBottom_toBottomOf="@+id/hero_armor"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/champion_armor"
+                        app:layout_constraintTop_toTopOf="@+id/hero_armor"
                         app:srcCompat="@drawable/ic_armor" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/champion_armor"
+                        android:id="@+id/hero_armor"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/champion_armor_icon"
-                        app:layout_constraintTop_toBottomOf="@+id/champion_move_speed">
+                        app:layout_constraintStart_toEndOf="@+id/hero_armor_icon"
+                        app:layout_constraintTop_toBottomOf="@+id/hero_attack_damage">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <EditText
                             android:id="@+id/armor"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/proxima_nova_regular"
                             android:hint="@string/armor"
+                            android:importantForAutofill="no"
+                            android:inputType="text"
                             android:textSize="12sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <ImageView
-                        android:id="@+id/champion_magic_resistance_icon"
+                        android:id="@+id/hero_move_speed_icon"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:contentDescription="@string/magic_resistance"
-                        app:layout_constraintBottom_toBottomOf="@+id/champion_magic_resistance"
+                        android:contentDescription="@string/move_speed"
+                        app:layout_constraintBottom_toBottomOf="@+id/hero_move_speed"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/champion_magic_resistance"
-                        app:srcCompat="@drawable/ic_magic_resistance" />
+                        app:layout_constraintTop_toTopOf="@+id/hero_move_speed"
+                        app:srcCompat="@drawable/ic_movement_speed" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/champion_magic_resistance"
+                        android:id="@+id/hero_move_speed"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/champion_magic_resistance_icon"
-                        app:layout_constraintTop_toBottomOf="@+id/champion_armor">
+                        app:layout_constraintStart_toEndOf="@+id/hero_move_speed_icon"
+                        app:layout_constraintTop_toBottomOf="@+id/hero_armor">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/magic_resistance"
+                        <EditText
+                            android:id="@+id/move_speed"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/proxima_nova_regular"
-                            android:hint="@string/magic_resistance"
+                            android:hint="@string/move_speed"
+                            android:importantForAutofill="no"
+                            android:inputType="text"
                             android:textSize="12sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <ImageView
-                        android:id="@+id/champion_mana_regeneration_icon"
+                        android:id="@+id/hero_mana_regeneration_icon"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:contentDescription="@string/mana_regeneration"
                         android:tint="@color/manaColor"
-                        app:layout_constraintBottom_toBottomOf="@+id/champion_mana_regeneration"
+                        app:layout_constraintBottom_toBottomOf="@+id/hero_mana_regeneration"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/champion_mana_regeneration"
-                        app:srcCompat="@drawable/ic_mana_regeneration"/>
+                        app:layout_constraintTop_toTopOf="@+id/hero_mana_regeneration"
+                        app:srcCompat="@drawable/ic_mana_regeneration" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/champion_mana_regeneration"
+                        android:id="@+id/hero_mana_regeneration"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/champion_mana_regeneration_icon"
-                        app:layout_constraintTop_toBottomOf="@+id/champion_magic_resistance">
+                        app:layout_constraintStart_toEndOf="@+id/hero_mana_regeneration_icon"
+                        app:layout_constraintTop_toBottomOf="@+id/hero_move_speed">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <EditText
                             android:id="@+id/mana_regeneration"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/proxima_nova_regular"
                             android:hint="@string/mana_regeneration"
+                            android:importantForAutofill="no"
+                            android:inputType="text"
                             android:textSize="12sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <ImageView
-                        android:id="@+id/champion_mana_icon"
+                        android:id="@+id/hero_mana_icon"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:contentDescription="@string/mana"
                         android:tint="@color/manaColor"
-                        app:layout_constraintBottom_toBottomOf="@+id/champion_mana"
+                        app:layout_constraintBottom_toBottomOf="@+id/hero_mana"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/champion_mana"
+                        app:layout_constraintTop_toTopOf="@+id/hero_mana"
                         app:srcCompat="@drawable/ic_mana" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/champion_mana"
+                        android:id="@+id/hero_mana"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/champion_mana_icon"
-                        app:layout_constraintTop_toBottomOf="@+id/champion_mana_regeneration">
+                        app:layout_constraintStart_toEndOf="@+id/hero_mana_icon"
+                        app:layout_constraintTop_toBottomOf="@+id/hero_mana_regeneration">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <EditText
                             android:id="@+id/mana"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/proxima_nova_regular"
-                            android:hint="@string/mana_regeneration"
+                            android:hint="@string/mana"
+                            android:importantForAutofill="no"
+                            android:inputType="text"
                             android:textSize="12sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -499,6 +521,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"

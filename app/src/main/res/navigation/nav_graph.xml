@@ -13,11 +13,7 @@
         <action
             android:id="@+id/action_splashFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
             app:launchSingleTop="true"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit"
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -29,25 +25,13 @@
         tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_championsFragment"
-            app:destination="@id/championsFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit" />
+            app:destination="@id/championsFragment" />
         <action
             android:id="@+id/action_mainFragment_to_godsFragment"
-            app:destination="@id/godsFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit" />
+            app:destination="@id/godsFragment" />
         <action
             android:id="@+id/action_mainFragment_to_heroesFragment"
-            app:destination="@id/heroesFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit" />
+            app:destination="@id/heroesFragment" />
     </fragment>
 
     <fragment
@@ -57,18 +41,10 @@
         tools:layout="@layout/fragment_champions">
         <action
             android:id="@+id/action_championsFragment_to_championFragment"
-            app:destination="@id/championFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit" />
+            app:destination="@id/championFragment" />
         <action
             android:id="@+id/action_championsFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit"
             app:popUpTo="@id/mainFragment"
             app:popUpToInclusive="true" />
         <action
@@ -86,18 +62,10 @@
         tools:layout="@layout/fragment_gods">
         <action
             android:id="@+id/action_godsFragment_to_godFragment"
-            app:destination="@id/godFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit" />
+            app:destination="@id/godFragment" />
         <action
             android:id="@+id/action_godsFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit"
             app:popUpTo="@id/mainFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -108,20 +76,15 @@
         tools:layout="@layout/fragment_heroes">
         <action
             android:id="@+id/action_heroesFragment_to_heroFragment"
-            app:destination="@id/heroFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit" />
+            app:destination="@id/heroFragment" />
         <action
             android:id="@+id/action_heroesFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit"
             app:popUpTo="@id/mainFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_heroesFragment_to_createHeroFragment"
+            app:destination="@id/createHeroFragment" />
     </fragment>
     <fragment
         android:id="@+id/championFragment"
@@ -134,10 +97,6 @@
         <action
             android:id="@+id/action_championFragment_to_championsFragment"
             app:destination="@id/championsFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit"
             app:popUpTo="@id/championsFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -152,10 +111,6 @@
         <action
             android:id="@+id/action_godFragment_to_godsFragment"
             app:destination="@id/godsFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit"
             app:popUpTo="@id/godsFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -170,10 +125,17 @@
         <action
             android:id="@+id/action_heroFragment_to_heroesFragment"
             app:destination="@id/heroesFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit"
+            app:popUpTo="@id/heroesFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/createHeroFragment"
+        android:name="pe.isil.esports.presentation.hero.CreateHeroFragment"
+        android:label="fragment_create_hero"
+        tools:layout="@layout/fragment_create_hero">
+        <action
+            android:id="@+id/action_createHeroFragment_to_heroesFragment"
+            app:destination="@id/heroesFragment"
             app:popUpTo="@id/heroesFragment"
             app:popUpToInclusive="true" />
     </fragment>

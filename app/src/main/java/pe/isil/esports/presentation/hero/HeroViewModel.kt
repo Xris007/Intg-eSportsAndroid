@@ -55,4 +55,13 @@ class HeroViewModel(private val useCase: HeroUseCase) : ViewModel() {
         }.asLiveData()
     }
 
+    fun createHero(hero: Hero): LiveData<ViewState<Hero>> {
+        return useCase.create(hero).map {
+            when (it) {
+                is OperationResult.Data -> heroViewState.copy(data = it.data)
+                is OperationResult.Error -> heroViewState.copy(error = it.message)
+            }
+        }.asLiveData()
+    }
+
 }
