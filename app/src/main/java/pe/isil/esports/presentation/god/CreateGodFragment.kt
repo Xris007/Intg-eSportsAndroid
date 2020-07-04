@@ -1,4 +1,4 @@
-package pe.isil.esports.presentation.hero
+package pe.isil.esports.presentation.god
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,28 +9,28 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import pe.isil.esports.databinding.FragmentCreateHeroBinding
-import pe.isil.esports.domain.model.Hero
+import pe.isil.esports.databinding.FragmentCreateGodBinding
+import pe.isil.esports.domain.model.God
 import pe.isil.esports.utils.observe
 import pe.isil.esports.utils.toast
 
 @ExperimentalCoroutinesApi
-class CreateHeroFragment : Fragment() {
+class CreateGodFragment : Fragment() {
 
-    private var _binding: FragmentCreateHeroBinding? = null
+    private var _binding: FragmentCreateGodBinding? = null
     private val binding
         get() = _binding!!
 
-    private val viewModel: HeroViewModel by viewModel()
+    private val viewModel: GodViewModel by viewModel()
 
-    private lateinit var hero: Hero
+    private lateinit var god: God
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentCreateHeroBinding.inflate(layoutInflater)
+        _binding = FragmentCreateGodBinding.inflate(layoutInflater)
 
         with((activity as AppCompatActivity)) {
             setSupportActionBar(binding.toolbar)
@@ -40,7 +40,7 @@ class CreateHeroFragment : Fragment() {
         }
 
         binding.toolbar.setNavigationOnClickListener {
-            findNavController().navigate(CreateHeroFragmentDirections.actionCreateHeroFragmentToHeroesFragment())
+            findNavController().navigate(CreateGodFragmentDirections.actionCreateGodFragmentToGodsFragment())
         }
 
         setupView()
@@ -53,37 +53,37 @@ class CreateHeroFragment : Fragment() {
         with(binding) {
 
             cancel.setOnClickListener {
-                findNavController().navigate(CreateHeroFragmentDirections.actionCreateHeroFragmentToHeroesFragment())
+                findNavController().navigate(CreateGodFragmentDirections.actionCreateGodFragmentToGodsFragment())
             }
 
             save.setOnClickListener {
 
-                hero = Hero(
+                god = God(
                     id = null,
                     name = "${name.text}",
-                    attribute = "${attribute.text}",
+                    title = "${title.text}",
                     type = "${type.text}",
-                    roles = "${roles.text}",
+                    attributes = "${attributes.text}",
                     poster_path = "${poster.text}",
                     backdrop_path = "${backdrop.text}",
                     description = "${description.text}",
-                    strength = "${strength.text}",
-                    agility = "${agility.text}",
-                    intelligence = "${intelligence.text}",
                     attack_damage = "${attackDamage.text}",
-                    armor = "${armor.text}",
+                    attack_speed = "${attackSpeed.text}",
+                    attack_range = "${attackRange.text}",
                     move_speed = "${moveSpeed.text}",
-                    health = "${health.text}",
+                    armor = "${armor.text}",
+                    magic_resistance = "${magicResistance.text}",
                     hp_regeneration = "${healthRegeneration.text}",
-                    mana = "${mana.text}",
-                    mp_regeneration = "${manaRegeneration.text}"
+                    mp_regeneration = "${manaRegeneration.text}",
+                    health = "${health.text}",
+                    mana = "${mana.text}"
                 )
 
                 with(viewModel) {
-                    observe(createHero(hero)) {
+                    observe(createGod(god)) {
                         if (it.data != null) {
-                            activity?.toast("Hero added")
-                            findNavController().navigate(CreateHeroFragmentDirections.actionCreateHeroFragmentToHeroesFragment())
+                            activity?.toast("God added")
+                            findNavController().navigate(CreateGodFragmentDirections.actionCreateGodFragmentToGodsFragment())
                         } else {
                             activity?.toast("${it.error}")
                         }
