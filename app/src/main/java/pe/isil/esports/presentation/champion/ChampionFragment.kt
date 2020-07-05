@@ -51,7 +51,7 @@ class ChampionFragment : Fragment() {
             observe(getChampion(champion)) {
                 if (it.data != null) {
                     with(binding) {
-                        championBackdrop.loading(it.data.backdrop_path)
+                        championBackdrop.loading(it.data.backdrop_path, progress)
                         championRol.icon(getChampionIcon(it.data.rol))
                         championName.text = it.data.name
                         championTitle.text = it.data.title
@@ -88,20 +88,20 @@ class ChampionFragment : Fragment() {
     }
 
     private fun getChampionIcon(rol: String?): Int {
-        return when (rol?.toLowerCase()) {
-            "juggernaut" -> R.drawable.ic_fighters
-            "burst" -> R.drawable.ic_mages
-            "assassin" -> R.drawable.ic_assasins
-            "vanguard" -> R.drawable.ic_tanks
-            "battlemage" -> R.drawable.ic_mages
-            "marksman" -> R.drawable.ic_marksmen
-            "specialist" -> R.drawable.ic_mages
-            "catcher" -> R.drawable.ic_supports
-            "warden" -> R.drawable.ic_tanks
-            "diver" -> R.drawable.ic_fighters
-            "skirmisher" -> R.drawable.ic_assasins
-            "enchanter" -> R.drawable.ic_supports
-            "artillery" -> R.drawable.ic_mages
+        return when (rol) {
+            "Juggernaut" -> R.drawable.ic_fighters
+            "Burst" -> R.drawable.ic_mages
+            "Assassin" -> R.drawable.ic_assasins
+            "Vanguard" -> R.drawable.ic_tanks
+            "Battlemage" -> R.drawable.ic_mages
+            "Marksman" -> R.drawable.ic_marksmen
+            "Specialist" -> R.drawable.ic_mages
+            "Catcher" -> R.drawable.ic_supports
+            "Warden" -> R.drawable.ic_tanks
+            "Diver" -> R.drawable.ic_fighters
+            "Skirmisher" -> R.drawable.ic_assasins
+            "Enchanter" -> R.drawable.ic_supports
+            "Artillery" -> R.drawable.ic_mages
             else -> R.drawable.ic_empty
         }
     }
@@ -111,34 +111,34 @@ class ChampionFragment : Fragment() {
     }
 
     private fun getChampionResourceRegenerationIcon(resource: String?): Int {
-        return when (resource!!.split(" - ")[0].toLowerCase()) {
-            "mana" -> R.drawable.ic_mana_regeneration
-            "energy" -> R.drawable.ic_energy_regeneration
-            "ferocity" -> R.drawable.ic_fury
-            "fury" -> R.drawable.ic_fury
-            "bloodthirst" -> R.drawable.ic_fury
-            "courage" -> R.drawable.ic_fury
-            "grit" -> R.drawable.ic_fury
-            "rage" -> R.drawable.ic_fury
-            "heat" -> R.drawable.ic_heat
-            "flow" -> R.drawable.ic_flow
-            "manaless" -> R.drawable.ic_empty
+        return when (resource!!.split(" - ")[0]) {
+            "Mana" -> R.drawable.ic_mana_regeneration
+            "Energy" -> R.drawable.ic_energy_regeneration
+            "Ferocity" -> R.drawable.ic_fury
+            "Fury" -> R.drawable.ic_fury
+            "Bloodthirst" -> R.drawable.ic_fury
+            "Courage" -> R.drawable.ic_fury
+            "Grit" -> R.drawable.ic_fury
+            "Rage" -> R.drawable.ic_fury
+            "Heat" -> R.drawable.ic_heat
+            "Flow" -> R.drawable.ic_flow
+            "Manaless" -> R.drawable.ic_empty
             else -> R.drawable.ic_empty
         }
     }
 
     private fun getChampionResourceIcon(resource: String?): Int {
-        return when (resource!!.split(" - ")[0].toLowerCase()) {
-            "mana" -> R.drawable.ic_mana
-            "energy" -> R.drawable.ic_energy
+        return when (resource!!.split(" - ")[0]) {
+            "Mana" -> R.drawable.ic_mana
+            "Energy" -> R.drawable.ic_energy
             else -> R.drawable.ic_empty
         }
     }
 
     private fun getChampionResourceColor(resource: String?): Int {
-        return when (resource!!.split(" - ")[0].toLowerCase()) {
-            "mana" -> R.color.manaColor
-            "energy" -> R.color.energyColor
+        return when (resource!!.split(" - ")[0]) {
+            "Mana" -> R.color.manaColor
+            "Energy" -> R.color.energyColor
             else -> R.color.cardColor
         }
     }

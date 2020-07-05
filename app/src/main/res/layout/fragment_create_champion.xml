@@ -56,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/proxima_nova_regular"
                     android:hint="@string/name"
-                    android:textSize="12sp"/>
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/proxima_nova_regular"
                     android:hint="@string/title"
-                    android:textSize="12sp"/>
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -88,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/proxima_nova_regular"
                     android:hint="@string/rol"
-                    android:textSize="12sp"/>
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -104,7 +104,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/proxima_nova_regular"
                     android:hint="@string/attributes"
-                    android:textSize="12sp"/>
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -120,7 +120,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/proxima_nova_regular"
                     android:hint="@string/poster_url"
-                    android:textSize="12sp"/>
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -136,7 +136,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/proxima_nova_regular"
                     android:hint="@string/backdrop_url"
-                    android:textSize="12sp"/>
+                    android:textSize="12sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -441,7 +441,7 @@
                         app:layout_constraintBottom_toBottomOf="@+id/champion_mana_regeneration"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/champion_mana_regeneration"
-                        app:srcCompat="@drawable/ic_mana_regeneration"/>
+                        app:srcCompat="@drawable/ic_mana_regeneration" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/champion_mana_regeneration"

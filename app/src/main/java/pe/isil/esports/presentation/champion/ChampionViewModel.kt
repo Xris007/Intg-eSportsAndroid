@@ -85,9 +85,9 @@ class ChampionViewModel(private val useCase: ChampionUseCase) : ViewModel() {
         }.asLiveData()
     }
 
-    fun createChampion(champion: Champion): LiveData<ViewState<Champion>>{
+    fun createChampion(champion: Champion): LiveData<ViewState<Champion>> {
         return useCase.create(champion).map {
-            when(it){
+            when (it) {
                 is OperationResult.Data -> championViewState.copy(data = it.data)
                 is OperationResult.Error -> championViewState.copy(error = it.message)
             }

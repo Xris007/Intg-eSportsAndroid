@@ -33,7 +33,7 @@ class GodAdapter(
     class ViewHolder(private val binding: ViewGodBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(god: God, listener: (Long) -> Unit) = with(binding) {
-            godPoster.loading(god.poster_path)
+            godPoster.loading(god.poster_path, progress)
             godName.text = god.name
 
             root.setOnClickListener { listener(god.id!!) }

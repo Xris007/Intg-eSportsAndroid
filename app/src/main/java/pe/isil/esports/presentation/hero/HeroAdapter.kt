@@ -33,7 +33,7 @@ class HeroAdapter(
     class ViewHolder(private val binding: ViewHeroBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(hero: Hero, listener: (Long) -> Unit) = with(binding) {
-            heroPoster.loading(hero.poster_path)
+            heroPoster.loading(hero.poster_path, progress)
             heroName.text = hero.name
             root.setOnClickListener { listener(hero.id!!) }
         }

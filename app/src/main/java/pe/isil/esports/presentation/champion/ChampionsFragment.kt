@@ -83,6 +83,12 @@ class ChampionsFragment : Fragment() {
         }
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -101,9 +107,7 @@ class ChampionsFragment : Fragment() {
             findNavController().navigate(ChampionsFragmentDirections.actionChampionsFragmentToMainFragment())
         }
 
-        setHasOptionsMenu(true)
-
-        binding.championGuide.loading("https://i.ibb.co/MM1YHLs/ic-guide-champion.png")
+        binding.championGuide.loading("https://i.ibb.co/MM1YHLs/ic-guide-champion.png", binding.progress)
 
         return binding.root
     }
@@ -231,7 +235,7 @@ class ChampionsFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             R.id.create -> findNavController().navigate(ChampionsFragmentDirections.actionChampionsFragmentToCreateChampionFragment())
         }
         return super.onOptionsItemSelected(item)

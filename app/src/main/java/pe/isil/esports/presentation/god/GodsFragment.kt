@@ -73,6 +73,12 @@ class GodsFragment : Fragment() {
         }
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -93,7 +99,7 @@ class GodsFragment : Fragment() {
 
         setHasOptionsMenu(true)
 
-        binding.godGuide.loading("https://i.ibb.co/5jDszss/ic-guide-god.png")
+        binding.godGuide.loading("https://i.ibb.co/5jDszss/ic-guide-god.png", binding.progress)
 
         return binding.root
     }

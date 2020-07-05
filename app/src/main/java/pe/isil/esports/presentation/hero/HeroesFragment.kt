@@ -53,6 +53,12 @@ class HeroesFragment : Fragment() {
         }
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -73,7 +79,7 @@ class HeroesFragment : Fragment() {
 
         setHasOptionsMenu(true)
 
-        binding.heroGuide.loading("https://i.ibb.co/D5B1jY4/ic-guide-hero.png")
+        binding.heroGuide.loading("https://i.ibb.co/D5B1jY4/ic-guide-hero.png", binding.progress)
 
         return binding.root
     }

@@ -48,7 +48,7 @@ class HeroFragment : Fragment() {
             observe(getHero(hero)) {
                 if (it.data != null) {
                     with(binding) {
-                        heroBackdrop.loading(it.data.backdrop_path)
+                        heroBackdrop.loading(it.data.backdrop_path, progress)
                         heroAttribute.icon(getHeroAttributeIcon(it.data.attribute))
                         heroName.text = it.data.name
                         heroType.text = it.data.type
@@ -73,10 +73,10 @@ class HeroFragment : Fragment() {
     }
 
     private fun getHeroAttributeIcon(attribute: String?): Int {
-        return when (attribute?.toLowerCase()) {
-            "strength" -> R.drawable.ic_strength
-            "agility" -> R.drawable.ic_agility
-            "intelligence" -> R.drawable.ic_intelligence
+        return when (attribute) {
+            "Strength" -> R.drawable.ic_strength
+            "Agility" -> R.drawable.ic_agility
+            "Intelligence" -> R.drawable.ic_intelligence
             else -> R.drawable.ic_empty
         }
     }

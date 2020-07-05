@@ -48,7 +48,7 @@ class GodFragment : Fragment() {
             observe(getGod(god)) {
                 if (it.data != null) {
                     with(binding) {
-                        godBackdrop.loading(it.data.backdrop_path)
+                        godBackdrop.loading(it.data.backdrop_path, progress)
                         godType.icon(getGodTypeIcon(it.data.type))
                         godName.text = it.data.name
                         godTitle.text = it.data.title
@@ -74,12 +74,12 @@ class GodFragment : Fragment() {
     }
 
     private fun getGodTypeIcon(type: String?): Int {
-        return when (type?.toLowerCase()) {
-            "guardian" -> R.drawable.ic_class_guardian
-            "warrior" -> R.drawable.ic_class_warrior
-            "hunter" -> R.drawable.ic_class_hunter
-            "mage" -> R.drawable.ic_class_mage
-            "assassin" -> R.drawable.ic_class_assassin
+        return when (type) {
+            "Guardian" -> R.drawable.ic_class_guardian
+            "Warrior" -> R.drawable.ic_class_warrior
+            "Hunter" -> R.drawable.ic_class_hunter
+            "Mage" -> R.drawable.ic_class_mage
+            "Assassin" -> R.drawable.ic_class_assassin
             else -> R.drawable.ic_empty
         }
     }

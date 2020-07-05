@@ -33,7 +33,7 @@ class ChampionAdapter(
     class ViewHolder(private val binding: ViewChampionBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(champion: Champion, listener: (Long) -> Unit) = with(binding) {
-            championPoster.loading(champion.poster_path)
+            championPoster.loading(champion.poster_path, progress)
             championName.text = champion.name
 
             root.setOnClickListener { listener(champion.id!!) }
