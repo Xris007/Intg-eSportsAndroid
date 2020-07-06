@@ -24,7 +24,7 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="pe.isil.esports.presentation.MainFragment"
-        android:label="eSports"
+        android:label="fragment_main"
         tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_championsFragment"
@@ -51,7 +51,7 @@
     <fragment
         android:id="@+id/championsFragment"
         android:name="pe.isil.esports.presentation.champion.ChampionsFragment"
-        android:label="League of Legends"
+        android:label="fragment_champions"
         tools:layout="@layout/fragment_champions">
         <action
             android:id="@+id/action_championsFragment_to_championFragment"
@@ -80,7 +80,7 @@
     <fragment
         android:id="@+id/godsFragment"
         android:name="pe.isil.esports.presentation.god.GodsFragment"
-        android:label="Smite"
+        android:label="fragment_gods"
         tools:layout="@layout/fragment_gods">
         <action
             android:id="@+id/action_godsFragment_to_godFragment"
@@ -109,7 +109,7 @@
     <fragment
         android:id="@+id/heroesFragment"
         android:name="pe.isil.esports.presentation.hero.HeroesFragment"
-        android:label="Dota 2"
+        android:label="fragment_heroes"
         tools:layout="@layout/fragment_heroes">
         <action
             android:id="@+id/action_heroesFragment_to_heroFragment"
@@ -138,7 +138,7 @@
     <fragment
         android:id="@+id/championFragment"
         android:name="pe.isil.esports.presentation.champion.ChampionFragment"
-        android:label="Champion"
+        android:label="fragment_champion"
         tools:layout="@layout/fragment_champion">
         <argument
             android:name="id"
@@ -159,7 +159,7 @@
     <fragment
         android:id="@+id/godFragment"
         android:name="pe.isil.esports.presentation.god.GodFragment"
-        android:label="God"
+        android:label="fragment_god"
         tools:layout="@layout/fragment_god">
         <argument
             android:name="id"
@@ -173,11 +173,14 @@
             app:popExitAnim="@anim/fragment_fade_exit"
             app:popUpTo="@id/godsFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_godFragment_to_updateGodFragment"
+            app:destination="@id/updateGodFragment" />
     </fragment>
     <fragment
         android:id="@+id/heroFragment"
         android:name="pe.isil.esports.presentation.hero.HeroFragment"
-        android:label="Hero"
+        android:label="fragment_hero"
         tools:layout="@layout/fragment_hero">
         <argument
             android:name="id"
@@ -191,6 +194,9 @@
             app:popExitAnim="@anim/fragment_fade_exit"
             app:popUpTo="@id/heroesFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_heroFragment_to_updateHeroFragment"
+            app:destination="@id/updateHeroFragment" />
     </fragment>
     <fragment
         android:id="@+id/createChampionFragment"
@@ -241,7 +247,7 @@
         android:id="@+id/updateChampionFragment"
         android:name="pe.isil.esports.presentation.champion.UpdateChampionFragment"
         android:label="fragment_update_champion"
-        tools:layout="@layout/fragment_update_champion" >
+        tools:layout="@layout/fragment_update_champion">
         <action
             android:id="@+id/action_updateChampionFragment_to_championFragment"
             app:destination="@id/championFragment"
@@ -250,6 +256,42 @@
             app:popEnterAnim="@anim/fragment_fade_enter"
             app:popExitAnim="@anim/fragment_fade_exit"
             app:popUpTo="@id/championFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="id"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateGodFragment"
+        android:name="pe.isil.esports.presentation.god.UpdateGodFragment"
+        android:label="fragment_update_god"
+        tools:layout="@layout/fragment_update_god">
+        <action
+            android:id="@+id/action_updateGodFragment_to_godFragment"
+            app:destination="@id/godFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit"
+            app:popUpTo="@id/godFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="id"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateHeroFragment"
+        android:name="pe.isil.esports.presentation.hero.UpdateHeroFragment"
+        android:label="fragment_update_hero"
+        tools:layout="@layout/fragment_update_hero">
+        <action
+            android:id="@+id/action_updateHeroFragment_to_heroFragment"
+            app:destination="@id/heroFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit"
+            app:popUpTo="@id/heroFragment"
             app:popUpToInclusive="true" />
         <argument
             android:name="id"

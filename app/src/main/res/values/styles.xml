@@ -14,4 +14,14 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.DayNight" />
 
+    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="materialThemeOverlay">@style/AppTheme.TextInputLayout</item>
+    </style>
+
+    <style name="AppTheme.TextInputLayout" parent="">
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorOnSurface">@android:color/white</item>
+        <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox</item>
+    </style>
+
 </resources>

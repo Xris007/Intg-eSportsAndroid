@@ -77,8 +77,6 @@ class HeroesFragment : Fragment() {
             findNavController().navigate(HeroesFragmentDirections.actionHeroesFragmentToMainFragment())
         }
 
-        setHasOptionsMenu(true)
-
         binding.heroGuide.loading("https://i.ibb.co/D5B1jY4/ic-guide-hero.png", binding.progress)
 
         return binding.root

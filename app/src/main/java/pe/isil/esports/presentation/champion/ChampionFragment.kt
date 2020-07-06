@@ -162,7 +162,11 @@ class ChampionFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.update -> findNavController().navigate(ChampionFragmentDirections.actionChampionFragmentToUpdateChampionFragment(champion))
+            R.id.edit -> findNavController().navigate(
+                ChampionFragmentDirections.actionChampionFragmentToUpdateChampionFragment(
+                    champion
+                )
+            )
         }
         return super.onOptionsItemSelected(item)
     }

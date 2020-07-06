@@ -97,8 +97,6 @@ class GodsFragment : Fragment() {
             findNavController().navigate(GodsFragmentDirections.actionGodsFragmentToMainFragment())
         }
 
-        setHasOptionsMenu(true)
-
         binding.godGuide.loading("https://i.ibb.co/5jDszss/ic-guide-god.png", binding.progress)
 
         return binding.root

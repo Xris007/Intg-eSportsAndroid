@@ -56,7 +56,8 @@
             android:id="@+id/progress"
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:visibility="gone" />
 
     </androidx.cardview.widget.CardView>
 

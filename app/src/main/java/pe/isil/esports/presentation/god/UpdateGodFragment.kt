@@ -1,4 +1,4 @@
-package pe.isil.esports.presentation.champion
+package pe.isil.esports.presentation.god
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,32 +10,32 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import pe.isil.esports.databinding.FragmentUpdateChampionBinding
-import pe.isil.esports.domain.model.Champion
+import pe.isil.esports.databinding.FragmentUpdateGodBinding
+import pe.isil.esports.domain.model.God
 import pe.isil.esports.utils.observe
 import pe.isil.esports.utils.toast
 import pe.isil.esports.utils.validate
 
 @ExperimentalCoroutinesApi
-class UpdateChampionFragment : Fragment() {
+class UpdateGodFragment : Fragment() {
 
-    private var _binding: FragmentUpdateChampionBinding? = null
+    private var _binding: FragmentUpdateGodBinding? = null
     private val binding
         get() = _binding!!
 
-    private val args: UpdateChampionFragmentArgs by navArgs()
-    private val champion: Long by lazy { args.id }
+    private val args: UpdateGodFragmentArgs by navArgs()
+    private val god: Long by lazy { args.id }
 
-    private val viewModel: ChampionViewModel by viewModel()
+    private val viewModel: GodViewModel by viewModel()
 
-    private lateinit var updated: Champion
+    private lateinit var updated: God
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentUpdateChampionBinding.inflate(inflater, container, false)
+        _binding = FragmentUpdateGodBinding.inflate(inflater, container, false)
 
         with((activity as AppCompatActivity)) {
             setSupportActionBar(binding.toolbar)
@@ -46,8 +46,8 @@ class UpdateChampionFragment : Fragment() {
 
         binding.toolbar.setNavigationOnClickListener {
             findNavController().navigate(
-                UpdateChampionFragmentDirections.actionUpdateChampionFragmentToChampionFragment(
-                    champion
+                UpdateGodFragmentDirections.actionUpdateGodFragmentToGodFragment(
+                    god
                 )
             )
         }
@@ -58,22 +58,23 @@ class UpdateChampionFragment : Fragment() {
     }
 
     private fun setupView() {
+
         with(binding) {
             cancel.setOnClickListener {
                 findNavController().navigate(
-                    UpdateChampionFragmentDirections.actionUpdateChampionFragmentToChampionFragment(
-                        champion
+                    UpdateGodFragmentDirections.actionUpdateGodFragmentToGodFragment(
+                        god
                     )
                 )
             }
 
             update.setOnClickListener {
                 if (validateForm()) {
-                    updated = Champion(
-                        id = champion,
+                    updated = God(
+                        id = god,
                         name = "${name.text}",
                         title = "${title.text}",
-                        rol = "${rol.text}",
+                        type = "${type.text}",
                         attributes = "${attributes.text}",
                         poster_path = "${poster.text}",
                         backdrop_path = "${backdrop.text}",
@@ -91,12 +92,12 @@ class UpdateChampionFragment : Fragment() {
                     )
 
                     with(viewModel) {
-                        observe(updateChampion(champion, updated)) {
+                        observe(updateGod(god, updated)) {
                             if (it.data != null) {
-                                activity?.toast("Champion updated")
+                                activity?.toast("God updated")
                                 findNavController().navigate(
-                                    UpdateChampionFragmentDirections.actionUpdateChampionFragmentToChampionFragment(
-                                        champion
+                                    UpdateGodFragmentDirections.actionUpdateGodFragmentToGodFragment(
+                                        god
                                     )
                                 )
                             } else {
@@ -115,7 +116,7 @@ class UpdateChampionFragment : Fragment() {
         return with(binding) {
             name.validate()
             title.validate()
-            rol.validate()
+            type.validate()
             attributes.validate()
             poster.validate()
             backdrop.validate()
@@ -136,12 +137,12 @@ class UpdateChampionFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         with(viewModel) {
-            observe(getChampion(champion)) {
+            observe(getGod(god)) {
                 if (it.data != null) {
                     with(binding) {
                         name.setText(it.data.name)
                         title.setText(it.data.title)
-                        rol.setText(it.data.rol)
+                        type.setText(it.data.type)
                         attributes.setText(it.data.attributes)
                         poster.setText(it.data.poster_path)
                         backdrop.setText(it.data.backdrop_path)

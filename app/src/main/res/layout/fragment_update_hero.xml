@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    tools:context=".presentation.hero.CreateHeroFragment">
+    tools:context=".presentation.hero.UpdateHeroFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/proxima_nova_bold"
-            android:text="@string/new_hero"
+            android:text="@string/edit_hero"
             android:textColor="@android:color/white"
             android:textSize="24sp" />
 
@@ -523,11 +523,11 @@
                     android:layout_weight="0.005" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/save"
+                    android:id="@+id/update"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:text="@string/save"
+                    android:text="@string/update"
                     app:backgroundTint="?attr/colorSecondaryVariant" />
 
             </LinearLayout>

@@ -1,4 +1,4 @@
-package pe.isil.esports.presentation.champion
+package pe.isil.esports.presentation.hero
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,32 +10,32 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import pe.isil.esports.databinding.FragmentUpdateChampionBinding
-import pe.isil.esports.domain.model.Champion
+import pe.isil.esports.databinding.FragmentUpdateHeroBinding
+import pe.isil.esports.domain.model.Hero
 import pe.isil.esports.utils.observe
 import pe.isil.esports.utils.toast
 import pe.isil.esports.utils.validate
 
 @ExperimentalCoroutinesApi
-class UpdateChampionFragment : Fragment() {
+class UpdateHeroFragment : Fragment() {
 
-    private var _binding: FragmentUpdateChampionBinding? = null
+    private var _binding: FragmentUpdateHeroBinding? = null
     private val binding
         get() = _binding!!
 
-    private val args: UpdateChampionFragmentArgs by navArgs()
-    private val champion: Long by lazy { args.id }
+    private val args: UpdateHeroFragmentArgs by navArgs()
+    private val hero: Long by lazy { args.id }
 
-    private val viewModel: ChampionViewModel by viewModel()
+    private val viewModel: HeroViewModel by viewModel()
 
-    private lateinit var updated: Champion
+    private lateinit var updated: Hero
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentUpdateChampionBinding.inflate(inflater, container, false)
+        _binding = FragmentUpdateHeroBinding.inflate(inflater, container, false)
 
         with((activity as AppCompatActivity)) {
             setSupportActionBar(binding.toolbar)
@@ -46,8 +46,8 @@ class UpdateChampionFragment : Fragment() {
 
         binding.toolbar.setNavigationOnClickListener {
             findNavController().navigate(
-                UpdateChampionFragmentDirections.actionUpdateChampionFragmentToChampionFragment(
-                    champion
+                UpdateHeroFragmentDirections.actionUpdateHeroFragmentToHeroFragment(
+                    hero
                 )
             )
         }
@@ -58,45 +58,46 @@ class UpdateChampionFragment : Fragment() {
     }
 
     private fun setupView() {
+
         with(binding) {
             cancel.setOnClickListener {
                 findNavController().navigate(
-                    UpdateChampionFragmentDirections.actionUpdateChampionFragmentToChampionFragment(
-                        champion
+                    UpdateHeroFragmentDirections.actionUpdateHeroFragmentToHeroFragment(
+                        hero
                     )
                 )
             }
 
             update.setOnClickListener {
                 if (validateForm()) {
-                    updated = Champion(
-                        id = champion,
+                    updated = Hero(
+                        id = hero,
                         name = "${name.text}",
-                        title = "${title.text}",
-                        rol = "${rol.text}",
-                        attributes = "${attributes.text}",
+                        attribute = "${attribute.text}",
+                        type = "${type.text}",
+                        roles = "${roles.text}",
                         poster_path = "${poster.text}",
                         backdrop_path = "${backdrop.text}",
                         description = "${description.text}",
+                        strength = "${strength.text}",
+                        agility = "${agility.text}",
+                        intelligence = "${intelligence.text}",
                         attack_damage = "${attackDamage.text}",
-                        attack_speed = "${attackSpeed.text}",
-                        attack_range = "${attackRange.text}",
-                        move_speed = "${moveSpeed.text}",
                         armor = "${armor.text}",
-                        magic_resistance = "${magicResistance.text}",
-                        hp_regeneration = "${healthRegeneration.text}",
-                        mp_regeneration = "${manaRegeneration.text}",
+                        move_speed = "${moveSpeed.text}",
                         health = "${health.text}",
-                        mana = "${mana.text}"
+                        hp_regeneration = "${healthRegeneration.text}",
+                        mana = "${mana.text}",
+                        mp_regeneration = "${manaRegeneration.text}"
                     )
 
                     with(viewModel) {
-                        observe(updateChampion(champion, updated)) {
+                        observe(updateHero(hero, updated)) {
                             if (it.data != null) {
-                                activity?.toast("Champion updated")
+                                activity?.toast("Hero updated")
                                 findNavController().navigate(
-                                    UpdateChampionFragmentDirections.actionUpdateChampionFragmentToChampionFragment(
-                                        champion
+                                    UpdateHeroFragmentDirections.actionUpdateHeroFragmentToHeroFragment(
+                                        hero
                                     )
                                 )
                             } else {
@@ -114,48 +115,48 @@ class UpdateChampionFragment : Fragment() {
     private fun validateForm(): Boolean {
         return with(binding) {
             name.validate()
-            title.validate()
-            rol.validate()
-            attributes.validate()
+            attribute.validate()
+            type.validate()
+            roles.validate()
             poster.validate()
             backdrop.validate()
             description.validate()
+            strength.validate()
+            agility.validate()
+            intelligence.validate()
             attackDamage.validate()
-            attackSpeed.validate()
-            attackRange.validate()
-            moveSpeed.validate()
             armor.validate()
-            magicResistance.validate()
-            healthRegeneration.validate()
-            manaRegeneration.validate()
+            moveSpeed.validate()
             health.validate()
+            healthRegeneration.validate()
             mana.validate()
+            manaRegeneration.validate()
         }
     }
 
     override fun onResume() {
         super.onResume()
         with(viewModel) {
-            observe(getChampion(champion)) {
+            observe(getHero(hero)) {
                 if (it.data != null) {
                     with(binding) {
                         name.setText(it.data.name)
-                        title.setText(it.data.title)
-                        rol.setText(it.data.rol)
-                        attributes.setText(it.data.attributes)
+                        attribute.setText(it.data.attribute)
+                        type.setText(it.data.type)
+                        roles.setText(it.data.roles)
                         poster.setText(it.data.poster_path)
                         backdrop.setText(it.data.backdrop_path)
                         description.setText(it.data.description)
+                        strength.setText(it.data.strength)
+                        agility.setText(it.data.agility)
+                        intelligence.setText(it.data.intelligence)
                         attackDamage.setText(it.data.attack_damage)
-                        attackSpeed.setText(it.data.attack_speed)
-                        attackRange.setText(it.data.attack_range)
-                        moveSpeed.setText(it.data.move_speed)
                         armor.setText(it.data.armor)
-                        magicResistance.setText(it.data.magic_resistance)
-                        healthRegeneration.setText(it.data.hp_regeneration)
-                        manaRegeneration.setText(it.data.mp_regeneration)
+                        moveSpeed.setText(it.data.move_speed)
                         health.setText(it.data.health)
+                        healthRegeneration.setText(it.data.hp_regeneration)
                         mana.setText(it.data.mana)
+                        manaRegeneration.setText(it.data.mp_regeneration)
                     }
                 } else {
                     activity?.toast("${it.error}")

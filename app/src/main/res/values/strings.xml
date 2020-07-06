@@ -75,7 +75,9 @@
     <string name="intelligence">Intelligence</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
-    <string name="update">Update</string>
-    <string name="edit_champion">Edit Champion</string>
     <string name="edit">Edit</string>
+    <string name="edit_champion">Edit Champion</string>
+    <string name="edit_god">Edit God</string>
+    <string name="edit_hero">Edit Hero</string>
+    <string name="update">Update</string>
 </resources>

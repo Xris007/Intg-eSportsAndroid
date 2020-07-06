@@ -15,17 +15,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:contentDescription="@string/back"
-            android:elevation="1dp"
-            app:layout_constraintStart_toStartOf="@+id/hero_backdrop"
-            app:layout_constraintTop_toTopOf="@+id/hero_backdrop"
-            app:srcCompat="@drawable/ic_baseline_arrow_back_ios" />
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            android:elevation="0.01dp"
+            android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_ios"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         <ImageView
             android:id="@+id/hero_backdrop"
@@ -42,6 +43,7 @@
             android:id="@+id/progress"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

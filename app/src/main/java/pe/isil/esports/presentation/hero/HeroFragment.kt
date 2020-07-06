@@ -1,9 +1,8 @@
 package pe.isil.esports.presentation.hero
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -28,6 +27,12 @@ class HeroFragment : Fragment() {
 
     private val viewModel: HeroViewModel by viewModel()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,7 +40,14 @@ class HeroFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentHeroBinding.inflate(inflater, container, false)
 
-        binding.back.setOnClickListener {
+        with((activity as AppCompatActivity)) {
+            setSupportActionBar(binding.toolbar)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.setDisplayShowHomeEnabled(true)
+            supportActionBar?.setDisplayShowTitleEnabled(false)
+        }
+
+        binding.toolbar.setNavigationOnClickListener {
             findNavController().navigate(HeroFragmentDirections.actionHeroFragmentToHeroesFragment())
         }
 
@@ -83,6 +95,18 @@ class HeroFragment : Fragment() {
 
     private fun getHeroType(type: String?): String {
         return type!!.split(" - ").joinToString("  ")
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.update, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.edit -> findNavController().navigate(HeroFragmentDirections.actionHeroFragmentToUpdateHeroFragment(hero))
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onDestroy() {
