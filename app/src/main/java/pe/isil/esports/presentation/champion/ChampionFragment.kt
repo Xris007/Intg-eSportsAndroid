@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
@@ -38,7 +39,14 @@ class ChampionFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentChampionBinding.inflate(inflater, container, false)
 
-        binding.back.setOnClickListener {
+        with((activity as AppCompatActivity)) {
+            setSupportActionBar(binding.toolbar)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.setDisplayShowHomeEnabled(true)
+            supportActionBar?.setDisplayShowTitleEnabled(false)
+        }
+
+        binding.toolbar.setNavigationOnClickListener {
             findNavController().navigate(ChampionFragmentDirections.actionChampionFragmentToChampionsFragment())
         }
 

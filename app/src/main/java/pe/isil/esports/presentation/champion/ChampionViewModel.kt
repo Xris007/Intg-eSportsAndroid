@@ -21,6 +21,8 @@ class ChampionViewModel(private val useCase: ChampionUseCase) : ViewModel() {
     private val tanksViewState = ViewState<List<Champion>>()
 
     private val championViewState = ViewState<Champion>()
+    private val createViewState = ViewState<Champion>()
+    private val updateViewState = ViewState<Champion>()
 
     fun getAssassins(): LiveData<ViewState<List<Champion>>> {
         return useCase.getAssassins().map {
@@ -88,8 +90,17 @@ class ChampionViewModel(private val useCase: ChampionUseCase) : ViewModel() {
     fun createChampion(champion: Champion): LiveData<ViewState<Champion>> {
         return useCase.create(champion).map {
             when (it) {
-                is OperationResult.Data -> championViewState.copy(data = it.data)
-                is OperationResult.Error -> championViewState.copy(error = it.message)
+                is OperationResult.Data -> createViewState.copy(data = it.data)
+                is OperationResult.Error -> createViewState.copy(error = it.message)
+            }
+        }.asLiveData()
+    }
+
+    fun updateChampion(id: Long, champion: Champion): LiveData<ViewState<Champion>> {
+        return useCase.update(id, champion).map {
+            when (it) {
+                is OperationResult.Data -> updateViewState.copy(data = it.data)
+                is OperationResult.Error -> updateViewState.copy(error = it.message)
             }
         }.asLiveData()
     }

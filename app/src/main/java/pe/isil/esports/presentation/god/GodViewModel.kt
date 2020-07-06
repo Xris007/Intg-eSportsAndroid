@@ -20,6 +20,8 @@ class GodViewModel(private val useCase: GodUseCase) : ViewModel() {
     private val assassinsViewState = ViewState<List<God>>()
 
     private val godViewState = ViewState<God>()
+    private val createViewState = ViewState<God>()
+    private val updateViewState = ViewState<God>()
 
     fun getGuardians(): LiveData<ViewState<List<God>>> {
         return useCase.getGuardians().map {
@@ -79,8 +81,17 @@ class GodViewModel(private val useCase: GodUseCase) : ViewModel() {
     fun createGod(god: God): LiveData<ViewState<God>> {
         return useCase.create(god).map {
             when (it) {
-                is OperationResult.Data -> godViewState.copy(data = it.data)
-                is OperationResult.Error -> godViewState.copy(error = it.message)
+                is OperationResult.Data -> createViewState.copy(data = it.data)
+                is OperationResult.Error -> createViewState.copy(error = it.message)
+            }
+        }.asLiveData()
+    }
+
+    fun updateGod(id: Long, god: God): LiveData<ViewState<God>> {
+        return useCase.update(id, god).map {
+            when (it) {
+                is OperationResult.Data -> updateViewState.copy(data = it.data)
+                is OperationResult.Error -> updateViewState.copy(error = it.message)
             }
         }.asLiveData()
     }
