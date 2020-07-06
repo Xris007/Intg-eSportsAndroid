@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backgroundColor"
+    tools:context=".presentation.champion.UpdateChampionFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/backgroundColor"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_baseline_arrow_back_ios"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proxima_nova_bold"
+            android:text="@string/edit_champion"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proxima_nova_regular"
+                    android:hint="@string/name"
+                    android:textSize="12sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proxima_nova_regular"
+                    android:hint="@string/title"
+                    android:textSize="12sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/rol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proxima_nova_regular"
+                    android:hint="@string/rol"
+                    android:textSize="12sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/attributes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proxima_nova_regular"
+                    android:hint="@string/attributes"
+                    android:textSize="12sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/poster"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proxima_nova_regular"
+                    android:hint="@string/poster_url"
+                    android:textSize="12sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/backdrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proxima_nova_regular"
+                    android:hint="@string/backdrop_url"
+                    android:textSize="12sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proxima_nova_regular"
+                    android:hint="@string/description"
+                    android:textSize="12sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5">
+
+                    <ImageView
+                        android:id="@+id/champion_attack_damage_icon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/attack_damage"
+                        app:layout_constraintBottom_toBottomOf="@+id/champion_attack_damage"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/champion_attack_damage"
+                        app:srcCompat="@drawable/ic_attack_damage" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/champion_attack_damage"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/champion_attack_damage_icon"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/attack_damage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova_regular"
+                            android:hint="@string/attack_damage"
+                            android:textSize="12sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/champion_attack_speed_icon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/attack_speed"
+                        app:layout_constraintBottom_toBottomOf="@+id/champion_attack_speed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/champion_attack_speed"
+                        app:srcCompat="@drawable/ic_attack_speed" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/champion_attack_speed"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/champion_attack_speed_icon"
+                        app:layout_constraintTop_toBottomOf="@+id/champion_attack_damage">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/attack_speed"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova_regular"
+                            android:hint="@string/attack_speed"
+                            android:textSize="12sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/champion_attack_range_icon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/attack_range"
+                        app:layout_constraintBottom_toBottomOf="@+id/champion_attack_range"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/champion_attack_range"
+                        app:srcCompat="@drawable/ic_range" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/champion_attack_range"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/champion_attack_range_icon"
+                        app:layout_constraintTop_toBottomOf="@+id/champion_attack_speed">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/attack_range"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova_regular"
+                            android:hint="@string/attack_range"
+                            android:textSize="12sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/champion_health_regeneration_icon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/health_regeneration"
+                        android:tint="@color/healthColor"
+                        app:layout_constraintBottom_toBottomOf="@+id/champion_health_regeneration"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/champion_health_regeneration"
+                        app:srcCompat="@drawable/ic_health_regeneration" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/champion_health_regeneration"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/champion_health_regeneration_icon"
+                        app:layout_constraintTop_toBottomOf="@+id/champion_attack_range">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/health_regeneration"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova_regular"
+                            android:hint="@string/health_regeneration"
+                            android:textSize="12sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/champion_health_icon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/health"
+                        android:tint="@color/healthColor"
+                        app:layout_constraintBottom_toBottomOf="@+id/champion_health"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/champion_health"
+                        app:srcCompat="@drawable/ic_health" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/champion_health"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/champion_health_icon"
+                        app:layout_constraintTop_toBottomOf="@+id/champion_health_regeneration">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/health"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova_regular"
+                            android:hint="@string/health"
+                            android:textSize="12sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.005"
+                    android:background="@color/lettersColor" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5">
+
+                    <ImageView
+                        android:id="@+id/champion_move_speed_icon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/armor"
+                        app:layout_constraintBottom_toBottomOf="@+id/champion_move_speed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/champion_move_speed"
+                        app:srcCompat="@drawable/ic_movement_speed" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/champion_move_speed"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/champion_move_speed_icon"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/move_speed"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova_regular"
+                            android:hint="@string/move_speed"
+                            android:textSize="12sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/champion_armor_icon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/armor"
+                        app:layout_constraintBottom_toBottomOf="@+id/champion_armor"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/champion_armor"
+                        app:srcCompat="@drawable/ic_armor" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/champion_armor"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/champion_armor_icon"
+                        app:layout_constraintTop_toBottomOf="@+id/champion_move_speed">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/armor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova_regular"
+                            android:hint="@string/armor"
+                            android:textSize="12sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/champion_magic_resistance_icon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/magic_resistance"
+                        app:layout_constraintBottom_toBottomOf="@+id/champion_magic_resistance"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/champion_magic_resistance"
+                        app:srcCompat="@drawable/ic_magic_resistance" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/champion_magic_resistance"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/champion_magic_resistance_icon"
+                        app:layout_constraintTop_toBottomOf="@+id/champion_armor">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/magic_resistance"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova_regular"
+                            android:hint="@string/magic_resistance"
+                            android:textSize="12sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/champion_mana_regeneration_icon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/mana_regeneration"
+                        android:tint="@color/manaColor"
+                        app:layout_constraintBottom_toBottomOf="@+id/champion_mana_regeneration"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/champion_mana_regeneration"
+                        app:srcCompat="@drawable/ic_mana_regeneration" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/champion_mana_regeneration"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/champion_mana_regeneration_icon"
+                        app:layout_constraintTop_toBottomOf="@+id/champion_magic_resistance">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/mana_regeneration"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova_regular"
+                            android:hint="@string/mana_regeneration"
+                            android:textSize="12sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/champion_mana_icon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:contentDescription="@string/mana"
+                        android:tint="@color/manaColor"
+                        app:layout_constraintBottom_toBottomOf="@+id/champion_mana"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/champion_mana"
+                        app:srcCompat="@drawable/ic_mana" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/champion_mana"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/champion_mana_icon"
+                        app:layout_constraintTop_toBottomOf="@+id/champion_mana_regeneration">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/mana"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova_regular"
+                            android:hint="@string/mana_regeneration"
+                            android:textSize="12sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/cancel"
+                    app:backgroundTint="?attr/colorError" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.005" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/update"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/update"
+                    app:backgroundTint="?attr/colorSecondaryVariant" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

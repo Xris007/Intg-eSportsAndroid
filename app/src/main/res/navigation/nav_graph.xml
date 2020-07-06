@@ -152,6 +152,9 @@
             app:popExitAnim="@anim/fragment_fade_exit"
             app:popUpTo="@id/championsFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_championFragment_to_updateChampionFragment"
+            app:destination="@id/updateChampionFragment" />
     </fragment>
     <fragment
         android:id="@+id/godFragment"
@@ -233,5 +236,23 @@
             app:popExitAnim="@anim/fragment_fade_exit"
             app:popUpTo="@id/heroesFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateChampionFragment"
+        android:name="pe.isil.esports.presentation.champion.UpdateChampionFragment"
+        android:label="fragment_update_champion"
+        tools:layout="@layout/fragment_update_champion" >
+        <action
+            android:id="@+id/action_updateChampionFragment_to_championFragment"
+            app:destination="@id/championFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit"
+            app:popUpTo="@id/championFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="id"
+            app:argType="long" />
     </fragment>
 </navigation>

@@ -2,9 +2,8 @@ package pe.isil.esports.presentation.champion
 
 import android.content.res.ColorStateList
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
@@ -31,6 +30,12 @@ class ChampionFragment : Fragment() {
 
     private val viewModel: ChampionViewModel by viewModel()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,7 +43,14 @@ class ChampionFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentChampionBinding.inflate(inflater, container, false)
 
-        binding.back.setOnClickListener {
+        with((activity as AppCompatActivity)) {
+            setSupportActionBar(binding.toolbar)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.setDisplayShowHomeEnabled(true)
+            supportActionBar?.setDisplayShowTitleEnabled(false)
+        }
+
+        binding.toolbar.setNavigationOnClickListener {
             findNavController().navigate(ChampionFragmentDirections.actionChampionFragmentToChampionsFragment())
         }
 
@@ -141,6 +153,18 @@ class ChampionFragment : Fragment() {
             "Energy" -> R.color.energyColor
             else -> R.color.cardColor
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.update, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.update -> findNavController().navigate(ChampionFragmentDirections.actionChampionFragmentToUpdateChampionFragment(champion))
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onDestroy() {
