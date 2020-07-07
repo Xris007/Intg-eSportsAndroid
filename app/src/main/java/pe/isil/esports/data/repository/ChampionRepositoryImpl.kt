@@ -2,7 +2,7 @@ package pe.isil.esports.data.repository
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
-import pe.isil.esports.data.source.remote.ChampionService
+import pe.isil.esports.data.source.remote.service.ChampionService
 import pe.isil.esports.domain.model.Champion
 import pe.isil.esports.domain.repository.ChampionRepository
 import pe.isil.esports.domain.vo.OperationResult

@@ -5,10 +5,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
-import pe.isil.esports.di.module.championModule
-import pe.isil.esports.di.module.godModule
-import pe.isil.esports.di.module.heroModule
-import pe.isil.esports.di.module.networkModule
+import pe.isil.esports.di.module.*
 
 @ExperimentalCoroutinesApi
 class KApplication : Application() {
@@ -19,7 +16,7 @@ class KApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@KApplication)
-            modules(listOf(networkModule, championModule, godModule, heroModule))
+            modules(listOf(networkModule, championModule, godModule, heroModule, loginModule))
         }
     }
 
