@@ -55,6 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/proxima_nova_regular"
+                    android:textColor="@android:color/white"
                     android:hint="@string/name"
                     android:textSize="12sp" />
 
@@ -71,6 +72,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/proxima_nova_regular"
+                    android:textColor="@android:color/white"
                     android:hint="@string/title"
                     android:textSize="12sp" />
 
@@ -87,6 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/proxima_nova_regular"
+                    android:textColor="@android:color/white"
                     android:hint="@string/type"
                     android:textSize="12sp" />
 
@@ -103,6 +106,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/proxima_nova_regular"
+                    android:textColor="@android:color/white"
                     android:hint="@string/attributes"
                     android:textSize="12sp" />
 
@@ -119,6 +123,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/proxima_nova_regular"
+                    android:textColor="@android:color/white"
                     android:hint="@string/poster_url"
                     android:textSize="12sp" />
 
@@ -135,6 +140,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/proxima_nova_regular"
+                    android:textColor="@android:color/white"
                     android:hint="@string/backdrop_url"
                     android:textSize="12sp" />
 
@@ -151,6 +157,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/proxima_nova_regular"
+                    android:textColor="@android:color/white"
                     android:hint="@string/description"
                     android:textSize="12sp" />
 
@@ -193,6 +200,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/proxima_nova_regular"
+                            android:textColor="@android:color/white"
                             android:hint="@string/attack_damage"
                             android:textSize="12sp" />
 
@@ -224,6 +232,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/proxima_nova_regular"
+                            android:textColor="@android:color/white"
                             android:hint="@string/attack_speed"
                             android:textSize="12sp" />
 
@@ -255,6 +264,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/proxima_nova_regular"
+                            android:textColor="@android:color/white"
                             android:hint="@string/attack_range"
                             android:textSize="12sp" />
 
@@ -287,6 +297,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/proxima_nova_regular"
+                            android:textColor="@android:color/white"
                             android:hint="@string/health_regeneration"
                             android:textSize="12sp" />
 
@@ -320,6 +331,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/proxima_nova_regular"
+                            android:textColor="@android:color/white"
                             android:hint="@string/health"
                             android:textSize="12sp" />
 
@@ -366,6 +378,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/proxima_nova_regular"
+                            android:textColor="@android:color/white"
                             android:hint="@string/move_speed"
                             android:textSize="12sp" />
 
@@ -397,6 +410,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/proxima_nova_regular"
+                            android:textColor="@android:color/white"
                             android:hint="@string/armor"
                             android:textSize="12sp" />
 
@@ -428,6 +442,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/proxima_nova_regular"
+                            android:textColor="@android:color/white"
                             android:hint="@string/magic_resistance"
                             android:textSize="12sp" />
 
@@ -460,6 +475,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/proxima_nova_regular"
+                            android:textColor="@android:color/white"
                             android:hint="@string/mana_regeneration"
                             android:textSize="12sp" />
 
@@ -493,6 +509,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/proxima_nova_regular"
+                            android:textColor="@android:color/white"
                             android:hint="@string/mana"
                             android:textSize="12sp" />
 
