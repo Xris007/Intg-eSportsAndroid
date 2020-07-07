@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pe.isil.esports.R
+import pe.isil.esports.data.source.preferences.SessionManager
 import pe.isil.esports.databinding.FragmentChampionsBinding
+import pe.isil.esports.presentation.login.LoginViewModel
 import pe.isil.esports.utils.loading
 import pe.isil.esports.utils.observe
 import pe.isil.esports.utils.toast
@@ -22,6 +24,7 @@ class ChampionsFragment : Fragment() {
         get() = _binding!!
 
     private val viewModel: ChampionViewModel by viewModel()
+    private val userViewModel: LoginViewModel by viewModel()
 
     private val championAssassinsAdapter: ChampionAdapter by lazy {
         ChampionAdapter {
@@ -83,12 +86,6 @@ class ChampionsFragment : Fragment() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        setHasOptionsMenu(true)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -107,7 +104,10 @@ class ChampionsFragment : Fragment() {
             findNavController().navigate(ChampionsFragmentDirections.actionChampionsFragmentToMainFragment())
         }
 
-        binding.championGuide.loading("https://i.ibb.co/MM1YHLs/ic-guide-champion.png", binding.progress)
+        binding.championGuide.loading(
+            "https://i.ibb.co/MM1YHLs/ic-guide-champion.png",
+            binding.progress
+        )
 
         return binding.root
     }
@@ -224,6 +224,14 @@ class ChampionsFragment : Fragment() {
                     }
                 } else {
                     activity?.toast("${it.error}")
+                }
+            }
+        }
+
+        with(userViewModel) {
+            observe(active()) {
+                if (it.data != null) {
+                    setHasOptionsMenu(true)
                 }
             }
         }

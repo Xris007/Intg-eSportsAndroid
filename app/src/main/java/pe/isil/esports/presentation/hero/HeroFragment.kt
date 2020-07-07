@@ -9,7 +9,9 @@ import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pe.isil.esports.R
+import pe.isil.esports.data.source.preferences.SessionManager
 import pe.isil.esports.databinding.FragmentHeroBinding
+import pe.isil.esports.presentation.login.LoginViewModel
 import pe.isil.esports.utils.icon
 import pe.isil.esports.utils.loading
 import pe.isil.esports.utils.observe
@@ -26,12 +28,7 @@ class HeroFragment : Fragment() {
     private val hero: Long by lazy { args.id }
 
     private val viewModel: HeroViewModel by viewModel()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        setHasOptionsMenu(true)
-    }
+    private val userViewModel: LoginViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -82,6 +79,14 @@ class HeroFragment : Fragment() {
                 }
             }
         }
+
+        with(userViewModel) {
+            observe(active()) {
+                if (it.data != null) {
+                    setHasOptionsMenu(true)
+                }
+            }
+        }
     }
 
     private fun getHeroAttributeIcon(attribute: String?): Int {
@@ -104,7 +109,11 @@ class HeroFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.edit -> findNavController().navigate(HeroFragmentDirections.actionHeroFragmentToUpdateHeroFragment(hero))
+            R.id.edit -> findNavController().navigate(
+                HeroFragmentDirections.actionHeroFragmentToUpdateHeroFragment(
+                    hero
+                )
+            )
         }
         return super.onOptionsItemSelected(item)
     }

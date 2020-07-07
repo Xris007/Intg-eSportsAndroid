@@ -7,9 +7,8 @@ import pe.isil.esports.BuildConfig
 
 object SessionManager {
 
-    private val PREFERENCES = BuildConfig.APPLICATION_ID
-
-    private val PREFERENCES_TOKEN = "$PREFERENCES.token"
+    private const val PREFERENCES = BuildConfig.APPLICATION_ID
+    private const val PREFERENCES_TOKEN = "$PREFERENCES.token"
 
     private fun getSharedPreferences(context: Context): SharedPreferences {
         return context.getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE)
@@ -23,5 +22,11 @@ object SessionManager {
 
     fun fetchToken(context: Context): String? {
         return getSharedPreferences(context).getString(PREFERENCES_TOKEN, null)
+    }
+
+    fun clearToken(context: Context) {
+        getSharedPreferences(context).edit(commit = true) {
+            remove(PREFERENCES_TOKEN)
+        }
     }
 }

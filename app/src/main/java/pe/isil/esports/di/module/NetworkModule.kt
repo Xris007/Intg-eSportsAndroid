@@ -11,6 +11,7 @@ import pe.isil.esports.data.source.remote.interceptors.AuthInterceptor
 import pe.isil.esports.data.source.remote.service.ChampionService
 import pe.isil.esports.data.source.remote.service.GodService
 import pe.isil.esports.data.source.remote.service.HeroService
+import pe.isil.esports.data.source.remote.service.LoginService
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
@@ -32,6 +33,8 @@ val networkModule = module {
     single { createGodService(get()) }
 
     single { createHeroService(get()) }
+
+    single { createLoginService(get()) }
 
 }
 
@@ -74,4 +77,8 @@ fun createGodService(retrofit: Retrofit): GodService {
 
 fun createHeroService(retrofit: Retrofit): HeroService {
     return retrofit.create(HeroService::class.java)
+}
+
+fun createLoginService(retrofit: Retrofit): LoginService {
+    return retrofit.create(LoginService::class.java)
 }

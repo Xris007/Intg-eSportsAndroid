@@ -1,9 +1,9 @@
-package pe.isil.esports.data.source.remote
+package pe.isil.esports.domain.model
 
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class LoginRequest(
+data class Login(
     val username: String?,
     val password: String?
 )

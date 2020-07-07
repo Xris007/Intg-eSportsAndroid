@@ -21,10 +21,10 @@ import pe.isil.esports.domain.usecase.ChampionUseCase
 import pe.isil.esports.domain.usecase.GodUseCase
 import pe.isil.esports.domain.usecase.HeroUseCase
 import pe.isil.esports.domain.usecase.LoginUseCase
-import pe.isil.esports.presentation.MainViewModel
 import pe.isil.esports.presentation.champion.ChampionViewModel
 import pe.isil.esports.presentation.god.GodViewModel
 import pe.isil.esports.presentation.hero.HeroViewModel
+import pe.isil.esports.presentation.login.LoginViewModel
 
 @ExperimentalCoroutinesApi
 val championModule = module {
@@ -59,11 +59,11 @@ val heroModule = module {
 
 val loginModule = module {
 
-    single { createLoginRepository(get(),androidContext()) }
+    single { createLoginRepository(get(), androidContext()) }
 
     single { createLoginUseCase(get()) }
 
-    viewModel { MainViewModel(get()) }
+    viewModel { LoginViewModel(get()) }
 }
 
 fun createChampionRepository(service: ChampionService): ChampionRepository {

@@ -13,6 +13,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pe.isil.esports.R
 import pe.isil.esports.databinding.FragmentChampionBinding
+import pe.isil.esports.presentation.login.LoginViewModel
 import pe.isil.esports.utils.icon
 import pe.isil.esports.utils.loading
 import pe.isil.esports.utils.observe
@@ -29,12 +30,7 @@ class ChampionFragment : Fragment() {
     private val champion: Long by lazy { args.id }
 
     private val viewModel: ChampionViewModel by viewModel()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        setHasOptionsMenu(true)
-    }
+    private val userViewModel: LoginViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -94,6 +90,14 @@ class ChampionFragment : Fragment() {
                     }
                 } else {
                     activity?.toast("${it.error}")
+                }
+            }
+        }
+
+        with(userViewModel) {
+            observe(active()) {
+                if (it.data != null) {
+                    setHasOptionsMenu(true)
                 }
             }
         }

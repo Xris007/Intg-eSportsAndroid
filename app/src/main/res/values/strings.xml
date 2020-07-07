@@ -80,4 +80,7 @@
     <string name="edit_god">Edit God</string>
     <string name="edit_hero">Edit Hero</string>
     <string name="update">Update</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
 </resources>

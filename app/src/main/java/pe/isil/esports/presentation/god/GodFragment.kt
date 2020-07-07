@@ -10,6 +10,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pe.isil.esports.R
 import pe.isil.esports.databinding.FragmentGodBinding
+import pe.isil.esports.presentation.login.LoginViewModel
 import pe.isil.esports.utils.icon
 import pe.isil.esports.utils.loading
 import pe.isil.esports.utils.observe
@@ -26,12 +27,7 @@ class GodFragment : Fragment() {
     private val god: Long by lazy { args.id }
 
     private val viewModel: GodViewModel by viewModel()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        setHasOptionsMenu(true)
-    }
+    private val userViewModel: LoginViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -83,6 +79,14 @@ class GodFragment : Fragment() {
                 }
             }
         }
+
+        with(userViewModel) {
+            observe(active()) {
+                if (it.data != null) {
+                    setHasOptionsMenu(true)
+                }
+            }
+        }
     }
 
     private fun getGodTypeIcon(type: String?): Int {
@@ -107,7 +111,11 @@ class GodFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.edit -> findNavController().navigate(GodFragmentDirections.actionGodFragmentToUpdateGodFragment(god))
+            R.id.edit -> findNavController().navigate(
+                GodFragmentDirections.actionGodFragmentToUpdateGodFragment(
+                    god
+                )
+            )
         }
         return super.onOptionsItemSelected(item)
     }

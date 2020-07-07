@@ -10,6 +10,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pe.isil.esports.R
 import pe.isil.esports.databinding.FragmentGodsBinding
+import pe.isil.esports.presentation.login.LoginViewModel
 import pe.isil.esports.utils.loading
 import pe.isil.esports.utils.observe
 import pe.isil.esports.utils.toast
@@ -22,6 +23,7 @@ class GodsFragment : Fragment() {
         get() = _binding!!
 
     private val viewModel: GodViewModel by viewModel()
+    private val userViewModel: LoginViewModel by viewModel()
 
     private val godGuardianAdapter: GodAdapter by lazy {
         GodAdapter {
@@ -71,12 +73,6 @@ class GodsFragment : Fragment() {
                 )
             )
         }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -197,6 +193,14 @@ class GodsFragment : Fragment() {
                     }
                 } else {
                     activity?.toast("${it.error}")
+                }
+            }
+        }
+
+        with(userViewModel) {
+            observe(active()) {
+                if (it.data != null) {
+                    setHasOptionsMenu(true)
                 }
             }
         }

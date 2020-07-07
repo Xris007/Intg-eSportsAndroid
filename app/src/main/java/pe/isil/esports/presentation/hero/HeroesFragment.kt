@@ -10,6 +10,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pe.isil.esports.R
 import pe.isil.esports.databinding.FragmentHeroesBinding
+import pe.isil.esports.presentation.login.LoginViewModel
 import pe.isil.esports.utils.loading
 import pe.isil.esports.utils.observe
 import pe.isil.esports.utils.toast
@@ -22,6 +23,7 @@ class HeroesFragment : Fragment() {
         get() = _binding!!
 
     private val viewModel: HeroViewModel by viewModel()
+    private val userViewModel: LoginViewModel by viewModel()
 
     private val heroStrengthAdapter: HeroAdapter by lazy {
         HeroAdapter {
@@ -51,12 +53,6 @@ class HeroesFragment : Fragment() {
                 )
             )
         }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -144,6 +140,14 @@ class HeroesFragment : Fragment() {
                     }
                 } else {
                     activity?.toast("${it.error}")
+                }
+            }
+        }
+
+        with(userViewModel) {
+            observe(active()) {
+                if (it.data != null) {
+                    setHasOptionsMenu(true)
                 }
             }
         }
